@@ -9,6 +9,7 @@ import { TrailItemComponent } from './trail-item/trail-item.component';
 import { TrailDetailsComponent } from './trail-details/trail-details.component';
 import { UserTrailsComponent } from './user-trails/user-trails.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
