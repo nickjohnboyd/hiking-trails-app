@@ -23,8 +23,9 @@ export class TrailSearchComponent implements OnInit {
   }
 
   searchTrails() {
+    console.log(this.zip);
     // Call MapQuest Api then pass in long and lat
-    this.trailsApiService.getTrails(this.longitude, this.latitude).subscribe(result => {
+    this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(result => {
       this.trails = result;
       console.log(this.trails);
     });

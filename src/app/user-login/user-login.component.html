@@ -1,1 +1,7 @@
-<p>user-login works!</p>
+<mat-form-field>
+	<input matInput type="text" placeholder="Email">
+</mat-form-field>
+<mat-form-field>
+	<input matInput type="text" placeholder="Password">
+</mat-form-field>
+<button mat-raised-button (click)="login()" [routerLink]="['/search']">Login</button>

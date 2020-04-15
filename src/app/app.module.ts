@@ -34,7 +34,8 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     FormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
