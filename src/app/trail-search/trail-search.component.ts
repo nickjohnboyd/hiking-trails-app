@@ -1,3 +1,4 @@
+import { MapApiService } from './../shared/map-api.service';
 import { Component, OnInit } from '@angular/core';
 import { TrailsApiService } from '../shared/trails-api.service';
 import { Trail } from '../models/trail';
@@ -15,7 +16,8 @@ export class TrailSearchComponent implements OnInit {
   latitude: number;
 
   constructor(
-    private trailsApiService: TrailsApiService
+    private trailsApiService: TrailsApiService,
+    private mapApiService: MapApiService
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +25,11 @@ export class TrailSearchComponent implements OnInit {
   }
 
   searchTrails() {
+    this.mapApiService.getCoordinates(this.zip).subscribe(result => {
+      this.longitude = result.results[0].locations[0].latLng.lng;
+      this.latitude = result.results[0].locations[0].latLng.lat;
+      console.log(this.longitude, this.latitude);
+    })
     // Call MapQuest Api then pass in long and lat
     this.trailsApiService.getTrails(this.longitude, this.latitude).subscribe(result => {
       this.trails = result;
