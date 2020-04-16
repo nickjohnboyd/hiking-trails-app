@@ -34,10 +34,13 @@ export class TrailSearchComponent implements OnInit {
       this.longitude = result.results[0].locations[0].latLng.lng;
       this.latitude = result.results[0].locations[0].latLng.lat;
       console.log(this.longitude, this.latitude);
-      this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
-        this.trails = data;
-        console.log(this.trails);
-      });
-    })
+      this.searchTrailsApi();
+    });
+  }
+  searchTrailsApi() {
+    this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
+      this.trails = data;
+      console.log(this.trails);
+    });
   }
 }
