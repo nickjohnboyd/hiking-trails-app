@@ -1,1 +1,6 @@
-<p *ngFor="let trail of trails">{{ trail.name }}</p>
+<mat-card *ngFor="let trail of trails">
+  <img mat-card-image src="{{ trail.imgSmallMed }}">
+  <mat-card-title>{{ trail.name }}</mat-card-title>
+  <mat-card-subtitle>{{ trail.summary }}</mat-card-subtitle>
+  <mat-card-footer>{{ trail.stars + ' out of 5' }}</mat-card-footer>
+</mat-card>
