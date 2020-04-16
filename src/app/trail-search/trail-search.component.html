@@ -3,6 +3,6 @@
 	<input matInput type="text" [(ngModel)]="zip">
 </mat-form-field>
 
-<button mat-raised-button (click)="searchTrails()">Search</button>
+<button mat-raised-button (click)="searchTrails()">Search</button> 
 
 <app-trail-list *ngFor="let trail of trails" [trail]="trail"></app-trail-list>

@@ -25,7 +25,7 @@ export class TrailSearchComponent implements OnInit {
   ngOnInit(): void {
     this.weatherApiService.getWeather().subscribe(result => {
       console.log(result);
-    })
+    });
   }
 
   searchTrails() {
@@ -37,6 +37,7 @@ export class TrailSearchComponent implements OnInit {
       this.searchTrailsApi();
     });
   }
+
   searchTrailsApi() {
     this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
       this.trails = data;
