@@ -34,11 +34,10 @@ export class TrailSearchComponent implements OnInit {
       this.longitude = result.results[0].locations[0].latLng.lng;
       this.latitude = result.results[0].locations[0].latLng.lat;
       console.log(this.longitude, this.latitude);
+      this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
+        this.trails = data;
+        console.log(this.trails);
+      });
     })
-    // Call MapQuest Api then pass in long and lat
-    this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(result => {
-      this.trails = result;
-      console.log(this.trails);
-    });
   }
 }

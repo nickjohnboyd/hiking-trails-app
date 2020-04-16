@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Trail } from './../models/trail';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-trail-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trail-list.component.scss']
 })
 export class TrailListComponent implements OnInit {
+  @Input() trail: Trail
 
   constructor() { }
 
