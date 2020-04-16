@@ -11,7 +11,7 @@ import { WeatherApiService } from '../shared/weather-api.service';
 })
 export class TrailSearchComponent implements OnInit {
 
-  trails: Trail[];
+  trails: any;
   zip: number;
   longitude: number;
   latitude: number;
@@ -39,7 +39,7 @@ export class TrailSearchComponent implements OnInit {
   }
   searchTrailsApi() {
     this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
-      this.trails = data;
+      this.trails = data.trails;
       console.log(this.trails);
     });
   }

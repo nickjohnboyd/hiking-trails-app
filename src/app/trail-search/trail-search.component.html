@@ -5,4 +5,4 @@
 
 <button mat-raised-button (click)="searchTrails()">Search</button>
 
-<app-trail-list *ngFor="let trail of trails" [trail]="trail"></app-trail-list>
+<app-trail-list [trails]="trails"></app-trail-list>
