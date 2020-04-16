@@ -13,6 +13,6 @@ export class MapApiService {
   ) { }
 
   getCoordinates(zip: number): Observable<any> {
-    return this.http.get<any>(`http://open.mapquestapi.com/geocoding/v1/address?key=${this.apiKey}&postalCode=${zip}`);
+    return this.http.get<any>(`https://open.mapquestapi.com/geocoding/v1/address?key=${this.apiKey}&postalCode=${zip}`);
   }
 }

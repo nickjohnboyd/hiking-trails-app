@@ -30,11 +30,41 @@ export class TrailSearchComponent implements OnInit {
       this.longitude = result.results[0].locations[0].latLng.lng;
       this.latitude = result.results[0].locations[0].latLng.lat;
       console.log(this.longitude, this.latitude);
+      this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
+        this.trails = data;
+        console.log(this.trails);
+      });
     })
-    // Call MapQuest Api then pass in long and lat
+  }
+
+  // searchTrails() {
+  //   console.log(this.zip);
+  //   // this.mapApiService.getCoordinates(this.zip).subscribe(result => {
+  //   //   this.longitude = result.results[0].locations[0].latLng.lng;
+  //   //   this.latitude = result.results[0].locations[0].latLng.lat;
+  //   //   console.log(this.longitude, this.latitude);
+  //   // }, 
+  //   //   error => console.log(error),
+  //   //   () => this.searchMappedTrails()
+  //   // );
+  //   // Call MapQuest Api then pass in long and lat
+  //   this.mapApiService.getCoordinates(this.zip).subscribe(result => {
+  //     this.longitude = result.results[0].locations[0].latLng.lng;
+  //     this.latitude = result.results[0].locations[0].latLng.lat;
+  //     console.log(this.longitude, this.latitude);
+  //     this.searchMappedTrails();
+  //   });
+  //   // this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(result => {
+  //   //   console.log('here');
+  //   //   this.trails = result;
+  //   //   console.log(this.trails);
+  //   // });
+  // }
+  searchMappedTrails() {
     this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(result => {
+      console.log('here');
       this.trails = result;
-      console.log(this.trails);
+      console.log(result);
     });
   }
 }
