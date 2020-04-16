@@ -2,6 +2,7 @@ import { MapApiService } from './../shared/map-api.service';
 import { Component, OnInit } from '@angular/core';
 import { TrailsApiService } from '../shared/trails-api.service';
 import { Trail } from '../models/trail';
+import { WeatherApiService } from '../shared/weather-api.service';
 
 @Component({
   selector: 'app-trail-search',
@@ -17,11 +18,14 @@ export class TrailSearchComponent implements OnInit {
 
   constructor(
     private trailsApiService: TrailsApiService,
-    private mapApiService: MapApiService
+    private mapApiService: MapApiService,
+    private weatherApiService: WeatherApiService
   ) { }
 
   ngOnInit(): void {
-    
+    this.weatherApiService.getWeather().subscribe(result => {
+      console.log(result);
+    })
   }
 
   searchTrails() {
@@ -35,36 +39,5 @@ export class TrailSearchComponent implements OnInit {
         console.log(this.trails);
       });
     })
-  }
-
-  // searchTrails() {
-  //   console.log(this.zip);
-  //   // this.mapApiService.getCoordinates(this.zip).subscribe(result => {
-  //   //   this.longitude = result.results[0].locations[0].latLng.lng;
-  //   //   this.latitude = result.results[0].locations[0].latLng.lat;
-  //   //   console.log(this.longitude, this.latitude);
-  //   // }, 
-  //   //   error => console.log(error),
-  //   //   () => this.searchMappedTrails()
-  //   // );
-  //   // Call MapQuest Api then pass in long and lat
-  //   this.mapApiService.getCoordinates(this.zip).subscribe(result => {
-  //     this.longitude = result.results[0].locations[0].latLng.lng;
-  //     this.latitude = result.results[0].locations[0].latLng.lat;
-  //     console.log(this.longitude, this.latitude);
-  //     this.searchMappedTrails();
-  //   });
-  //   // this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(result => {
-  //   //   console.log('here');
-  //   //   this.trails = result;
-  //   //   console.log(this.trails);
-  //   // });
-  // }
-  searchMappedTrails() {
-    this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(result => {
-      console.log('here');
-      this.trails = result;
-      console.log(result);
-    });
   }
 }
