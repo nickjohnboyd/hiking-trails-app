@@ -20,6 +20,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { environment } from 'src/environments/environment';
     TrailItemComponent,
     TrailDetailsComponent,
     UserTrailsComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { environment } from 'src/environments/environment';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule
     // AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
