@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Trail } from './../models/trail';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-trail-item',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trail-item.component.scss']
 })
 export class TrailItemComponent implements OnInit {
+  @Input() trail: Trail;
+
+  defaultTrail: string = '../../assets/images/default-trail.jpg'
 
   constructor() { }
 
