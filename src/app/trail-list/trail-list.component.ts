@@ -7,12 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./trail-list.component.scss']
 })
 export class TrailListComponent implements OnInit {
-  @Input() trails: Trail[]
+  @Input() trails: Trail[];
 
   constructor() { }
 
   ngOnInit(): void {
     
   }
+
 
 }

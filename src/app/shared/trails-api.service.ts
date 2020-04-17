@@ -13,7 +13,7 @@ export class TrailsApiService {
     private http: HttpClient
   ) { }
 
-  getTrails(lat, long): Observable<Trail[]> {
-    return this.http.get<Trail[]>(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=${this.privateKey}`);
+  getTrails(lat, long): Observable<any> {
+    return this.http.get<any>(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=${this.privateKey}`);
   }
 }
