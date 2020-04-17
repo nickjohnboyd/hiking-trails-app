@@ -11,6 +11,13 @@
     text-align: center;
     background-color: #f2f3f4;
     transition: transform .1s;
+    .favorite {
+      position: absolute;
+      top: 15px; 
+      right: 15px;
+      color: white;
+      font-size: 25px;
+    }
     .difficulty {
       color: white;
       padding: 5px;

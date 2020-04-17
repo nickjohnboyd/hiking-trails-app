@@ -1,5 +1,8 @@
 <div class="container">
   <mat-card *ngFor="let trail of trails">
+    <div class="favorite">
+      <i class="far fa-heart"></i>
+    </div>
     <img *ngIf="trail.imgSmallMed; else displayDefault" mat-card-image src="{{ trail.imgSmallMed }}">
     <ng-template #displayDefault>
       <img mat-card-image src="{{ defaultTrail }}">
@@ -92,6 +95,7 @@
 <!-- 
   <i class="fas fa-star"></i> //filled
   <i class="far fa-star"></i>
+  <i class="fas fa-heart"></i> //open
   84532
   84109
  -->
