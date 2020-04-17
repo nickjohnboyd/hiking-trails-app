@@ -9,11 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TrailListComponent implements OnInit {
   @Input() trails: Trail[];
 
+  defaultTrail: string = '../../assets/images/default-trail.jpg'
+
   constructor() { }
 
   ngOnInit(): void {
-    
   }
-
 
 }
