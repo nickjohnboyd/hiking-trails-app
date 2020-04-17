@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 
@@ -44,6 +45,7 @@ import { environment } from 'src/environments/environment';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule,
     // AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
