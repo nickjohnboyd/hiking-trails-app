@@ -12,7 +12,7 @@ export class WeatherApiService {
     private http: HttpClient
   ) { }
 
-  getWeather(): Observable<any> {
-    return this.http.get<any>(`https://api.openweathermap.org/data/2.5/onecall?lat=30.0&lon=60.0&appid=${this.privateKey}`);
+  getWeather(long: number, lat: number): Observable<any> {
+    return this.http.get<any>(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${this.privateKey}`);
   }
 }

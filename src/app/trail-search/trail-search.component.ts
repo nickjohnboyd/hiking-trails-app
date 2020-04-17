@@ -1,8 +1,7 @@
+import { Trail } from './../models/trail';
 import { MapApiService } from './../shared/map-api.service';
 import { Component, OnInit } from '@angular/core';
 import { TrailsApiService } from '../shared/trails-api.service';
-import { Trail } from '../models/trail';
-import { WeatherApiService } from '../shared/weather-api.service';
 
 @Component({
   selector: 'app-trail-search',
@@ -18,22 +17,15 @@ export class TrailSearchComponent implements OnInit {
 
   constructor(
     private trailsApiService: TrailsApiService,
-    private mapApiService: MapApiService,
-    private weatherApiService: WeatherApiService
+    private mapApiService: MapApiService
   ) { }
 
-  ngOnInit(): void {
-    this.weatherApiService.getWeather().subscribe(result => {
-      console.log(result);
-    });
-  }
+  ngOnInit(): void {}
 
   searchTrails() {
-    console.log(this.zip);
     this.mapApiService.getCoordinates(this.zip).subscribe(result => {
       this.longitude = result.results[0].locations[0].latLng.lng;
       this.latitude = result.results[0].locations[0].latLng.lat;
-      console.log(this.longitude, this.latitude);
       this.searchTrailsApi();
     });
   }
@@ -41,7 +33,6 @@ export class TrailSearchComponent implements OnInit {
   searchTrailsApi() {
     this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
       this.trails = data.trails;
-      console.log(this.trails);
     });
   }
 }
