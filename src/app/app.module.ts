@@ -23,6 +23,7 @@ import { environment } from 'src/environments/environment';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TrailDifficultyComponent } from './trail-difficulty/trail-difficulty.component';
+import { TrailRatingComponent } from './trail-rating/trail-rating.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { TrailDifficultyComponent } from './trail-difficulty/trail-difficulty.co
     UserTrailsComponent,
     UserLoginComponent,
     NavbarComponent,
-    TrailDifficultyComponent
+    TrailDifficultyComponent,
+    TrailRatingComponent
   ],
   imports: [
     BrowserModule,
