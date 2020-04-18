@@ -6,24 +6,7 @@
   <ng-template #displayDefault>
     <img mat-card-image src="{{ defaultTrail }}">
   </ng-template>
-  <div *ngIf="trail.difficulty == 'dblack'; else setBlack" class="very-difficult difficulty">
-    VERY DIFFICULT
-  </div>
-  <ng-template #setBlack>
-    <div *ngIf="trail.difficulty == 'black'; else setBlue" class="difficult difficulty">
-      DIFFICULT
-    </div>
-  </ng-template>
-  <ng-template #setBlue>
-    <div *ngIf="trail.difficulty == 'blue'; else setGreen" class="intermediate difficulty">
-      INTERMEDIATE
-    </div>
-  </ng-template> 
-  <ng-template #setGreen>
-    <div class="easy difficulty">
-      Easy
-    </div>
-  </ng-template> 
+  <app-trail-difficulty [trail]='trail'></app-trail-difficulty>
   <div class="information">
     <mat-card-title>{{ trail.name }}</mat-card-title>
     <mat-card-subtitle>{{ trail.summary }}</mat-card-subtitle>
