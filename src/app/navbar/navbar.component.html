@@ -1,14 +1,25 @@
 <mat-toolbar class="navbar">
-	<div>Hicking Trails App</div>
-	<div>
-		<span class="navlink">
-			<a routerLink="search">Search</a>
-		</span>
-		<span class="navlink">
-			<a routerLink="profile">Profile</a>
-		</span>
-		<span class="navlink">
-			<a routerLink="">Logout</a>
-		</span>
+	<div class="nav-item">
+		<a class="nav-link" routerLink="/search">Hike Find</a>
+	</div>
+	<div class="nav-left">
+		<div class="nav-item">
+			<a class="nav-link" routerLink="/profile">
+				<mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+			</a>
+		</div>
+		<div class="nav-item">
+			<a class="nav-link logout" routerLink="">Logout</a>
+		</div>
 	</div>
 </mat-toolbar>
+
+
+<!-- <div class="search-bar">
+	<mat-form-field>
+		<input matInput type="text" [(ngModel)]="zip" placeholder="Search by zip" class="search-input">
+	</mat-form-field>
+	<button mat-raised-button class="search-btn" routerLink="/trails/{{ this.zip }}">
+		<mat-icon aria-hidden="false" aria-label="search icon" class="search-icon">search</mat-icon>
+	</button>
+</div> -->
