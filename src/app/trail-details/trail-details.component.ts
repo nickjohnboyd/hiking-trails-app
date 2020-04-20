@@ -16,11 +16,12 @@ export class TrailDetailsComponent implements OnInit {
   latitude: number;
   currentTrail: Trail;
   currentWeather: Weather;
+  url: string;
 
   constructor(
     private activateRoute:  ActivatedRoute,
     private trailsApiService: TrailsApiService,
-    private weatherApiService: WeatherApiService
+    private weatherApiService: WeatherApiService,
   ) { }
 
   ngOnInit(): void {
@@ -30,15 +31,22 @@ export class TrailDetailsComponent implements OnInit {
       this.longitude = this.currentTrail.longitude;
       this.latitude = this.currentTrail.latitude;
       console.log(this.currentTrail);
+      this.getCurrentWeather();
     });
-    this.getCurrentWeather();
   }
 
   getCurrentWeather() {
     this.weatherApiService.getWeather(this.longitude, this.latitude).subscribe(data => {
       this.currentWeather = data.current
       console.log(this.currentWeather);
+      this.getCurrentLocation();
     })
   }
 
+  getCurrentLocation() {
+    // this.mapApiService.getMap().subscribe(data => {
+    //   this.url = data;
+    // })
+    this.url = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=600,400@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`
+  }
 }
