@@ -13,6 +13,6 @@ export class WeatherApiService {
   ) { }
 
   getWeather(long: number, lat: number): Observable<any> {
-    return this.http.get<any>(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${this.privateKey}`);
+    return this.http.get<any>(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${this.privateKey}&units=imperial`);
   }
 }
