@@ -1,7 +1,17 @@
-<mat-form-field>
-	<input matInput type="text" placeholder="Email">
-</mat-form-field>
-<mat-form-field>
-	<input matInput type="text" placeholder="Password">
-</mat-form-field>
-<button mat-raised-button (click)="login()" [routerLink]="['/search']">Login</button>
+<div class="box">
+	<div class="loginBox">
+		<div class="infoField">
+			<mat-form-field>
+				<input matInput type="text" placeholder="Email">
+			</mat-form-field>
+		</div>
+		<div class="infoField">
+			<mat-form-field>
+				<input matInput type="text" placeholder="Password">
+			</mat-form-field>
+		</div>
+		<div class="loginButton">
+			<button mat-raised-button (click)="login()" [routerLink]="['/search']">Login</button>
+		</div>
+	</div>
+</div>
