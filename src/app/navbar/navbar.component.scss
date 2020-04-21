@@ -13,6 +13,17 @@
       text-decoration: none;
       color: #000000;
 
+      .summit-logo {
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        background-image: url('../images/mountain-circle-logo.jpg');
+        background-size: cover;
+      }
+      .summit-title {
+        font-size: 27px;
+        margin-left: 10px;
+      }
       .profile-icon {
         font-size: 35px;
         color: darkgray;
