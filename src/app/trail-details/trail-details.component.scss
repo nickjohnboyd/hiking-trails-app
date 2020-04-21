@@ -7,7 +7,7 @@
   width: calc(100% - 30px);
   margin: 15px;
   //box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  
+
   .left {
     display: flex;
     justify-content: center;
@@ -16,7 +16,6 @@
     height: calc(100% - 94px);
     width: 700px;
     margin: 15px;
-    
     // background-color: red;
     .upper-left {
       display: flex;
@@ -28,6 +27,7 @@
       .trail-title {
         font-size: 30px;
         padding-top: 20px;
+        text-align: center;
       }
       .images-details {
         width: 100%;
@@ -36,16 +36,19 @@
         justify-content: center;
         align-self: center;
         position: relative;
+
         .favorite {
           position: absolute;
-          top: 15px; 
+          top: 15px;
           left: 15px;
           color: white;
           font-size: 25px;
+
         }
         img {
           width: 50%;
           height: auto;
+          max-height: 262px;
           margin-bottom: 15px;
         }
       }
@@ -61,58 +64,94 @@
         flex-direction: column;
         h3 {
           font-size: 25px;
+          text-align: center;
         }
       }
     }
   }
   .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: calc(100% - 94px);
     width: 700px;
-    margin : 15px;
+    margin: 15px;
     // background-color: blue;
+    .current-weather {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      width: 100%;
+      .left {
+        .current-weather-icon {
+          width: 100px;
+          height: auto;
+        }
+        .current-weather-title {
+          font-size: 30px;
+          text-align: center;
+          width: 100%;
+        }
+        .current-weather {
+          font-size: 20px;
+        }
+        .current-wind {
+          font-size: 15px;
+        }
+        .center {
+          display:flex;
+          justify-content: center;
+          flex-direction: row;
+          align-items: center;
+          p {
+            font-size: 40px;
+            font-weight: bold;
+          }
+        }
+      }
+      .right {
+
+      }
+    }
+    .hourly-weather {
+      height: 250px;
+      width: 100%;
+    }
+    .daily-weather {
+      height: 250px;
+      width: 100%;
+    }
   }
 }
 
-
 @media screen and (max-width: 900px) {
   .details-container {
-    
     .left {
-     
       .upper-left {
-        
         .trail-title {
-          
         }
         .images-details {
-          
           img {
-            
           }
         }
       }
       .lower-left {
-        
       }
     }
     .right {
-      
     }
   }
 }
 
 @media screen and (max-width: 600px) {
   .details-container {
-    
     .left {
-     
       .upper-left {
-        
         .trail-title {
-          
         }
         .images-details {
-          
           img {
             width: 300px;
             height: 150px;
@@ -121,11 +160,9 @@
         }
       }
       .lower-left {
-        
       }
     }
     .right {
-      
     }
   }
 }

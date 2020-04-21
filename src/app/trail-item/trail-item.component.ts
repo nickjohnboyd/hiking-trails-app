@@ -1,5 +1,5 @@
 import { Trail } from './../models/trail';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'; 
 
 @Component({
   selector: 'app-trail-item',
@@ -9,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TrailItemComponent implements OnInit {
   @Input() trail: Trail;
 
-  defaultTrail: string = '../../assets/images/default-trail.jpg'
+  defaultTrail: string = '../../assets/images/default-trail.jpg';
 
   constructor() { }
 

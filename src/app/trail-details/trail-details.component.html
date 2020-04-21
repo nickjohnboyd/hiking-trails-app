@@ -6,15 +6,17 @@
         <div class="favorite">
           <i class="far fa-heart"></i>
         </div>
-        <img src="{{ currentTrail?.imgMedium }}" alt="">
-        <img src="{{ url }}" alt="">
+        <img *ngIf="currentTrail?.imgMedium; else displayDefault" mat-card-image src="{{ currentTrail?.imgMedium }}">
+        <ng-template #displayDefault>
+          <img mat-card-image src="{{ defaultTrail }}">
+        </ng-template>
+        <img src="{{ mapImg }}" alt="">
       </div>
     </div>
     <div class="lower-left">
       <app-trail-difficulty [trail]='currentTrail'></app-trail-difficulty>
       <app-trail-rating [trail]='currentTrail'></app-trail-rating>
       <div class="lower-left-content">
-
         <h3>{{ currentTrail?.summary }}</h3>
         <p>type: {{ currentTrail?.type }}</p>
         <p>location: {{ currentTrail?.location }}</p>
@@ -31,6 +33,26 @@
     </div>
   </div>
   <div class="right">
-    
+    <div class="current-weather">
+      <div class="left">
+        <h3 class="current-weather-title">Current Weather for {{ currentTrail?.location }}</h3>
+        <div class="center">
+          <img class="current-weather-icon" src="{{ currentWeatherIcon }}" alt="">
+          <p>{{ currentWeather?.temp }}°F</p>
+        </div>
+        <p class="current-weather">{{ currentWeather?.weather[0].description }}</p>
+        <p class="current-wind">wind: {{ currentWeather?.wind_speed }} m/h</p>
+      </div>
+      <div class="right"></div>
+    </div>
+    <div class="hourly-weather"></div>
+    <div class="daily-weather"></div>
   </div>
 </div>
+
+<!-- 
+  clouds <i class="fas fa-cloud"></i>
+  sunny <i class="fas fa-sun"></i>
+  rain 
+
+ -->
