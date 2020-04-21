@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="details-container">
   <div class="left">
     <div class="upper-left">
@@ -6,9 +7,9 @@
         <div class="favorite">
           <i class="far fa-heart"></i>
         </div>
-        <img *ngIf="currentTrail?.imgMedium; else displayDefault" mat-card-image src="{{ currentTrail?.imgMedium }}">
+        <img *ngIf="currentTrail?.imgMedium; else displayDefault" src="{{ currentTrail?.imgMedium }}">
         <ng-template #displayDefault>
-          <img mat-card-image src="{{ defaultTrail }}">
+          <img src="{{ defaultTrail }}">
         </ng-template>
         <img src="{{ mapImg }}" alt="">
       </div>
@@ -34,25 +35,28 @@
   </div>
   <div class="right">
     <div class="current-weather">
-      <div class="left">
-        <h3 class="current-weather-title">Current Weather for {{ currentTrail?.location }}</h3>
+      <div class="left-weather">
+        <h2 class="current-weather-title">Current Weather for {{ currentTrail?.location }}</h2>
         <div class="center">
           <img class="current-weather-icon" src="{{ currentWeatherIcon }}" alt="">
           <p>{{ currentWeather?.temp }}°F</p>
         </div>
-        <p class="current-weather">{{ currentWeather?.weather[0].description }}</p>
-        <p class="current-wind">wind: {{ currentWeather?.wind_speed }} m/h</p>
+        <p class="icon-description">{{ currentWeather?.weather[0].description }}</p>
       </div>
-      <div class="right"></div>
+      <div class="right-weather">
+        <div class="current-details">
+          <h3 class="current-details-title">Details</h3>
+          <p>Feels Like: {{ currentWeather?.feels_like }}°F</p>
+          <p>Wind: {{ currentWeather?.wind_speed }} m/h</p>
+          <p>Wind Degree: {{ windDirection }}</p>
+          <p>Humidity: {{ currentWeather?.humidity }}%</p>
+          <p>Pressure: {{ currentWeather?.pressure }} hPa</p>
+          <p>Sunrise: {{ sunRise }}</p>
+          <p>Sunset: {{ sunSet }}</p>
+        </div>
+      </div>
     </div>
     <div class="hourly-weather"></div>
     <div class="daily-weather"></div>
   </div>
 </div>
-
-<!-- 
-  clouds <i class="fas fa-cloud"></i>
-  sunny <i class="fas fa-sun"></i>
-  rain 
-
- -->

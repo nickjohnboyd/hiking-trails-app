@@ -19,8 +19,11 @@ export class TrailDetailsComponent implements OnInit {
   currentTrail: Trail;
   currentWeather: Weather;
   currentWeatherIcon: string;
+  windDirection: string;
   hourlyWeather;
   dailyWeather;
+  sunRise;
+  sunSet;
 
   constructor(
     private activateRoute:  ActivatedRoute,
@@ -45,8 +48,30 @@ export class TrailDetailsComponent implements OnInit {
       this.currentWeather = data.current;
       this.hourlyWeather = data.hourly;
       this.dailyWeather = data.daily;
-      this.currentWeatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`
+      this.currentWeatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
       console.log(this.currentWeather, this.hourlyWeather, this.dailyWeather);
+      this.getDirection(this.currentWeather.wind_deg);
+      this.getSunriseSunset();
     })
+  }
+
+  getDirection(num: number) {
+    let val = Math.floor((num / 22.5) + 0.5);
+    let arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    return this.windDirection = arr[(val % 16)];
+  }
+
+    getSunriseSunset() {
+    let date1 = new Date(this.currentWeather.sunrise * 1000);
+    let date2 = new Date(this.currentWeather.sunset * 1000);
+    this.sunRise = this.setSunriseSunset(date1);
+    this.sunSet = this.setSunriseSunset(date2);
+  }
+
+  setSunriseSunset(date) {
+    let hours = date.getHours();
+    let minutes = "0" + date.getMinutes();
+    let seconds = "0" + date.getSeconds();
+    return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
   }
 }
