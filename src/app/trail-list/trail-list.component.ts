@@ -1,5 +1,5 @@
 import { Trail } from './../models/trail';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MapApiService } from '../shared/map-api.service';
 import { TrailsApiService } from '../shared/trails-api.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TrailListComponent implements OnInit {
   // @Input() trails: Trail[];
-  trails: Trail[];
+  @Output() onTrailsAdded: EventEmitter<any> = new EventEmitter<any>();
+  trails: Trail[] = [];
   zip: number;
   longitude: number;
   latitude: number;
@@ -23,11 +24,15 @@ export class TrailListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log('first emitter');
+    console.log(this.trails);
+    this.onTrailsAdded.emit(this.trails);
     this.zip = this.activatedRoute.snapshot.params.zip;
     this.searchTrails();
   }
 
   searchTrails() {
+    if(this.zip === undefined) return;
     this.mapApiService.getCoordinates(this.zip).subscribe(result => {
       this.longitude = result.results[0].locations[0].latLng.lng;
       this.latitude = result.results[0].locations[0].latLng.lat;
@@ -38,7 +43,11 @@ export class TrailListComponent implements OnInit {
   searchTrailsApi() {
     this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
       this.trails = data.trails;
-    });
+      console.log('second emitter');
+      console.log(this.trails);
+      this.onTrailsAdded.emit(this.trails);
+      console.log('after emitter');
+    });   
   }
 
 }

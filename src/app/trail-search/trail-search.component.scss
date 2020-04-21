@@ -3,10 +3,9 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 100vh;
+	height: calc(100vh - 60px);
 	background-image: url('../images/mountain-fog-forest.jpg');
 	background-size: cover;
-	// font-family: 'Muli', sans-serif;
 
 	.search-title {
 		font-size: 50px;
