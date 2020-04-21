@@ -1,2 +1,58 @@
-<p>Name: {{ currentTrail?.name }}</p>
-<p>Temp: {{ currentWeather?.temp }}</p>
+<div class="details-container">
+  <div class="left">
+    <div class="upper-left">
+      <h2 class="trail-title">{{ currentTrail?.name }}</h2>
+      <div class="images-details">
+        <div class="favorite">
+          <i class="far fa-heart"></i>
+        </div>
+        <img *ngIf="currentTrail?.imgMedium; else displayDefault" mat-card-image src="{{ currentTrail?.imgMedium }}">
+        <ng-template #displayDefault>
+          <img mat-card-image src="{{ defaultTrail }}">
+        </ng-template>
+        <img src="{{ mapImg }}" alt="">
+      </div>
+    </div>
+    <div class="lower-left">
+      <app-trail-difficulty [trail]='currentTrail'></app-trail-difficulty>
+      <app-trail-rating [trail]='currentTrail'></app-trail-rating>
+      <div class="lower-left-content">
+        <h3>{{ currentTrail?.summary }}</h3>
+        <p>type: {{ currentTrail?.type }}</p>
+        <p>location: {{ currentTrail?.location }}</p>
+        <p>url: {{ currentTrail?.url }}</p>
+        <p>length: {{ currentTrail?.length }}</p>
+        <p>ascent: {{ currentTrail?.ascent }}</p>
+        <p>descent: {{ currentTrail?.descent }}</p>
+        <p>high: {{ currentTrail?.high }}</p>
+        <p>low: {{ currentTrail?.low }}</p>
+        <p>conditionStatus: {{ currentTrail?.conditionStatus }}</p>
+        <p>conditionDetails: {{ currentTrail?.conditionDetails }}</p>
+        <p>conditionDate: {{ currentTrail?.conditionDate }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="current-weather">
+      <div class="left">
+        <h3 class="current-weather-title">Current Weather for {{ currentTrail?.location }}</h3>
+        <div class="center">
+          <img class="current-weather-icon" src="{{ currentWeatherIcon }}" alt="">
+          <p>{{ currentWeather?.temp }}°F</p>
+        </div>
+        <p class="current-weather">{{ currentWeather?.weather[0].description }}</p>
+        <p class="current-wind">wind: {{ currentWeather?.wind_speed }} m/h</p>
+      </div>
+      <div class="right"></div>
+    </div>
+    <div class="hourly-weather"></div>
+    <div class="daily-weather"></div>
+  </div>
+</div>
+
+<!-- 
+  clouds <i class="fas fa-cloud"></i>
+  sunny <i class="fas fa-sun"></i>
+  rain 
+
+ -->

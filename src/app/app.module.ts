@@ -22,6 +22,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TrailDifficultyComponent } from './trail-difficulty/trail-difficulty.component';
+import { TrailRatingComponent } from './trail-rating/trail-rating.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     TrailDetailsComponent,
     UserTrailsComponent,
     UserLoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    TrailDifficultyComponent,
+    TrailRatingComponent
   ],
   imports: [
     BrowserModule,

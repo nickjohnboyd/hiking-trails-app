@@ -1,6 +1,30 @@
 .navbar {
-    justify-content: space-between;
-}
-.navlink {
-    margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .nav-item {
+    margin-right: 10px;
+
+    .nav-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #000000;
+
+      .profile-icon {
+        font-size: 35px;
+        color: darkgray;
+      }
+    }
+    .logout {
+      font-size: 17px;
+    }
+  }
+  .nav-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

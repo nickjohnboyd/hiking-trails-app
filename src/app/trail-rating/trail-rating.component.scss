@@ -1,0 +1,15 @@
+.star-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  color: #FFD700;
+  padding: 10px 0px 10px 0px;
+  .lstar {
+    margin-right: 10px;
+  }
+  p {
+    margin: 0px;
+    color: black;
+  }
+}

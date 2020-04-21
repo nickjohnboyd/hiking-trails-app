@@ -11,16 +11,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./trail-details.component.scss']
 })
 export class TrailDetailsComponent implements OnInit {
+  defaultTrail: string = '../../assets/images/default-trail.jpg'
+  mapImg: string;
   id: number;
   longitude: number;
   latitude: number;
   currentTrail: Trail;
   currentWeather: Weather;
+  currentWeatherIcon: string;
+  hourlyWeather;
+  dailyWeather;
 
   constructor(
     private activateRoute:  ActivatedRoute,
     private trailsApiService: TrailsApiService,
-    private weatherApiService: WeatherApiService
+    private weatherApiService: WeatherApiService,
   ) { }
 
   ngOnInit(): void {
@@ -29,16 +34,19 @@ export class TrailDetailsComponent implements OnInit {
       this.currentTrail = data.trails[0];
       this.longitude = this.currentTrail.longitude;
       this.latitude = this.currentTrail.latitude;
-      console.log(this.currentTrail);
+      this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=600,400@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
+      console.log(data);
+      this.getCurrentWeather();
     });
-    this.getCurrentWeather();
   }
 
   getCurrentWeather() {
     this.weatherApiService.getWeather(this.longitude, this.latitude).subscribe(data => {
-      this.currentWeather = data.current
-      console.log(this.currentWeather);
+      this.currentWeather = data.current;
+      this.hourlyWeather = data.hourly;
+      this.dailyWeather = data.daily;
+      this.currentWeatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`
+      console.log(this.currentWeather, this.hourlyWeather, this.dailyWeather);
     })
   }
-
 }
