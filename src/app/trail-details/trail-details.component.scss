@@ -10,7 +10,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: calc(100% - 94px);
     width: 700px;
     margin: 15px;
     .upper-left {
@@ -51,7 +50,6 @@
     }
     .lower-left {
       width: 100%;
-      height: 500px;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
       .lower-left-content {
@@ -71,7 +69,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: calc(100% - 94px);
     width: 700px;
     margin: 15px;
     .current-weather {
@@ -123,9 +120,11 @@
         .current-details {
           font-size: 15px;
           p {
+            padding-left: 15px;
             margin-bottom: 8px;
           }
           .current-details-title {
+            padding-left: 8px;
             font-size: 20px;
             border-bottom: 2px solid black;
           }
@@ -133,14 +132,14 @@
       }
     }
     .hourly-weather {
-      height: 250px;
+      height: 235px;
       width: 100%;
       margin-bottom: 21px;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     }
     .daily-weather {
-      height: 250px;
+      height: 235px;
       width: 100%;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
