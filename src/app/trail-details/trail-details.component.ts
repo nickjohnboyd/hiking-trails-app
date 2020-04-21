@@ -21,6 +21,7 @@ export class TrailDetailsComponent implements OnInit {
   currentWeatherIcon: string;
   hourlyWeather;
   dailyWeather;
+  windDirection;
 
   constructor(
     private activateRoute:  ActivatedRoute,
@@ -47,6 +48,13 @@ export class TrailDetailsComponent implements OnInit {
       this.dailyWeather = data.daily;
       this.currentWeatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`
       console.log(this.currentWeather, this.hourlyWeather, this.dailyWeather);
+      this.getDirection(this.currentWeather.wind_deg)
     })
+  }
+
+  getDirection(num) {
+    let val = Math.floor((num / 22.5) + 0.5);
+    let arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    return this.windDirection = arr[(val % 16)];
   }
 }

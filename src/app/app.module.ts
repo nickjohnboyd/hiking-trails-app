@@ -54,12 +54,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-<<<<<<< HEAD
     // AngularFireModule.initializeApp(environment.firebase)
-=======
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)
->>>>>>> 3469ce8cb20f8d5188eec9785041b0debdcc5603
   ],
   providers: [],
   bootstrap: [AppComponent]
