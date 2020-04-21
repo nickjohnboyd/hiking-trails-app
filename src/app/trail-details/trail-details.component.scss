@@ -121,7 +121,10 @@
         height: 100%;
         width: 30%;
         .current-details {
-          font-size: 18px;
+          font-size: 15px;
+          p {
+            margin-bottom: 8px;
+          }
           .current-details-title {
             font-size: 20px;
             border-bottom: 2px solid black;
