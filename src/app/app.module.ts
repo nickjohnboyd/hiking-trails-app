@@ -24,6 +24,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TrailDifficultyComponent } from './trail-difficulty/trail-difficulty.component';
 import { TrailRatingComponent } from './trail-rating/trail-rating.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 
 
 @NgModule({
@@ -51,8 +53,9 @@ import { TrailRatingComponent } from './trail-rating/trail-rating.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
-    // AngularFireModule.initializeApp(environment.firebase)
+    MatToolbarModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
