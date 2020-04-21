@@ -1,5 +1,8 @@
 <div class="box">
 	<div class="loginBox">
+		<div class="title">
+			<h1>Login</h1>
+		</div>
 		<div class="infoField">
 			<mat-form-field>
 				<input matInput type="text" placeholder="Email">
@@ -11,7 +14,11 @@
 			</mat-form-field>
 		</div>
 		<div class="loginButton">
-			<button mat-raised-button (click)="login()" [routerLink]="['/search']">Login</button>
+			<button mat-raised-button (click)="login()" [routerLink]="['/search']" class="normal">Login</button>
+		</div>
+		<div>
+			<button mat-raised-button class="google">Login with Google</button>
+			<div class="create">No account yet? <a href="">Create an account</a></div>
 		</div>
 	</div>
 </div>
