@@ -1,0 +1,15 @@
+.search-bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ffffff;
+	padding: 10px 45px;
+	border-radius: 5px;
+
+	.search-btn {
+		margin-left: 10px;
+	}
+	.search-input {
+		height: 30px;
+	}
+}

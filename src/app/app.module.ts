@@ -26,6 +26,9 @@ import { TrailDifficultyComponent } from './trail-difficulty/trail-difficulty.co
 import { TrailRatingComponent } from './trail-rating/trail-rating.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { TrailsComponent } from './trails/trails.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { HomeComponent } from './home/home.component';
+import { HomeExtrasComponent } from './home-extras/home-extras.component';
 
 
 
@@ -41,7 +44,10 @@ import { TrailsComponent } from './trails/trails.component';
     NavbarComponent,
     TrailDifficultyComponent,
     TrailRatingComponent,
-    TrailsComponent
+    TrailsComponent,
+    SearchBarComponent,
+    HomeComponent,
+    HomeExtrasComponent
   ],
   imports: [
     BrowserModule,

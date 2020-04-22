@@ -1,10 +1,11 @@
+<!-- <div class="trail-search" [ngStyle]="{'display': displaySmall ? 'none' : 'flex'}"> -->
 <div class="trail-search">
 	<div class="search-title">Discover Your Journey</div>
 	<div class="search-bar">
 		<mat-form-field>
 			<input matInput type="text" [(ngModel)]="zip" placeholder="Search by zip" class="search-input">
 		</mat-form-field>
-		<button mat-raised-button class="search-btn" routerLink="/trails/{{ this.zip }}">
+		<button mat-raised-button class="search-btn" routerLink="/trails/{{ this.zip }}" (click)="shrinkDisplay()">
 			<mat-icon aria-hidden="false" aria-label="search icon" class="search-icon">search</mat-icon>
 		</button>
 	</div>

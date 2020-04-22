@@ -1,5 +1,3 @@
-import { Trail } from './../models/trail';
-import { MapApiService } from './../shared/map-api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class TrailSearchComponent implements OnInit {
   
   zip: number;
+  displaySmall = false;
+  click = 0;
 
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  shrinkDisplay() {
+    // this.click++;
+    // this.displaySmall = true;
+    // console.log(this.displaySmall);
+    // if(this.click === 1) this.shrinkDisplay();
+  }
 
 }
