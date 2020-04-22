@@ -50,15 +50,15 @@
       </div>
     </div>
     <div class="lower-left">
-      <h3 class="campground-title">Campgrounds Nearby</h3>
+      <h3 class="campground-title">Nearby Campgrounds and Picnic Areas</h3>
       <div class="campgrounds-container">
-        <div class="campgrounds" *ngFor="let campground of campgrounds">
+        <div class="campgrounds" *ngFor="let campground of campgrounds | slice:0:3; let i=index">
           <img src="{{ campground.imgUrl }}" alt="">
           <p>Name: {{ campground.name }}</p>
           <p>Location: {{ campground.location }}</p>
           <p>Number of Campsites: {{ campground.numCampsites }}</p>
-  
-  
+
+
           <!-- 
   
   imgUrl: "https://www.rei.com/assets/camp/images/campground-placeholder-image/live.png"

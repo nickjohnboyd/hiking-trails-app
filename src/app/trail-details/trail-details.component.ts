@@ -58,9 +58,9 @@ export class TrailDetailsComponent implements OnInit {
   }
 
   getCampgroundsNearby() {
-    this.trailsApiService.getCampgrounds().subscribe(data => {
+    this.trailsApiService.getCampgrounds(this.longitude, this.latitude).subscribe(data => {
       this.campgrounds = data.campgrounds;
-      console.log(this.campgrounds)
+      console.log(this.campgrounds + 'campgrounds')
     })
   }
 
