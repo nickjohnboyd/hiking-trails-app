@@ -113,10 +113,48 @@
       }
     }
     .lower-left {
-      height: 100%;
-      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
       background-color: #dadfea;
+      padding: 15px;
+      height: 100%;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      .campground-title {
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        border-bottom: 2px solid black;
+      }
+      .campgrounds-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+        width: calc(100% - 30px);
+        .campgrounds {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-direction: column;
+          width: 33.3333333%;
+          height: 100%;
+          p {
+            margin: 0;
+            font-size: 12px;
+            margin-bottom: 2px;
+          }
+          img {
+            width: 75%;
+            height: auto;
+            min-height: 100px;
+            max-height: 100px;
+            margin-bottom: 5px;
+          }
+        }
+      }
     }
   }
   .right {

@@ -20,4 +20,8 @@ export class TrailsApiService {
   getTrailById(id): Observable<any> {
     return this.http.get<any>(`https://www.hikingproject.com/data/get-trails-by-id?ids=${id}&key=${this.privateKey}`)
   }
+
+  getCampgrounds(): Observable<any> {
+    return this.http.get<any>(`https://www.hikingproject.com/data/get-campgrounds?lat=40.2244&lon=-111.6245&maxDistance=10&key=200728213-3f47cedb3057b6b512959c8c75078197`)
+  }
 }

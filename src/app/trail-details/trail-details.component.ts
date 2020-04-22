@@ -20,6 +20,7 @@ export class TrailDetailsComponent implements OnInit {
   currentWeather: Weather;
   currentWeatherIcon: string;
   windDirection: string;
+  campgrounds;
   hourlyWeather;
   dailyWeather;
   sunRise;
@@ -52,6 +53,14 @@ export class TrailDetailsComponent implements OnInit {
       console.log(this.currentWeather, this.hourlyWeather, this.dailyWeather);
       this.getDirection(this.currentWeather.wind_deg);
       this.getSunriseSunset();
+      this.getCampgroundsNearby();
+    })
+  }
+
+  getCampgroundsNearby() {
+    this.trailsApiService.getCampgrounds().subscribe(data => {
+      this.campgrounds = data.campgrounds;
+      console.log(this.campgrounds)
     })
   }
 
@@ -61,7 +70,7 @@ export class TrailDetailsComponent implements OnInit {
     return this.windDirection = arr[(val % 16)];
   }
 
-    getSunriseSunset() {
+  getSunriseSunset() {
     let date1 = new Date(this.currentWeather.sunrise * 1000);
     let date2 = new Date(this.currentWeather.sunset * 1000);
     this.sunRise = this.setSunriseSunset(date1);
