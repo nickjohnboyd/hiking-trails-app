@@ -1,0 +1,16 @@
+<mat-card routerLink="/trail-detail/{{ trail.id }}">
+  <div class="favorite">
+    <i class="far fa-heart"></i>
+  </div>
+  <img *ngIf="trail.imgSmallMed; else displayDefault" mat-card-image src="{{ trail.imgSmallMed }}">
+  <ng-template #displayDefault>
+    <img mat-card-image src="{{ defaultTrail }}">
+  </ng-template>
+  <app-trail-difficulty [trail]='trail'></app-trail-difficulty>
+  <div class="information">
+    <mat-card-title>{{ trail.name }}</mat-card-title>
+    <mat-card-footer>
+      <app-trail-rating [trail]='trail'></app-trail-rating>
+    </mat-card-footer>
+  </div>
+</mat-card>

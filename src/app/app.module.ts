@@ -29,6 +29,7 @@ import { TrailsComponent } from './trails/trails.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { HomeComponent } from './home/home.component';
 import { HomeExtrasComponent } from './home-extras/home-extras.component';
+import { TrailItemSmallComponent } from './trail-item-small/trail-item-small.component';
 
 
 
@@ -47,7 +48,8 @@ import { HomeExtrasComponent } from './home-extras/home-extras.component';
     TrailsComponent,
     SearchBarComponent,
     HomeComponent,
-    HomeExtrasComponent
+    HomeExtrasComponent,
+    TrailItemSmallComponent
   ],
   imports: [
     BrowserModule,
