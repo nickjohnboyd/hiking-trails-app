@@ -1,53 +1,41 @@
+@import '../mixins.scss';
+
 .trail-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
+  @include flex-jc-ac();
+  height: 50px;
   margin: 0;
   margin: 25px 0 25px 0;
-  text-align: center;
-  height: 50px;
+  font-size: 40px;
   font-weight: bold;
 }
 .details-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  @include flex-jse-ac();
   flex-flow: row wrap;
   width: 100%;
   // height: 100%;
   .left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flex-jc-ac-fdc();
     flex: 1 0 600px;
+    height: 800px;
     max-width: 900px;
     margin: 7px;
-    height: 800px;
     
     .upper-left {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      @include flex-jc-ac-fdc();
+      @include box-shadow();
       width: 100%;
-      // height: 100%;
       background-color: #dadfea;
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
       .images-details {
-        width: 100%;
-        display: flex;
+        @include flex-jc-ac();
         flex-wrap: wrap;
-        justify-content: center;
-        align-self: center;
+        width: 100%;
         position: relative;
         .favorite {
           position: absolute;
           top: 15px;
           left: 15px;
-          color: white;
           font-size: 25px;
+          color: white;
         }
         img {
           width: 50%;
@@ -59,24 +47,18 @@
       }
     }
     .middle-left {
+      @include box-shadow();
       width: 100%;
-      // height: 70%;
       margin-bottom: 15px;
       background-color: #dadfea;
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
       .middle-left-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        @include flex-jc-ac-fdc();
         h3 {
           font-size: 20px;
           text-align: center;
         }
         .trail-information {
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
+          @include flex-jse-ac();
           width: 100%;
           .fa-mountain {
             margin-right: 5px;
@@ -88,10 +70,7 @@
 
         }
         .conditions {
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-          flex-direction: column;
+          @include flex-jse-ac-fdc();
           height: 65px;
           width: 100%;
           background-color: #ec6e4c;
@@ -100,9 +79,7 @@
             font-size: 18px;
           }
           .condition-status {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+            @include flex-jse-ac();
             width: 100%;
             p {
               margin: 0;
@@ -113,38 +90,30 @@
       }
     }
     .lower-left {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-direction: column;
-      background-color: #dadfea;
-      padding: 15px;
+      @include flex-jse-ac-fdc();
+      @include box-shadow();
       height: 100%;
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      padding: 15px;
+      background-color: #dadfea;
       .campground-title {
         width: 100%;
-        text-align: center;
         font-size: 20px;
+        text-align: center;
         border-bottom: 1px solid black;
       }
       .campgrounds-container {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: row;
+        @include flex-jse-ac();
         height: 100%;
         width: calc(100% - 30px);
         .campgrounds {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
+          @include flex-jc-ac-fdc();
           flex-direction: column;
           width: 33.3333333%;
           height: 100%;
           p {
             margin: 0;
-            font-size: 13px;
             margin-bottom: 2px;
+            font-size: 13px;
           }
           img {
             width: 75%;
@@ -158,47 +127,36 @@
     }
   }
   .right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flex-jc-ac-fdc();
     width: 600px;
-    margin: 7px;
     height: 800px;
+    margin: 7px;
     .current-weather {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex-jc-ac();
+      @include box-shadow();
       height: 300px;
       width: 100%;
       margin-bottom: 15px;
       background-color: #dadfea;
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
       .left-weather {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 10px;
+        @include flex-jc-ac-fdc();
         height: 100%;
         width: 70%;
+        padding: 10px;
         .current-weather-icon {
           width: 150px;
           height: auto;
         }
         .current-weather-title {
+          width: 100%;
           font-size: 30px;
           text-align: center;
-          width: 100%;
         }
         .icon-description {
           font-size: 25px;
         }
         .center {
-          display:flex;
-          justify-content: center;
-          flex-direction: row;
-          align-items: center;
+          @include flex-jc-ac();
           p {
             font-size: 40px;
             font-weight: bold;
@@ -206,10 +164,7 @@
         }
       }
       .right-weather {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        @include flex-jc-ac-fdc();
         height: 100%;
         width: 30%;
         background-color: #b3b9c7;
@@ -228,17 +183,17 @@
       }
     }
     .hourly-weather {
+      @include box-shadow();
       height: 235px;
       width: 100%;
       margin-bottom: 15px;
       background-color: #dadfea;
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     }
     .daily-weather {
+      @include box-shadow();
       height: 235px;
       width: 100%;
       background-color: #dadfea;
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     }
   }
 }
