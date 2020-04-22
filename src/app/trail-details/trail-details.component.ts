@@ -24,12 +24,13 @@ export class TrailDetailsComponent implements OnInit {
   sunSet: string;
   campgrounds;
   hourlyWeather;
+  hourlyTime: string[] = [];
   dailyWeather;
 
   constructor(
     private activateRoute:  ActivatedRoute,
     private trailsApiService: TrailsApiService,
-    private weatherApiService: WeatherApiService,
+    private weatherApiService: WeatherApiService
   ) { }
 
   ngOnInit(): void {
@@ -52,9 +53,17 @@ export class TrailDetailsComponent implements OnInit {
       this.currentWeatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
       console.log(this.currentWeather, this.hourlyWeather, this.dailyWeather);
       this.getDirection(this.currentWeather.wind_deg);
-      this.getSunriseSunset();
+      this.getSunriseSunset(null);
       this.getCampgroundsNearby();
+      this.getHour();
     })
+  }
+
+  getHour() {
+    for(let i = 0; i < 10; i++) {
+      console.log(this.hourlyWeather[i].dt);
+      this.getSunriseSunset(this.hourlyWeather[i].dt);
+    }
   }
 
   getCampgroundsNearby() {
@@ -70,17 +79,25 @@ export class TrailDetailsComponent implements OnInit {
     return this.windDirection = arr[(val % 16)];
   }
 
-  getSunriseSunset() {
+  getSunriseSunset(num) {
+    let date = new Date(num * 1000);
     let date1 = new Date(this.currentWeather.sunrise * 1000);
     let date2 = new Date(this.currentWeather.sunset * 1000);
     this.sunRise = this.setSunriseSunset(date1);
     this.sunSet = this.setSunriseSunset(date2);
+    let dateNew = this.setSunriseSunset(date)
+    if(dateNew !== "NaN:aN:aN") {
+      this.hourlyTime.push(dateNew);
+    }
   }
 
   setSunriseSunset(date) {
     let hours = date.getHours();
     let minutes = "0" + date.getMinutes();
-    let seconds = "0" + date.getSeconds();
-    return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    //let seconds = "0" + date.getSeconds(); :${seconds.substr(-2)
+    return `${hours}:${minutes.substr(-2)}`;
   }
+
+  
 }
+
