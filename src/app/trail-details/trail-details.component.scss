@@ -1,4 +1,4 @@
-@import '../mixins.scss';
+@import "../mixins.scss";
 
 .trail-title {
   @include flex-jc-ac();
@@ -19,7 +19,7 @@
     height: 800px;
     max-width: 900px;
     margin: 7px;
-    
+
     .upper-left {
       @include flex-jc-ac-fdc();
       @include box-shadow();
@@ -38,8 +38,8 @@
           color: white;
         }
         img {
-          width: 50%;
           height: auto;
+          width: 50%;
           min-height: 259px;
           max-height: 280px;
           margin-bottom: 5px;
@@ -67,7 +67,6 @@
             margin-right: 5px;
             font-size: 20px;
           }
-
         }
         .conditions {
           @include flex-jse-ac-fdc();
@@ -93,13 +92,13 @@
       @include flex-jse-ac-fdc();
       @include box-shadow();
       height: 100%;
-      padding: 15px;
       background-color: #dadfea;
       .campground-title {
         width: 100%;
         font-size: 20px;
         text-align: center;
-        border-bottom: 1px solid black;
+        padding: 10px 0 10px 0;
+        background-color: #b3b9c7;
       }
       .campgrounds-container {
         @include flex-jse-ac();
@@ -116,8 +115,8 @@
             font-size: 13px;
           }
           img {
-            width: 75%;
             height: auto;
+            width: 75%;
             min-height: 97px;
             max-height: 97px;
             margin-bottom: 5px;
@@ -128,8 +127,8 @@
   }
   .right {
     @include flex-jc-ac-fdc();
-    width: 600px;
     height: 800px;
+    width: 600px;
     margin: 7px;
     .current-weather {
       @include flex-jc-ac();
@@ -144,8 +143,8 @@
         width: 70%;
         padding: 10px;
         .current-weather-icon {
-          width: 150px;
           height: auto;
+          width: 150px;
         }
         .current-weather-title {
           width: 100%;
@@ -188,6 +187,30 @@
       width: 100%;
       margin-bottom: 15px;
       background-color: #dadfea;
+      h3 {
+        width: 100%;
+        margin: 0;
+        padding: 10px 0 10px 0;
+        font-size: 20px;
+        text-align: center;
+        background-color: #b3b9c7;
+      }
+      .hourly-container {
+        @include flex-jc-ac-fdc();
+        padding: 5px;
+        .hour {
+          @include flex-jse-ac();
+          justify-content: space-between;
+          width: 100%;
+          font-size: 13px;
+          p{
+            width: 53px;
+            text-align: center;
+          }
+        }
+        .hourly {
+        }
+      }
     }
     .daily-weather {
       @include box-shadow();

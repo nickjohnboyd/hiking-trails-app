@@ -26,7 +26,6 @@
           <p><i class="fas fa-mountain"></i>High: {{ currentTrail?.high }}'</p>
           <p><i class="fas fa-mountain"></i>Low: {{ currentTrail?.low }}'</p>
         </div>
-
         <div class="conditions">
           <h3>Condition Status Report Below</h3>
           <div class="condition-status">
@@ -35,18 +34,6 @@
             <p>Date: {{ currentTrail?.conditionDate }}</p>
           </div>
         </div>
-        <!-- <h3>{{ currentTrail?.summary }}</h3>
-        <p>type: {{ currentTrail?.type }}</p>
-        <p>location: {{ currentTrail?.location }}</p>
-        <p>url: {{ currentTrail?.url }}</p>
-        <p>length: {{ currentTrail?.length }}</p>
-        <p>ascent: {{ currentTrail?.ascent }}</p>
-        <p>descent: {{ currentTrail?.descent }}</p>
-        <p>high: {{ currentTrail?.high }}</p>
-        <p>low: {{ currentTrail?.low }}</p>
-        <p>conditionStatus: {{ currentTrail?.conditionStatus }}</p>
-        <p>conditionDetails: {{ currentTrail?.conditionDetails }}</p>
-        <p>conditionDate: {{ currentTrail?.conditionDate }}</p> -->
       </div>
     </div>
     <div class="lower-left">
@@ -58,21 +45,6 @@
           <p>Location: {{ campground.location }}</p>
           <p>Number of Campsites: {{ campground.numCampsites }}</p>
           <a href="{{ campground.url }}" target="_blank">checkout</a>
-
-
-          <!-- 
-  
-  imgUrl: "https://www.rei.com/assets/camp/images/campground-placeholder-image/live.png"
-  isBookable: true
-  isCampground: true
-  latitude: 40.1317
-  location: "Mapleton, Utah"
-  longitude: -111.5269
-  name: "Whiting"
-  numCampsites: 16
-  url: "https://www.rei.com/campgrounds/camp/115194993/whiting"
-  
-           -->
         </div>
       </div>
     </div>
@@ -100,7 +72,19 @@
         </div>
       </div>
     </div>
-    <div class="hourly-weather"></div>
+    <div class="hourly-weather">
+      <h3>Hourly Weather Forecast</h3>
+      <div class="hourly-container">
+        <div class="hour">
+          <div class="hourly" *ngFor="let hourly of hourlyWeather | slice:1:11; let i=index">
+            <p>{{ hourly.temp }}°F</p>
+          </div>
+        </div>
+        <div class="hour">
+          <p *ngFor="let hour of hourlyTime | slice:1:11; let i=index">{{ hour }}</p>
+        </div>
+      </div>
+    </div>
     <div class="daily-weather"></div>
   </div>
 </div>
