@@ -4,7 +4,7 @@
   <i class="far fa-star"></i>
   <i class="far fa-star"></i>
   <i class="lstar far fa-star"></i>
-  <p>{{ trail?.stars }}</p>
+  <p>{{ trail?.stars + ' stars ' + ' (' + trail?.starVotes + ' ratings)' }}</p>
 </div>
 <ng-template #setOne>
   <div *ngIf="trail?.stars < 2; else setTwo">
@@ -13,7 +13,7 @@
     <i class="far fa-star"></i>
     <i class="far fa-star"></i>
     <i class="lstar far fa-star"></i>
-    <p>{{ trail?.stars }}</p>
+    <p>{{ trail?.stars + ' stars ' + ' (' + trail?.starVotes + ' ratings)' }}</p>
   </div>
 </ng-template>
 <ng-template #setTwo>
@@ -23,7 +23,7 @@
     <i class="far fa-star"></i>
     <i class="far fa-star"></i>
     <i class="lstar far fa-star"></i>
-    <p>{{ trail?.stars }}</p>
+    <p>{{ trail?.stars + ' stars ' + ' (' + trail?.starVotes + ' ratings)' }}</p>
   </div>
 </ng-template>
 <ng-template #setThree>
@@ -33,7 +33,7 @@
     <i class="fas fa-star"></i>
     <i class="far fa-star"></i>
     <i class="lstar far fa-star"></i>
-    <p>{{ trail?.stars }}</p>
+    <p>{{ trail?.stars + ' stars ' + ' (' + trail?.starVotes + ' ratings)' }}</p>
   </div>
 </ng-template>
 <ng-template #setFour>
@@ -43,7 +43,7 @@
     <i class="fas fa-star"></i>
     <i class="fas fa-star"></i>
     <i class="lstar far fa-star"></i>
-    <p>{{ trail?.stars }}</p>
+    <p>{{ trail?.stars + ' stars ' + ' (' + trail?.starVotes + ' ratings)' }}</p>
   </div>
 </ng-template>
 <ng-template #setFive>
@@ -53,6 +53,6 @@
     <i class="fas fa-star"></i>
     <i class="fas fa-star"></i>
     <i class="lstar fas fa-star"></i>
-    <p>{{ trail?.stars }}</p>
+    <p>{{ trail?.stars + ' stars ' + ' (' + trail?.starVotes + ' ratings)' }}</p>
   </div>
 </ng-template>

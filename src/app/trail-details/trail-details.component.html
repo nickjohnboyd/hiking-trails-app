@@ -14,11 +14,28 @@
         <img src="{{ mapImg }}" alt="">
       </div>
     </div>
-    <div class="lower-left">
+    <div class="middle-left">
       <app-trail-difficulty [trail]='currentTrail'></app-trail-difficulty>
       <app-trail-rating [trail]='currentTrail'></app-trail-rating>
-      <div class="lower-left-content">
-        <h3>{{ currentTrail?.summary }}</h3>
+      <div class="middle-left-content">
+        <h3>{{ currentTrail?.summary + ' This trail is located in ' +  currentTrail?.location }}</h3>
+        <div class="trail-information">
+          <p><i class="fas fa-hiking"></i> Length: {{ currentTrail?.length }} miles long</p>
+          <p><i class="fas fa-mountain"></i>Ascent: {{ currentTrail?.ascent }}'</p>
+          <p><i class="fas fa-mountain"></i>Descent: {{ currentTrail?.descent }}'</p>
+          <p><i class="fas fa-mountain"></i>High: {{ currentTrail?.high }}'</p>
+          <p><i class="fas fa-mountain"></i>Low: {{ currentTrail?.low }}'</p>
+        </div>
+        
+        <div class="conditions">
+          <h3>Condition Status Report Below</h3>
+          <div class="condition-status">
+            <p>Status: {{ currentTrail?.conditionStatus }}</p>
+            <p>Details: {{ currentTrail?.conditionDetails }}</p>
+            <p>Date: {{ currentTrail?.conditionDate }}</p>
+          </div>
+        </div>
+        <!-- <h3>{{ currentTrail?.summary }}</h3>
         <p>type: {{ currentTrail?.type }}</p>
         <p>location: {{ currentTrail?.location }}</p>
         <p>url: {{ currentTrail?.url }}</p>
@@ -29,8 +46,11 @@
         <p>low: {{ currentTrail?.low }}</p>
         <p>conditionStatus: {{ currentTrail?.conditionStatus }}</p>
         <p>conditionDetails: {{ currentTrail?.conditionDetails }}</p>
-        <p>conditionDate: {{ currentTrail?.conditionDate }}</p>
+        <p>conditionDate: {{ currentTrail?.conditionDate }}</p> -->
       </div>
+    </div>
+    <div class="lower-left">
+      
     </div>
   </div>
   <div class="right">

@@ -1,10 +1,21 @@
+.trail-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 0;
+  margin: 25px 0 25px 0;
+  text-align: center;
+  height: 50px;
+  font-weight: bold;
+}
 .details-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-flow: row wrap;
   width: 100%;
-  height: 100%;
+  // height: 100%;
   .left {
     display: flex;
     justify-content: center;
@@ -21,14 +32,9 @@
       align-items: center;
       flex-direction: column;
       width: 100%;
-      height: 100%;
+      // height: 100%;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-      .trail-title {
-        font-size: 30px;
-        padding-top: 20px;
-        text-align: center;
-      }
       .images-details {
         width: 100%;
         display: flex;
@@ -52,21 +58,65 @@
         }
       }
     }
-    .lower-left {
+    .middle-left {
       width: 100%;
-      height: 70%;
+      // height: 70%;
+      margin-bottom: 15px;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-      .lower-left-content {
+      .middle-left-content {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         h3 {
-          font-size: 25px;
+          font-size: 20px;
           text-align: center;
         }
+        .trail-information {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 100%;
+          .fa-mountain {
+            margin-right: 5px;
+          }
+          .fa-hiking {
+            margin-right: 5px;
+            font-size: 20px;
+          }
+
+        }
+        .conditions {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          flex-direction: column;
+          height: 65px;
+          width: 100%;
+          background-color: #ec6e4c;
+          h3 {
+            margin: 0;
+            font-size: 18px;
+          }
+          .condition-status {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            p {
+              margin: 0;
+              font-size: 12px;
+            }
+          }
+        }
       }
+    }
+    .lower-left {
+      height: 100%;
+      width: 100%;
+      background-color: #dadfea;
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     }
   }
   .right {
@@ -77,7 +127,6 @@
     width: 600px;
     margin: 7px;
     height: 800px;
-    
     .current-weather {
       display: flex;
       justify-content: center;
