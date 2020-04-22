@@ -61,7 +61,7 @@ export class TrailDetailsComponent implements OnInit {
     return this.windDirection = arr[(val % 16)];
   }
 
-    getSunriseSunset() {
+  getSunriseSunset() {
     let date1 = new Date(this.currentWeather.sunrise * 1000);
     let date2 = new Date(this.currentWeather.sunset * 1000);
     this.sunRise = this.setSunriseSunset(date1);
