@@ -1,31 +1,40 @@
+.trail-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 0;
+  margin: 25px 0 25px 0;
+  text-align: center;
+  height: 50px;
+  font-weight: bold;
+}
 .details-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-flow: row wrap;
   width: 100%;
-  height: 100%;
+  // height: 100%;
   .left {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: calc(100% - 94px);
-    width: 700px;
-    margin: 15px;
+    flex: 1 0 600px;
+    max-width: 900px;
+    margin: 7px;
+    height: 800px;
+    
     .upper-left {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       width: 100%;
+      // height: 100%;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-      .trail-title {
-        font-size: 30px;
-        padding-top: 20px;
-        text-align: center;
-      }
       .images-details {
         width: 100%;
         display: flex;
@@ -44,24 +53,106 @@
           width: 50%;
           height: auto;
           min-height: 259px;
-          max-height: 259px;
+          max-height: 280px;
           margin-bottom: 15px;
         }
       }
     }
-    .lower-left {
+    .middle-left {
       width: 100%;
-      height: 500px;
+      // height: 70%;
+      margin-bottom: 15px;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-      .lower-left-content {
+      .middle-left-content {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         h3 {
-          font-size: 25px;
+          font-size: 20px;
           text-align: center;
+        }
+        .trail-information {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 100%;
+          .fa-mountain {
+            margin-right: 5px;
+          }
+          .fa-hiking {
+            margin-right: 5px;
+            font-size: 20px;
+          }
+
+        }
+        .conditions {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          flex-direction: column;
+          height: 65px;
+          width: 100%;
+          background-color: #ec6e4c;
+          h3 {
+            margin: 0;
+            font-size: 18px;
+          }
+          .condition-status {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            p {
+              margin: 0;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .lower-left {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      background-color: #dadfea;
+      padding: 15px;
+      height: 100%;
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      .campground-title {
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        border-bottom: 1px solid black;
+      }
+      .campgrounds-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+        width: calc(100% - 30px);
+        .campgrounds {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-direction: column;
+          width: 33.3333333%;
+          height: 100%;
+          p {
+            margin: 0;
+            font-size: 13px;
+            margin-bottom: 2px;
+          }
+          img {
+            width: 75%;
+            height: auto;
+            min-height: 120px;
+            max-height: 120px;
+            margin-bottom: 5px;
+          }
         }
       }
     }
@@ -71,16 +162,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: calc(100% - 94px);
-    width: 700px;
-    margin: 15px;
+    width: 600px;
+    margin: 7px;
+    height: 800px;
     .current-weather {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 300px;
       width: 100%;
-      margin-bottom: 21px;
+      margin-bottom: 15px;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
       .left-weather {
@@ -88,6 +179,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        padding: 10px;
         height: 100%;
         width: 70%;
         .current-weather-icon {
@@ -120,30 +212,41 @@
         flex-direction: column;
         height: 100%;
         width: 30%;
+        background-color: #b3b9c7;
         .current-details {
           font-size: 15px;
           p {
+            padding-left: 15px;
             margin-bottom: 8px;
           }
           .current-details-title {
+            padding-left: 8px;
             font-size: 20px;
-            border-bottom: 2px solid black;
+            border-bottom: 1px solid black;
           }
         }
       }
     }
     .hourly-weather {
-      height: 250px;
+      height: 235px;
       width: 100%;
-      margin-bottom: 21px;
+      margin-bottom: 15px;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     }
     .daily-weather {
-      height: 250px;
+      height: 235px;
       width: 100%;
       background-color: #dadfea;
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+@media screen and (max-width: 1276px) {
+  .details-container {
+    .left {
+      flex: 0 0 600px;
+      width: 600px;
     }
   }
 }
