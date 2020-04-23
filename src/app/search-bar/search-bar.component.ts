@@ -16,6 +16,7 @@ export class SearchBarComponent implements OnInit {
 
   search() {
     this.onSearch.emit(this.zip);
+    this.zip = null;
   }
 
 }

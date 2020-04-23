@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trail-search',
@@ -6,21 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trail-search.component.scss']
 })
 export class TrailSearchComponent implements OnInit {
-  
   zip: number;
-  displaySmall = false;
-  click = 0;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
-  shrinkDisplay() {
-    // this.click++;
-    // this.displaySmall = true;
-    // console.log(this.displaySmall);
-    // if(this.click === 1) this.shrinkDisplay();
+  search() {
+    this.router.navigate([`trails/${this.zip}`]);
   }
 
 }
