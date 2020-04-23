@@ -10,12 +10,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./trail-list.component.scss']
 })
 export class TrailListComponent implements OnInit {
-  // @Input() trails: Trail[];
   @Output() onTrailsAdded: EventEmitter<any> = new EventEmitter<any>();
+
   trails: Trail[] = [];
   zip: number;
   longitude: number;
   latitude: number;
+  city: string;
+  state: string;
 
   constructor(
     private mapApiService: MapApiService,
@@ -34,6 +36,10 @@ export class TrailListComponent implements OnInit {
   searchTrails() {
     if(this.zip === undefined) return;
     this.mapApiService.getCoordinates(this.zip).subscribe(result => {
+      console.log('result');
+      console.log(result);
+      this.city = result.results[0].locations[0].adminArea5;
+      this.state = result.results[0].locations[0].adminArea3;
       this.longitude = result.results[0].locations[0].latLng.lng;
       this.latitude = result.results[0].locations[0].latLng.lat;
       this.searchTrailsApi();
@@ -42,6 +48,8 @@ export class TrailListComponent implements OnInit {
 
   searchTrailsApi() {
     this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
+      console.log('data');
+      console.log(data);
       this.trails = data.trails;
       console.log('second emitter');
       console.log(this.trails);

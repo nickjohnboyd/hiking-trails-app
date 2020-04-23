@@ -1,6 +1,18 @@
-.container {
+.trail-list {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  margin-top: 40px;
+
+  .location-title {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }
