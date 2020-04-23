@@ -198,7 +198,7 @@
       .hourly-container {
         @include flex-jc-ac-fdc();
         padding: 5px;
-        .hour {
+        .hour-weather {
           @include flex-jse-ac();
           justify-content: space-between;
           width: 100%;
@@ -216,7 +216,52 @@
       @include box-shadow();
       height: 235px;
       width: 100%;
+      margin-bottom: 15px;
       background-color: #dadfea;
+      h3 {
+        width: 100%;
+        margin: 0;
+        padding: 10px 0 10px 0;
+        font-size: 20px;
+        text-align: center;
+        background-color: #b3b9c7;
+      }
+      .daily-container {
+        @include flex-jc-ac-fdc();
+        padding: 5px;
+        .day-daily {
+          @include flex-jse-ac();
+          justify-content: space-between;
+          width: 100%;
+          font-size: 13px;
+          .day {
+            width: 100%;
+
+            p{
+              width: 100%;
+              text-align: center;
+              font-size: 15px;
+              font-weight: bold;
+            }
+          }
+          .day-weather {
+            width: 100%;
+            .max {
+              font-weight: bold;
+              font-size: 13px;
+            }
+            img {
+              width: 100%;
+            }
+            p{
+              width: 100%;
+              text-align: center;
+              font-size: 12px;
+            }
+          }
+        }
+
+      }
     }
   }
 }
