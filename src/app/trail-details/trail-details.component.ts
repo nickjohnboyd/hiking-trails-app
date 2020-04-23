@@ -1,4 +1,7 @@
 import { Weather } from "./../models/weather";
+import { HourlyWeather } from "./../models/hourlyWeather";
+import { DailyWeather } from "./../models/dailyWeather";
+import { Campgrounds } from "./../models/campgrounds";
 import { WeatherApiService } from "./../shared/weather-api.service";
 import { Trail } from "./../models/trail";
 import { TrailsApiService } from "./../shared/trails-api.service";
@@ -22,17 +25,18 @@ export class TrailDetailsComponent implements OnInit {
   windDirection: string;
   sunRise: string;
   sunSet: string;
-  campgrounds;
-  hourlyWeather;
+  dailyWeather: DailyWeather[];
+  hourlyWeather: HourlyWeather[];
+  campgrounds: Campgrounds[];
   hourlyTime: string[] = [];
   dailyDay: string[] = [];
-  dailyWeather;
+  loading: boolean = true;
 
   constructor(
     private activateRoute: ActivatedRoute,
     private trailsApiService: TrailsApiService,
     private weatherApiService: WeatherApiService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params["id"];
@@ -40,7 +44,7 @@ export class TrailDetailsComponent implements OnInit {
       this.currentTrail = data.trails[0];
       this.longitude = this.currentTrail.longitude;
       this.latitude = this.currentTrail.latitude;
-      this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=600,400@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
+      this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=380,260@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
       console.log(data);
       this.getCurrentWeather();
     });
@@ -82,6 +86,7 @@ export class TrailDetailsComponent implements OnInit {
       .getCampgrounds(this.longitude, this.latitude)
       .subscribe((data) => {
         this.campgrounds = data.campgrounds;
+        console.log(this.campgrounds)
       });
   }
 
