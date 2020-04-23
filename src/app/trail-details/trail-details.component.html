@@ -86,6 +86,7 @@
       </div>
     </div>
     <div class="daily-weather">
+      <h3>Daily Weather Forecast</h3>
       <div class="daily-container">
         <div class="day-daily">
           <div class="day" *ngFor="let day of dailyDay">
@@ -93,7 +94,11 @@
           </div>
         </div>
         <div class="day-daily">
-
+          <div class="day-weather" *ngFor="let daily of dailyWeather | slice:0:7; let i=index">
+            <img src="https://openweathermap.org/img/wn/{{ daily.weather[0].icon }}@2x.png" alt="" srcset="">
+            <p class="max">{{ daily.temp.max }}°F</p>
+            <p>{{ daily.temp.min }}°F</p>
+          </div>
         </div>
       </div>
     </div>
