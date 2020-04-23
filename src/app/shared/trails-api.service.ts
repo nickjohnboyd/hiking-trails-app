@@ -22,6 +22,6 @@ export class TrailsApiService {
   }
   
   getCampgrounds(long: number, lat: number): Observable<any> {
-    return this.http.get<any>(`https://www.hikingproject.com/data/get-campgrounds?lat=${lat}&lon=${long}&maxDistance=10&key=${this.privateKey}`)
+    return this.http.get<any>(`https://www.hikingproject.com/data/get-campgrounds?lat=${lat}&lon=${long}&maxDistance=50&key=${this.privateKey}`)
   }
 }

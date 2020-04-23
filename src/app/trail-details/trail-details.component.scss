@@ -198,7 +198,7 @@
       .hourly-container {
         @include flex-jc-ac-fdc();
         padding: 5px;
-        .hour {
+        .hour-weather {
           @include flex-jse-ac();
           justify-content: space-between;
           width: 100%;
@@ -217,6 +217,17 @@
       height: 235px;
       width: 100%;
       background-color: #dadfea;
+      .daily-container {
+        @include flex-jc-ac-fdc();
+        padding: 5px;
+        .day-daily {
+          @include flex-jse-ac();
+          justify-content: space-between;
+          width: 100%;
+          font-size: 13px;
+        }
+
+      }
     }
   }
 }
