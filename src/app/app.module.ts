@@ -30,6 +30,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { HomeComponent } from './home/home.component';
 import { HomeExtrasComponent } from './home-extras/home-extras.component';
 import { TrailItemSmallComponent } from './trail-item-small/trail-item-small.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -49,7 +50,8 @@ import { TrailItemSmallComponent } from './trail-item-small/trail-item-small.com
     SearchBarComponent,
     HomeComponent,
     HomeExtrasComponent,
-    TrailItemSmallComponent
+    TrailItemSmallComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

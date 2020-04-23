@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <h2 class="trail-title">{{ currentTrail?.name }}</h2>
-<div class="details-container">
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading" class="details-container">
   <div class="left">
     <div class="upper-left">
       <div class="images-details">

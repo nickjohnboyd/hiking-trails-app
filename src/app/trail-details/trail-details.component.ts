@@ -5,7 +5,7 @@ import { Campgrounds } from "./../models/campgrounds";
 import { WeatherApiService } from "./../shared/weather-api.service";
 import { Trail } from "./../models/trail";
 import { TrailsApiService } from "./../shared/trails-api.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -35,7 +35,7 @@ export class TrailDetailsComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private trailsApiService: TrailsApiService,
-    private weatherApiService: WeatherApiService
+    private weatherApiService: WeatherApiService,
   ) { }
 
   ngOnInit(): void {
@@ -44,9 +44,13 @@ export class TrailDetailsComponent implements OnInit {
       this.currentTrail = data.trails[0];
       this.longitude = this.currentTrail.longitude;
       this.latitude = this.currentTrail.latitude;
+      console.log(this.currentTrail)
       this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=380,260@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
-      console.log(data);
+      //this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=380,260&banner=${this.currentTrail.location}&@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
       this.getCurrentWeather();
+      setTimeout(() => {
+        this.loading = false;
+      }, 500 )
     });
   }
 
@@ -58,7 +62,6 @@ export class TrailDetailsComponent implements OnInit {
         this.hourlyWeather = data.hourly;
         this.dailyWeather = data.daily;
         this.currentWeatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
-        console.log(this.currentWeather, this.hourlyWeather, this.dailyWeather);
         this.getDirection(this.currentWeather.wind_deg);
         this.getUnixTime(null);
         this.getCampgroundsNearby();
@@ -78,7 +81,6 @@ export class TrailDetailsComponent implements OnInit {
       let unixDay = this.setUnixDay(this.dailyWeather[i].dt);
       this.dailyDay.push(unixDay);
     }
-    console.log(this.dailyDay);
   }
 
   getCampgroundsNearby() {
@@ -86,7 +88,6 @@ export class TrailDetailsComponent implements OnInit {
       .getCampgrounds(this.longitude, this.latitude)
       .subscribe((data) => {
         this.campgrounds = data.campgrounds;
-        console.log(this.campgrounds)
       });
   }
 

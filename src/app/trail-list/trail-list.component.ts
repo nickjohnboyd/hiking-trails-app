@@ -18,6 +18,7 @@ export class TrailListComponent implements OnInit {
   latitude: number;
   city: string;
   state: string; 
+  loading: boolean = true;
 
   constructor(
     private mapApiService: MapApiService,
@@ -29,6 +30,9 @@ export class TrailListComponent implements OnInit {
     this.onTrailsAdded.emit(this.trails);
     this.zip = this.activatedRoute.snapshot.params.zip;
     this.searchTrails();
+    setTimeout(() => {
+      this.loading = false;
+    }, 500 )
   }
 
   searchTrails(zip?: number) {
