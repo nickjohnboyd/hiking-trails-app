@@ -1,6 +1,9 @@
 <div class="trail-list">
-  <div class="location-title">Trails near {{ city }}, {{ state }}</div>
-  <div class="container">
-    <app-trail-item *ngFor="let trail of trails" [trail]="trail"></app-trail-item>
+  <app-search-bar (onSearch)="searchTrails($event)" class="search-bar"></app-search-bar>
+  <div class="trails-cont">
+    <div class="location-title">Trails near {{ city }}, {{ state }}</div>
+    <div class="container">
+      <app-trail-item *ngFor="let trail of trails" [trail]="trail"></app-trail-item>
+    </div>
   </div>
 </div>

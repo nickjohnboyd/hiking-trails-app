@@ -3,16 +3,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  width: 100%;
 
-  .location-title {
-    font-size: 30px;
-    margin-bottom: 15px;
+  .search-bar {
+    width: 100%;
   }
-  .container {
+  .trails-cont {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    margin-top: 80px;
+
+    .location-title {
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
   }
 }

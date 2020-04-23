@@ -1,5 +1,5 @@
 import { Trail } from './../models/trail';
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MapApiService } from '../shared/map-api.service';
 import { TrailsApiService } from '../shared/trails-api.service';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +17,7 @@ export class TrailListComponent implements OnInit {
   longitude: number;
   latitude: number;
   city: string;
-  state: string;
+  state: string; 
 
   constructor(
     private mapApiService: MapApiService,
@@ -26,18 +26,16 @@ export class TrailListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('first emitter');
-    console.log(this.trails);
     this.onTrailsAdded.emit(this.trails);
     this.zip = this.activatedRoute.snapshot.params.zip;
     this.searchTrails();
   }
 
-  searchTrails() {
+  searchTrails(zip?: number) {
+    if(zip) this.zip = zip;
+    console.log(this.zip);
     if(this.zip === undefined) return;
     this.mapApiService.getCoordinates(this.zip).subscribe(result => {
-      console.log('result');
-      console.log(result);
       this.city = result.results[0].locations[0].adminArea5;
       this.state = result.results[0].locations[0].adminArea3;
       this.longitude = result.results[0].locations[0].latLng.lng;
@@ -48,13 +46,10 @@ export class TrailListComponent implements OnInit {
 
   searchTrailsApi() {
     this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
-      console.log('data');
-      console.log(data);
       this.trails = data.trails;
       console.log('second emitter');
       console.log(this.trails);
       this.onTrailsAdded.emit(this.trails);
-      console.log('after emitter');
     });   
   }
 
