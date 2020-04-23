@@ -23,6 +23,7 @@
     .upper-left {
       @include flex-jc-ac-fdc();
       @include box-shadow();
+      height: 100%;
       width: 100%;
       background-color: #dadfea;
       .images-details {
@@ -41,25 +42,28 @@
           height: auto;
           width: 50%;
           min-height: 259px;
-          max-height: 280px;
-          margin-bottom: 5px;
+          max-height: 259px;
+          // margin-bottom: 5px;
         }
       }
     }
     .middle-left {
       @include box-shadow();
+      height: 100%;
       width: 100%;
       margin-bottom: 15px;
       background-color: #dadfea;
       .middle-left-content {
         @include flex-jc-ac-fdc();
         h3 {
+          height: 70px;
           font-size: 20px;
           text-align: center;
         }
         .trail-information {
           @include flex-jse-ac();
           width: 100%;
+          margin-bottom: 11px;
           .fa-mountain {
             margin-right: 5px;
           }
@@ -70,8 +74,9 @@
         }
         .conditions {
           @include flex-jse-ac-fdc();
-          height: 65px;
+          height: 60px;
           width: 100%;
+          padding: 2.5px 0 2.5px 0;
           background-color: #ec6e4c;
           h3 {
             margin: 0;
@@ -133,7 +138,7 @@
     .current-weather {
       @include flex-jc-ac();
       @include box-shadow();
-      height: 300px;
+      height: 100%;
       width: 100%;
       margin-bottom: 15px;
       background-color: #dadfea;
@@ -183,7 +188,7 @@
     }
     .hourly-weather {
       @include box-shadow();
-      height: 235px;
+      height: 100%;
       width: 100%;
       margin-bottom: 15px;
       background-color: #dadfea;
@@ -196,27 +201,43 @@
         background-color: #b3b9c7;
       }
       .hourly-container {
-        @include flex-jc-ac-fdc();
+        @include flex-jse-ac-fdc();
         padding: 5px;
         .hour-weather {
           @include flex-jse-ac();
           justify-content: space-between;
           width: 100%;
+          margin-bottom: 10px;
           font-size: 13px;
-          p{
+          p {
             width: 53px;
             text-align: center;
+            font-size: 15px;
+            font-weight: bold;
           }
         }
         .hourly {
+          .hourly-description {
+            margin-bottom: 20px;
+          }
+          img {
+            width: 100%;
+          }
+          p {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: normal;
+          }
         }
       }
     }
     .daily-weather {
       @include box-shadow();
-      height: 235px;
+      height: 100%;
       width: 100%;
-      margin-bottom: 15px;
       background-color: #dadfea;
       h3 {
         width: 100%;
@@ -237,7 +258,7 @@
           .day {
             width: 100%;
 
-            p{
+            p {
               width: 100%;
               text-align: center;
               font-size: 15px;
@@ -253,19 +274,18 @@
             img {
               width: 100%;
             }
-            p{
+            p {
               width: 100%;
               text-align: center;
               font-size: 12px;
             }
           }
         }
-
       }
     }
   }
 }
-@media screen and (max-width: 1276px) {
+@media screen and (max-width: 1244px) {
   .details-container {
     .left {
       flex: 0 0 600px;
