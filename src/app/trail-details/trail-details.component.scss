@@ -16,13 +16,13 @@
   .left {
     @include flex-jc-ac-fdc();
     flex: 1 0 600px;
-    height: 800px;
-    max-width: 900px;
+    height: 1500px;
+    max-width: 1250px;
     margin: 7px;
     .upper-left {
       @include flex-jc-ac-fdc();
-      @include box-shadow();
-      height: 100%;
+      // @include box-shadow();
+      height: 50%;
       width: 100%;
       background-color: #dadfea;
       .images-details {
@@ -39,15 +39,16 @@
         } 
         img {
           height: auto;
-          width: 50%;
-          min-height: 259px;
-          max-height: 259px;
+          width: calc(50% - 30px);
+          min-height: 300px;
+          max-height: 300px;
+          padding: 15px;
           // margin-bottom: 5px;
         }
       }
     }
     .middle-left {
-      @include box-shadow();
+      // @include box-shadow();
       height: 100%;
       width: 100%;
       margin-bottom: 15px;
@@ -94,7 +95,7 @@
     }
     .lower-left {
       @include flex-jse-ac-fdc();
-      @include box-shadow();
+      // @include box-shadow();
       height: 100%;
       background-color: #dadfea;
       .campground-title {
@@ -131,7 +132,7 @@
   }
   .right {
     @include flex-jc-ac-fdc();
-    height: 800px;
+    height: 1500px;
     width: 600px;
     margin: 7px;
     .current-weather {
@@ -186,7 +187,7 @@
       }
     }
     .hourly-weather {
-      @include box-shadow();
+      // @include box-shadow();
       height: 100%;
       width: 100%;
       margin-bottom: 15px;
@@ -234,7 +235,7 @@
       }
     }
     .daily-weather {
-      @include box-shadow();
+      // @include box-shadow();
       height: 100%;
       width: 100%;
       background-color: #dadfea;
