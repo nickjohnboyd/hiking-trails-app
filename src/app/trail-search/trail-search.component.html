@@ -4,7 +4,7 @@
 		<mat-form-field>
 			<input matInput type="text" [(ngModel)]="zip" placeholder="Search by zip" class="search-input" (keyup.enter)="search()">
 		</mat-form-field>
-		<button mat-raised-button class="search-btn" routerLink="/trails/{{ this.zip }}">
+		<button mat-raised-button class="search-btn" routerLink="/trails/{{ this.zip }}" color="accent">
 			<mat-icon aria-hidden="false" aria-label="search icon" class="search-icon">search</mat-icon>
 		</button>
 	</div>
