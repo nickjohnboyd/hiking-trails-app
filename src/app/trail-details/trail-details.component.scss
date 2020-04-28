@@ -38,13 +38,14 @@
           color: white;
         }
         img {
-          // height: auto;
-          // width: 30%;
-          // min-height: 259px;
-          // max-height: 259px;
+          height: auto;
+          width: calc(50% - 20px);
+          min-height: 210px;
+          max-height: 259px;
+          max-width: 430px;
           // margin-bottom: 5px;
-          height: 250px;
-          width: 430px;
+          // height: 250px;
+          // width: 430px;
           margin: 10px;
         }
       }
