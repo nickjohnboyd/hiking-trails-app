@@ -1,3 +1,5 @@
+@import '../variables';
+
 .home-extras {
 	display: flex;
 	flex-direction: column;
@@ -9,7 +11,7 @@
 		justify-content: center;
 		align-items: center;
 		height: 80px;
-		background-color: #e6e6e6;
+		background-color: $primary;
 		width: 100%;
 
 		.quote-mark {
@@ -18,6 +20,7 @@
 			font-style: italic;
 			width: 30px;
 			height: 30px;
+			color: $accent;
 		}
 		.quote-text {
 			font-size: 20px;

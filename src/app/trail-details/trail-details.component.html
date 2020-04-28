@@ -16,19 +16,35 @@
       </div>
     </div>
     <div class="middle-left">
-      <app-trail-difficulty [trail]='currentTrail'></app-trail-difficulty>
-      <app-trail-rating [trail]='currentTrail'></app-trail-rating>
+      <div class="app-trail-difficulty">
+        <app-trail-difficulty [trail]='currentTrail'></app-trail-difficulty>
+      </div>
+      <div class="app-trail-rating">
+        <app-trail-rating [trail]='currentTrail'></app-trail-rating>
+      </div>
       <div class="middle-left-content">
         <h3>{{ currentTrail?.summary + ' This trail is located in ' +  currentTrail?.location }}</h3>
         <div class="trail-information">
-          <p><i class="fas fa-hiking"></i> Length: {{ currentTrail?.length }} miles long</p>
-          <p><i class="fas fa-mountain"></i>Ascent: {{ currentTrail?.ascent }}'</p>
-          <p><i class="fas fa-mountain"></i>Descent: {{ currentTrail?.descent }}'</p>
-          <p><i class="fas fa-mountain"></i>High: {{ currentTrail?.high }}'</p>
-          <p><i class="fas fa-mountain"></i>Low: {{ currentTrail?.low }}'</p>
+          <div class="miles-long">
+            <p><i class="fas fa-hiking"></i> Length: {{ currentTrail?.length }} miles long</p>
+          </div>
+          <div class="other-information">
+            <div class="icons">
+              <i class="fas fa-mountain"></i><p>Ascent: {{ currentTrail?.ascent }}'</p>
+            </div>
+            <div class="icons">
+              <i class="fas fa-mountain"></i><p>Descent: {{ currentTrail?.descent }}'</p>
+            </div>
+            <div class="icons">
+              <i class="fas fa-mountain"></i><p>High: {{ currentTrail?.high }}'</p>
+            </div>
+            <div class="icons">
+              <i class="fas fa-mountain"></i><p>Low: {{ currentTrail?.low }}'</p>
+            </div>
+          </div>
         </div>
         <div class="conditions">
-          <h3>Condition Status Report Below</h3>
+          <!-- <h3>Condition Status Report Below</h3> -->
           <div class="condition-status">
             <p>Status: {{ currentTrail?.conditionStatus }}</p>
             <p>Details: {{ currentTrail?.conditionDetails }}</p>
@@ -38,14 +54,20 @@
       </div>
     </div>
     <div class="lower-left">
-      <h3 class="campground-title">Nearby Campgrounds and Picnic Areas</h3>
-      <div class="campgrounds-container">
-        <div class="campgrounds" *ngFor="let campground of campgrounds | slice:0:3; let i=index">
-          <img src="{{ campground.imgUrl }}" alt="">
-          <p>Name: {{ campground.name }}</p>
-          <p>Location: {{ campground.location }}</p>
-          <p>Number of Campsites: {{ campground.numCampsites }}</p>
-          <a href="{{ campground.url }}" target="_blank">checkout</a>
+      <div class="daily-weather">
+        <div class="daily-container">
+          <div class="day-daily">
+            <div class="day" *ngFor="let day of dailyDay | slice:1:8; let i=index">
+              <p>{{ day }}</p>
+            </div>
+          </div>
+          <div class="day-daily">
+            <div class="day-weather" *ngFor="let daily of dailyWeather | slice:1:8; let i=index">
+              <img src="https://openweathermap.org/img/wn/{{ daily.weather[0].icon }}@2x.png" alt="" srcset="">
+              <p class="max">{{ daily.temp.max }}°F</p>
+              <p>{{ daily.temp.min }}°F</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +95,50 @@
         </div>
       </div>
     </div>
-    <div class="hourly-weather">
+    <div class="user-input">
+
+    </div>
+    <div class="user-comments">
+
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="upper-bottom">
+      <div class="campgrounds-outer"> 
+        <h3 class="campground-title">Nearby Campgrounds and Picnic Areas</h3>
+          <div class="campgrounds-container">
+            <div class="campgrounds" *ngFor="let campground of campgrounds | slice:0:3; let i=index">
+              <img src="{{ campground.imgUrl }}" alt="">
+              <p>Name: {{ campground.name }}</p>
+              <p>Location: {{ campground.location }}</p>
+              <p>Number of Campsites: {{ campground.numCampsites }}</p>
+              <a href="{{ campground.url }}" target="_blank">checkout</a>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="lower-bottom">
+      <div class="hourly-weather">
+        <h3>Hourly Weather Forecast</h3>
+        <div class="hourly-container">
+          <div class="hour-weather">
+            <p *ngFor="let hour of hourlyTime | slice:1:11; let i=index">{{ hour }}</p>
+          </div>
+          <div class="hour-weather">
+            <div class="hourly" *ngFor="let hourly of hourlyWeather | slice:1:11; let i=index">
+              <img src="https://openweathermap.org/img/wn/{{ hourly.weather[0].icon }}@2x.png" alt="" srcset="">
+              <p>{{ hourly.weather[0].description }}</p>
+              <p>{{ hourly.temp }}°F</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="hourly-weather">
       <h3>Hourly Weather Forecast</h3>
       <div class="hourly-container">
         <div class="hour-weather">
@@ -87,8 +152,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="daily-weather">
+    </div> -->
+
+<!-- <div class="daily-weather">
       <h3>Daily Weather Forecast</h3>
       <div class="daily-container">
         <div class="day-daily">
@@ -104,6 +170,4 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </div> -->
