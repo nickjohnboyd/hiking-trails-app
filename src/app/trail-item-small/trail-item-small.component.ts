@@ -11,6 +11,8 @@ export class TrailItemSmallComponent implements OnInit {
   @Input() trail: Trail;
   defaultTrail: string = '../../assets/images/default-trail.jpg';
 
+  favorited = false;
+
   constructor(
     public userService: UserService
   ) { }
@@ -18,8 +20,11 @@ export class TrailItemSmallComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addToFavorites(trail) {
-    this.userService.addToFavorites(trail);
+  handleFavorites(trail: Trail) {
+    this.favorited = !this.favorited;
+    this.userService.handleFavorites(trail, this.favorited);
+    // if(this.favorited) this.userService.addToFavorites(trail);
+    // else if(!this.favorited) this.userService.removeFromFavorites(trail);
     console.log(this.userService.getUser());
   }
 
