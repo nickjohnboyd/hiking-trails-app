@@ -88,14 +88,17 @@
             height: 100%;
             width: 50%;
             .icons {
+              @include flex-jse-ac();
               width: 60%;
-              display: flex;
               justify-content: space-between;
-              align-items: center;
-            }
-            .fa-mountain {
-              // margin-right: 20px;
-              font-size: 20px;
+              .fa-mountain {
+                // margin-right: 20px;
+                font-size: 20px;
+              }
+              p{
+                margin: 0;
+                font-size: 18px;
+              }
             }
           }
         }
@@ -116,7 +119,7 @@
             width: 100%;
             p {
               margin: 0;
-              font-size: 12px;
+              font-size: 15px;
             }
           }
         }
