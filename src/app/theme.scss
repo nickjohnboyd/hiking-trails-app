@@ -1,0 +1,79 @@
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config($font-family: '"Muli", sans-serif;');
+@include mat-core($custom-typography);
+
+// #f5f5f5
+$primary: (
+	50 : #fefefe,
+	100 : #fcfcfc,
+	200 : #fafafa,
+	300 : #f8f8f8,
+	400 : #f7f7f7,
+	500 : #f5f5f5,
+	600 : #f4f4f4,
+	700 : #f2f2f2,
+	800 : #f0f0f0,
+	900 : #eeeeee,
+	A100 : #ffffff,
+	A200 : #ffffff,
+	A400 : #ffffff,
+	A700 : #ffffff,
+	contrast: (
+		50 : #000000,
+		100 : #000000,
+		200 : #000000,
+		300 : #000000,
+		400 : #000000,
+		500 : #000000,
+		600 : #000000,
+		700 : #000000,
+		800 : #000000,
+		900 : #000000,
+		A100 : #000000,
+		A200 : #000000,
+		A400 : #000000,
+		A700 : #000000,
+	)
+);
+
+// #f1ccc8
+$accent: (
+	50 : #fdf9f8,
+	100 : #fbf0ef,
+	200 : #f8e6e4,
+	300 : #f5dbd9,
+	400 : #f3d4d0,
+	500 : #f1ccc8,
+	600 : #efc7c2,
+	700 : #edc0bb,
+	800 : #ebb9b4,
+	900 : #e7ada7,
+	A100 : #ffffff,
+	A200 : #ffffff,
+	A400 : #ffffff,
+	A700 : #ffffff,
+	contrast: (
+		50 : #000000,
+		100 : #000000,
+		200 : #000000,
+		300 : #000000,
+		400 : #000000,
+		500 : #000000,
+		600 : #000000,
+		700 : #000000,
+		800 : #000000,
+		900 : #000000,
+		A100 : #000000,
+		A200 : #000000,
+		A400 : #000000,
+		A700 : #000000,
+	)
+);
+
+$theme-primary: mat-palette($primary);
+$theme-accent: mat-palette($accent);
+$theme-warn: mat-palette($mat-red);
+
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+@include angular-material-theme($theme);
