@@ -1,5 +1,5 @@
 <mat-card routerLink="/trail-detail/{{ trail.id }}" color="primary">
-  <div class="favorite">
+  <div class="favorite" (click)="addToFavorites(trail)">
     <i class="far fa-heart"></i>
   </div>
   <img *ngIf="trail.imgSmallMed; else displayDefault" mat-card-image src="{{ trail.imgSmallMed }}">

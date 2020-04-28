@@ -19,7 +19,7 @@ export class AuthService {
   ) {
     this.afAuth.authState.subscribe(user => {
       this.user = user;
-    })
+    });
   }
 
   // Firebase SignInWithPopup
@@ -49,7 +49,11 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['login']);
-    })
+    });
+  }
+
+  getUser() {
+    return this.user;
   }
 
 }
