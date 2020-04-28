@@ -9,6 +9,16 @@ import { TrailItemComponent } from './trail-item/trail-item.component';
 import { TrailDetailsComponent } from './trail-details/trail-details.component';
 import { UserTrailsComponent } from './user-trails/user-trails.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { TrailDifficultyComponent } from './trail-difficulty/trail-difficulty.component';
+import { TrailRatingComponent } from './trail-rating/trail-rating.component';
+import { TrailsComponent } from './trails/trails.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { HomeComponent } from './home/home.component';
+import { HomeExtrasComponent } from './home-extras/home-extras.component';
+import { TrailItemSmallComponent } from './trail-item-small/trail-item-small.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -19,18 +29,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
-import { NavbarComponent } from './navbar/navbar.component';
-import { TrailDifficultyComponent } from './trail-difficulty/trail-difficulty.component';
-import { TrailRatingComponent } from './trail-rating/trail-rating.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { TrailsComponent } from './trails/trails.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { HomeComponent } from './home/home.component';
-import { HomeExtrasComponent } from './home-extras/home-extras.component';
-import { TrailItemSmallComponent } from './trail-item-small/trail-item-small.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+import { environment } from 'src/environments/environment';
 
 
 
