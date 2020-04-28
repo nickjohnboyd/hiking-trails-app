@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-user-login',
@@ -9,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class UserLoginComponent implements OnInit {
 
-  user
+  user: User;
 
   constructor(
     public afAuth: AngularFireAuth
@@ -27,7 +28,12 @@ export class UserLoginComponent implements OnInit {
       // This gives you a Google Access Token. You can use it to access the Google API.
       // var token = result.credential.accessToken;
       // The signed-in user info.
-      this.user = result.user;
+      console.log(result.user);
+      this.user.name = result.user.displayName;
+      this.user.email = result.user.email;
+      this.user.profileImg = result.user.photoURL;
+      console.log('here');
+      console.log(this.user);
       // ...
     }).catch(function(error) {
       // Handle Errors here.
@@ -39,7 +45,10 @@ export class UserLoginComponent implements OnInit {
       var credential = error.credential;
       // ...
     });
-    console.log(this.user);
+
+    setTimeout(() => {
+      console.log(this.user);
+    }, 5000);
   }
 
 }
