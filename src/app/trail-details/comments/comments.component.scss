@@ -1,0 +1,17 @@
+@import "../../mixins.scss";
+@import "../../variables.scss";
+
+.user-comment {
+  @include flex-jse-ac();
+  justify-content: flex-start;
+  mat-icon {
+    font-size: 35px;
+    color: $accent;
+  }
+  .comment {
+    margin-left: 10px;
+    p {
+      margin-top: 10px;
+    }
+  }
+}

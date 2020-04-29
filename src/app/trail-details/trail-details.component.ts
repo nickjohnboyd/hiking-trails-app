@@ -31,6 +31,8 @@ export class TrailDetailsComponent implements OnInit {
   hourlyTime: string[] = [];
   dailyDay: string[] = [];
   loading: boolean = true;
+  commentCollection: string[] = [];
+  comment: string;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -68,6 +70,13 @@ export class TrailDetailsComponent implements OnInit {
         this.getHour();
         this.getDay();
       });
+  }
+
+  post() {
+    if (this.comment != undefined)  {
+      this.commentCollection.push(this.comment);
+      this.comment = '';
+    }
   }
 
   getHour() {
