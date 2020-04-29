@@ -33,6 +33,7 @@ export class UserService {
   }
 
   getUser() {
+    this.user = this.authService.getUser();
     return this.user;
   }
 }
