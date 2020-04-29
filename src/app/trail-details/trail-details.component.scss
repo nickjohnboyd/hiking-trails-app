@@ -96,11 +96,11 @@
             height: 100%;
             width: 50%;
             .icons {
-              @include flex-jse-ac();
+              display: flex;
+              align-items: center;
               width: 60%;
-              justify-content: space-between;
               .fa-mountain {
-                // margin-right: 20px;
+                margin-right: 50px;
                 font-size: 20px;
               }
               p{
