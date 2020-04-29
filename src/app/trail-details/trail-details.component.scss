@@ -1,4 +1,5 @@
 @import "../mixins.scss";
+@import "../variables.scss";
 
 .trail-title {
   @include flex-jc-ac();
@@ -10,9 +11,14 @@
 }
 .details-container {
   @include flex-jse-ac();
+  // @include box-shadow();
   flex-flow: row wrap;
   width: calc(100% - 100px);
-  margin: 0 50px 0 50px;
+  padding: 30px 10px 30px 10px;
+  margin: 0 50px 50px 50px;
+  border-radius: 4px;
+  // background-color:#dadada;
+  // background-color:#e6e6e6;
   .left {
     @include flex-jc-ac-fdc();
     flex: 1 0 600px;
@@ -22,7 +28,7 @@
     .upper-left {
       @include flex-jc-ac-fdc();
       // @include box-shadow();
-      height: 50%;
+      // height: 50%;
       width: 100%;
       // background-color: #dadfea;
       .images-details {
@@ -41,12 +47,10 @@
           height: auto;
           width: calc(50% - 20px);
           min-height: 210px;
-          max-height: 259px;
+          max-height: 210px;
           max-width: 430px;
-          // margin-bottom: 5px;
-          // height: 250px;
-          // width: 430px;
           margin: 10px;
+          border-radius: 4px;
         }
       }
     }
@@ -57,7 +61,10 @@
       margin-bottom: 15px;
       // background-color: #dadfea;
       .app-trail-difficulty {
+        // @include flex-jse-ac();
         margin-bottom: 20px;
+        margin-left: 1.2%;
+        margin-right: 1.2%;
       }
       .app-trail-rating {
         margin-bottom: 20px;
@@ -66,12 +73,12 @@
         @include flex-jc-ac-fdc();
         h3 {
           height: 70px;
-          font-size: 25px;
+          font-size: 22px;
           text-align: center;
         }
         .trail-information {
           @include flex-jse-ac();
-          height: 200px;
+          height: 225px;
           width: 100%;
           margin-bottom: 15px;
           .miles-long {
@@ -107,8 +114,9 @@
           @include flex-jse-ac-fdc();
           height: 110px;
           width: 100%;
-          padding: 2.5px 0 2.5px 0;
-          // background-color: #ec6e4c;
+          padding: 10px;
+          background-color: #f1ccc8;
+          border-radius: 4px;
           h3 {
             margin: 0;
             font-size: 25px;
@@ -184,10 +192,12 @@
     .current-weather {
       @include flex-jc-ac();
       // @include box-shadow();
-      height: 100%;
+      height: 35%;
       width: 100%;
       margin-bottom: 15px;
-      // background-color: #dadfea;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: #f1ccc8;
       .left-weather {
         @include flex-jc-ac-fdc();
         height: 100%;
@@ -217,7 +227,7 @@
         @include flex-jc-ac-fdc();
         height: 100%;
         width: 40%;
-        // background-color: #b3b9c7;
+        padding: 5px;
         .current-details {
           font-size: 12px;
           p {
@@ -233,12 +243,47 @@
       }
     }
     .user-input {
-      height: 100%;
+      height: 35%;
       width: 100%;
     }
-    .user-comments {
+    .comments-container {
       height: 100%;
       width: 100%;
+      .comment-input {
+        @include flex-jse-ac();
+        justify-content: flex-start;
+        height: 10%;
+        mat-form-field {
+          width: 80%;
+          margin-left: 20px;
+        }
+        .profile-icon {
+          height: 100%;
+          color: $accent;
+          font-size: 35px;
+        }
+      }
+    }
+    .comment-submit {
+      @include flex-jse-ac();
+      justify-content: flex-end;
+      button {
+        margin-right: 10px;
+        margin-bottom: 15px;
+      }
+    }
+    .comments-section {
+      .user-comment {
+        @include flex-jse-ac();
+        justify-content: flex-start;
+        mat-icon {
+          font-size: 35px;
+          color: $accent;
+        }
+        .comment {
+          margin-left: 10px;
+        }
+      }
     }
   }
   .bottom {
@@ -249,44 +294,6 @@
     max-width: 1500px;
     // background-color: #dadfea;
     .upper-bottom {
-      margin: 7px;
-      width: 100%;
-      .campgrounds-outer {
-        margin: 25px 7px 25px 7px;
-
-        .campground-title {
-          width: 100%;
-          font-size: 20px;
-          text-align: center;
-          padding: 10px 0 10px 0;
-          // background-color: #b3b9c7;
-        }
-        .campgrounds-container {
-          @include flex-jse-ac();
-
-          .campgrounds {
-            @include flex-jc-ac-fdc();
-            flex-direction: column;
-            width: 33.3333333%;
-            height: 100%;
-            p {
-              margin: 0;
-              margin-bottom: 2px;
-              font-size: 13px;
-            }
-            img {
-              height: auto;
-              width: 200px;
-              min-height: 97px;
-              max-height: 97px;
-              margin-bottom: 5px;
-            }
-          }
-        }
-      }
-    }
-    .lower-bottom {
-      height: 200px;
       width: 100%;
       margin: 7px;
       .hourly-weather {
@@ -338,8 +345,55 @@
         }
       }
     }
+    .lower-bottom {
+      height: 100%;
+      width: 100%;
+      margin: 7px;
+      .campgrounds-outer {
+        margin: 25px 7px 25px 7px;
+        .campground-title {
+          width: 100%;
+          font-size: 30px;
+          text-align: center;
+          padding: 10px 0 10px 0;
+          // background-color: #b3b9c7;
+        }
+        .campgrounds-container {
+          @include flex-jse-ac();
+
+          .campgrounds {
+            @include flex-jc-ac-fdc();
+            flex-direction: column;
+            width: 33.3333333%;
+            height: 100%;
+            .campground {
+              font-size: 16px;
+              font-weight: bold;
+            }
+            p {
+              margin: 0;
+              margin-bottom: 10px;
+              font-size: 15px;
+            }
+            img {
+              height: auto;
+              width: 175px;
+              min-height: 120px;
+              max-height: 120px;
+              margin-bottom: 15px;
+              border-radius: 4px;
+            }
+            button { 
+              margin-top: 15px;
+              background-color: #f1ccc8;
+            }
+          }
+        }
+      }
+    }
   }
 }
+
 @media screen and (max-width: 1244px) {
   .details-container {
     .left {

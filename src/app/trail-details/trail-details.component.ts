@@ -46,11 +46,10 @@ export class TrailDetailsComponent implements OnInit {
       this.latitude = this.currentTrail.latitude;
       console.log(this.currentTrail)
       this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=380,260@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
-      //this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=380,260&banner=${this.currentTrail.location}&@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
       this.getCurrentWeather();
       setTimeout(() => {
         this.loading = false;
-      }, 500 )
+      }, 500)
     });
   }
 
@@ -63,6 +62,7 @@ export class TrailDetailsComponent implements OnInit {
         this.dailyWeather = data.daily;
         this.currentWeatherIcon = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
         this.getDirection(this.currentWeather.wind_deg);
+        console.log(this.currentWeather.wind_deg);
         this.getUnixTime(null);
         this.getCampgroundsNearby();
         this.getHour();
@@ -92,7 +92,8 @@ export class TrailDetailsComponent implements OnInit {
   }
 
   getDirection(num: number) {
-    let val = Math.floor(num / 22.5 + 0.5);
+    let val = Math.floor((num / 22.5) + 0.5) % 16;
+    console.log(val)
     let arr = [
       "N",
       "NNE",
@@ -111,7 +112,7 @@ export class TrailDetailsComponent implements OnInit {
       "NW",
       "NNW",
     ];
-    return (this.windDirection = arr[val % 16]);
+    return this.windDirection = arr[val];
   }
 
   getUnixTime(timestamp: number) {
@@ -143,7 +144,7 @@ export class TrailDetailsComponent implements OnInit {
       "Friday",
       "Saturday",
     ];
-    let dayNew = days[day.getDay()];
-    return dayNew;
+    let today = days[day.getDay()];
+    return today;
   }
 }
