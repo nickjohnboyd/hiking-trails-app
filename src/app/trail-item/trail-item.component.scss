@@ -1,10 +1,12 @@
+@import "../variables.scss";
+
 mat-card {
   padding: 0;
   width: 350px;
   height: 475px;
   margin: 25px;
   text-align: center;
-  background-color: #e6e6e6;
+  background-color: $primary;
   transition: transform .1s;
 
   .favorite {
@@ -15,10 +17,10 @@ mat-card {
     font-size: 25px;
   }
   img {
-   height: 250px;
-   width: 100%;
-   margin: 0px;
-   border-radius: 4px;
+    height: 250px;
+    width: 100%;
+    margin: 0px;
+    border-radius: 4px;
   }
 }
 .information {
