@@ -13,7 +13,8 @@
 		</div> -->
 		<div class="nav-item">
 			<a class="nav-link" routerLink="/profile">
-				<mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+				<mat-icon *ngIf="!hasProfileImg" [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+				<img *ngIf="hasProfileImg" [src]="photoURL" alt="profile picture" class="profile-pic">
 			</a>
 		</div>
 		<div class="nav-item">

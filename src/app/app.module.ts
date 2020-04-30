@@ -7,6 +7,7 @@ import { TrailSearchComponent } from './trail-search/trail-search.component';
 import { TrailListComponent } from './trail-list/trail-list.component';
 import { TrailItemComponent } from './trail-item/trail-item.component';
 import { TrailDetailsComponent } from './trail-details/trail-details.component';
+import { CommentsComponent } from './trail-details/comments/comments.component';
 import { UserTrailsComponent } from './user-trails/user-trails.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -53,7 +54,8 @@ import { environment } from 'src/environments/environment';
     HomeComponent,
     HomeExtrasComponent,
     TrailItemSmallComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

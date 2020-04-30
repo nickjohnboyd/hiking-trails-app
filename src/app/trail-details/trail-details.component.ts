@@ -31,6 +31,8 @@ export class TrailDetailsComponent implements OnInit {
   hourlyTime: string[] = [];
   dailyDay: string[] = [];
   loading: boolean = true;
+  commentCollection: string[] = [];
+  comment: string;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -44,13 +46,11 @@ export class TrailDetailsComponent implements OnInit {
       this.currentTrail = data.trails[0];
       this.longitude = this.currentTrail.longitude;
       this.latitude = this.currentTrail.latitude;
-      console.log(this.currentTrail)
       this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=380,260@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
-      //this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=380,260&banner=${this.currentTrail.location}&@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
       this.getCurrentWeather();
       setTimeout(() => {
         this.loading = false;
-      }, 500 )
+      }, 500)
     });
   }
 
@@ -67,7 +67,16 @@ export class TrailDetailsComponent implements OnInit {
         this.getCampgroundsNearby();
         this.getHour();
         this.getDay();
+        // console.log(this.currentTrail)
+        // console.log(this.currentWeather, this.dailyWeather, this.hourlyWeather)
       });
+  }
+
+  post() {
+    if (this.comment != undefined)  {
+      this.commentCollection.push(this.comment);
+      this.comment = '';
+    }
   }
 
   getHour() {
@@ -88,11 +97,12 @@ export class TrailDetailsComponent implements OnInit {
       .getCampgrounds(this.longitude, this.latitude)
       .subscribe((data) => {
         this.campgrounds = data.campgrounds;
+        // console.log(this.campgrounds)
       });
   }
 
   getDirection(num: number) {
-    let val = Math.floor(num / 22.5 + 0.5);
+    let val = Math.floor((num / 22.5) + 0.5) % 16;
     let arr = [
       "N",
       "NNE",
@@ -111,7 +121,7 @@ export class TrailDetailsComponent implements OnInit {
       "NW",
       "NNW",
     ];
-    return (this.windDirection = arr[val % 16]);
+    return this.windDirection = arr[val];
   }
 
   getUnixTime(timestamp: number) {
@@ -143,7 +153,7 @@ export class TrailDetailsComponent implements OnInit {
       "Friday",
       "Saturday",
     ];
-    let dayNew = days[day.getDay()];
-    return dayNew;
+    let today = days[day.getDay()];
+    return today;
   }
 }

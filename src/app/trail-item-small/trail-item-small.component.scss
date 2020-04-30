@@ -2,7 +2,7 @@ mat-card {
   padding: 0;
   width: 320px;
   height: 350px;
-  margin: 25px;
+  margin: 25px auto;
   text-align: center;
   background-color: #f5f5f5;
   transition: transform .1s;
@@ -13,11 +13,16 @@ mat-card {
     left: 15px;
     color: white;
     font-size: 25px;
+
+    .favorite-icon {
+      font-size: 30px;
+    }
   }
   img {
    height: 200px;
    width: 100%;
    margin: 0px;
+   border-radius: 4px;
   }
 }
 .information {
