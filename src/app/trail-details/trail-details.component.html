@@ -108,24 +108,23 @@
       </div>
     </div>
     <div class="lower-bottom">
-      <div class="campgrounds-outer"> 
-        <h3 class="campground-title">Nearby Campgrounds and Picnic Areas</h3>
-          <div class="campgrounds-container">
-            <div class="campgrounds" *ngFor="let campground of campgrounds | slice:0:3; let i=index">
-              <img src="{{ campground.imgUrl }}" alt="">
-              <p><span class="campground">Campsite Name:</span> {{ campground.name }}</p>
-              <p><span class="campground">Location:</span> {{ campground.location }}</p>
-              <p><span class="campground">Campsites:</span> {{ campground.numCampsites }}</p>
-              <button mat-raised-button><a href="{{ campground.url }}" target="_blank"></a>Check it Out</button>
-            </div>
-          </div>
+      <h3 class="campground-title">Nearby Campgrounds and Picnic Areas</h3>
+      <div class="campgrounds-container">
+        <div class="campgrounds" *ngFor="let campground of campgrounds | slice:0:3; let i=index">
+          <img src="{{ campground.imgUrl }}" alt="">
+          <p><span class="campground">Campsite Name:</span> {{ campground.name }}</p>
+          <p><span class="campground">Location:</span> {{ campground.location }}</p>
+          <p><span class="campground">Campsites:</span> {{ campground.numCampsites }}</p>
+          <button mat-raised-button><a href="{{ campground.url }}" target="_blank"></a>Check it Out</button>
+        </div>
       </div>
     </div>
     <div class="bottom-bottom">
       <div class="comments-container">
         <div class="comment-input">
           <a class="nav-link" routerLink="/profile">
-            <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+            <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle
+            </mat-icon>
           </a>
           <mat-form-field>
             <input [(ngModel)]="comment" matInput type="text" placeholder="Leave a Comment..." class="search-input">
@@ -138,7 +137,8 @@
         <div class="comments-section">
           <div class="user-comment">
             <a class="nav-link" routerLink="/profile">
-              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">
+                account_circle</mat-icon>
             </a>
             <div class="comment">
               <p>Great trail, was very fun to go hiking here. pluse had a campsite nearby. I gave it 5/5 stars.</p>
@@ -146,7 +146,8 @@
           </div>
           <div class="user-comment">
             <a class="nav-link" routerLink="/profile">
-              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">
+                account_circle</mat-icon>
             </a>
             <div class="comment">
               <p>Ive done this hike more then ten times, still love coming here and enjoying the outdoors.</p>
@@ -154,7 +155,8 @@
           </div>
           <div class="user-comment">
             <a class="nav-link" routerLink="/profile">
-              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">
+                account_circle</mat-icon>
             </a>
             <div class="comment">
               <p>This is probably one of my favorite hikes in this area.</p>
@@ -168,7 +170,7 @@
 </div>
 
 
- <!-- <div class="hourly-weather">
+<!-- <div class="hourly-weather">
         <h3>Hourly Weather Forecast</h3>
         <div class="hourly-container">
           <div class="hour-weather">
