@@ -16,12 +16,14 @@ export class UserService {
   handleFavorites(trail: Trail, favorited: boolean) {
     this.user = this.authService.getUser();
     if(favorited) {
-      console.log(this.user);
       if(this.user.favorites === undefined) this.user.favorites = [];
       this.user.favorites.push(trail);
+      console.log(this.user.favorites);
     }
     else if(!favorited) {
-      // this.user.favorites.find(item => item === trail);
+      const favorites = this.user.favorites;
+      favorites.splice(favorites.indexOf(favorites.find(item => item === trail)), 1);
+      console.log(this.user.favorites);
     }
   }
 

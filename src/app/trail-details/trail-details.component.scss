@@ -11,13 +11,10 @@
 }
 .details-container {
   @include flex-jse-ac();
-  // @include box-shadow();
   flex-flow: row wrap;
   width: calc(100% - 100px);
   margin: 0 55px 55px 55px;
   border-radius: 4px;
-  // background-color:#dadada;
-  // background-color:#e6e6e6;
   .left {
     @include flex-jc-ac-fdc();
     flex: 1 0 600px;
@@ -133,8 +130,6 @@
         }
       }
     }
-    .lower-left {
-    }
   }
   .right {
     @include flex-jc-ac-fdc();
@@ -201,20 +196,16 @@
   }
   .bottom {
     @include flex-jse-ac-fdc();
-    // @include box-shadow();
     height: 100%;
     width: 100%;
     max-width: 1500px;
-    // background-color: #dadfea;
     .upper-bottom {
       @include flex-jc-ac();
       width: 100%;
-      margin: 7px;
+      margin: 60px;
       .daily-weather {
-        // @include box-shadow();
         height: 100%;
         width: 70%;
-        // background-color: #dadfea;
         .daily-container {
           @include flex-jc-ac-fdc();
           padding: 5px;
@@ -254,45 +245,41 @@
     .lower-bottom {
       height: 100%;
       width: 100%;
-      margin: 7px;
-      .campgrounds-outer {
-        margin: 25px 7px 25px 7px;
-        .campground-title {
-          width: 100%;
-          font-size: 30px;
-          text-align: center;
-          padding: 10px 0 10px 0;
-          // background-color: #b3b9c7;
-        }
-        .campgrounds-container {
-          @include flex-jse-ac();
+      margin: 40px;
 
-          .campgrounds {
-            @include flex-jc-ac-fdc();
-            flex-direction: column;
-            width: 33.3333333%;
-            height: 100%;
-            .campground {
-              font-size: 16px;
-              font-weight: bold;
-            }
-            p {
-              margin: 0;
-              margin-bottom: 10px;
-              font-size: 15px;
-            }
-            img {
-              height: auto;
-              width: 175px;
-              min-height: 120px;
-              max-height: 120px;
-              margin-bottom: 15px;
-              border-radius: 4px;
-            }
-            button {
-              margin-top: 15px;
-              background-color: #f1ccc8;
-            }
+      .campground-title {
+        width: 100%;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .campgrounds-container {
+        @include flex-jse-ac();
+        .campgrounds {
+          @include flex-jc-ac-fdc();
+          flex-direction: column;
+          width: 33.3333333%;
+          height: 100%;
+          .campground {
+            font-size: 16px;
+            font-weight: bold;
+          }
+          p {
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 15px;
+          }
+          img {
+            height: auto;
+            width: 175px;
+            min-height: 120px;
+            max-height: 120px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+          }
+          button {
+            margin-top: 15px;
+            background-color: #f1ccc8;
           }
         }
       }
