@@ -58,22 +58,7 @@
       </div>
     </div>
     <div class="lower-left">
-      <div class="daily-weather">
-        <div class="daily-container">
-          <div class="day-daily">
-            <div class="day" *ngFor="let day of dailyDay | slice:1:8; let i=index">
-              <p>{{ day }}</p>
-            </div>
-          </div>
-          <div class="day-daily">
-            <div class="day-weather" *ngFor="let daily of dailyWeather | slice:1:8; let i=index">
-              <img src="https://openweathermap.org/img/wn/{{ daily.weather[0].icon }}@2x.png" alt="" srcset="">
-              <p class="max">{{ daily.temp.max }}°F</p>
-              <p>{{ daily.temp.min }}°F</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!--  -->
     </div>
   </div>
   <div class="right">
@@ -102,51 +87,25 @@
     <div class="user-input">
 
     </div>
-    <div class="comments-container">
-      <div class="comment-input">
-        <a class="nav-link" routerLink="/profile">
-          <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
-        </a>
-        <mat-form-field>
-          <input [(ngModel)]="comment" matInput type="text" placeholder="Leave a Comment..." class="search-input">
-        </mat-form-field>
-      </div>
-      <div class="comment-submit">
-        <button mat-flat-button>Cancel</button>
-        <button (click)="post()" mat-raised-button>Comment</button>
-      </div>
-      <div class="comments-section">
-        <div class="user-comment">
-          <a class="nav-link" routerLink="/profile">
-            <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
-          </a>
-          <div class="comment">
-            <p>Great trail, was very fun to go hiking here. pluse had a campsite nearby. I gave it 5/5 stars.</p>
-          </div>
-        </div>
-        <div class="user-comment">
-          <a class="nav-link" routerLink="/profile">
-            <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
-          </a>
-          <div class="comment">
-            <p>Ive done this hike more then ten times, still love coming here and enjoying the outdoors.</p>
-          </div>
-        </div>
-        <div class="user-comment">
-          <a class="nav-link" routerLink="/profile">
-            <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
-          </a>
-          <div class="comment">
-            <p>This is probably one of my favorite hikes in this area.</p>
-          </div>
-        </div>
-        <app-comments *ngFor="let comment of commentCollection" [comment]="comment"></app-comments>
-      </div>
-    </div>
   </div>
   <div class="bottom">
     <div class="upper-bottom">
-    
+      <div class="daily-weather">
+        <div class="daily-container">
+          <div class="day-daily">
+            <div class="day" *ngFor="let day of dailyDay | slice:1:8; let i=index">
+              <p>{{ day }}</p>
+            </div>
+          </div>
+          <div class="day-daily">
+            <div class="day-weather" *ngFor="let daily of dailyWeather | slice:1:8; let i=index">
+              <img src="https://openweathermap.org/img/wn/{{ daily.weather[0].icon }}@2x.png" alt="" srcset="">
+              <p class="max">{{ daily.temp.max }}°F</p>
+              <p>{{ daily.temp.min }}°F</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="lower-bottom">
       <div class="campgrounds-outer"> 
@@ -160,6 +119,49 @@
               <button mat-raised-button><a href="{{ campground.url }}" target="_blank"></a>Check it Out</button>
             </div>
           </div>
+      </div>
+    </div>
+    <div class="bottom-bottom">
+      <div class="comments-container">
+        <div class="comment-input">
+          <a class="nav-link" routerLink="/profile">
+            <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+          </a>
+          <mat-form-field>
+            <input [(ngModel)]="comment" matInput type="text" placeholder="Leave a Comment..." class="search-input">
+          </mat-form-field>
+        </div>
+        <div class="comment-submit">
+          <button mat-flat-button>Cancel</button>
+          <button (click)="post()" mat-raised-button>Comment</button>
+        </div>
+        <div class="comments-section">
+          <div class="user-comment">
+            <a class="nav-link" routerLink="/profile">
+              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+            </a>
+            <div class="comment">
+              <p>Great trail, was very fun to go hiking here. pluse had a campsite nearby. I gave it 5/5 stars.</p>
+            </div>
+          </div>
+          <div class="user-comment">
+            <a class="nav-link" routerLink="/profile">
+              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+            </a>
+            <div class="comment">
+              <p>Ive done this hike more then ten times, still love coming here and enjoying the outdoors.</p>
+            </div>
+          </div>
+          <div class="user-comment">
+            <a class="nav-link" routerLink="/profile">
+              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+            </a>
+            <div class="comment">
+              <p>This is probably one of my favorite hikes in this area.</p>
+            </div>
+          </div>
+          <app-comments *ngFor="let comment of commentCollection" [comment]="comment"></app-comments>
+        </div>
       </div>
     </div>
   </div>
