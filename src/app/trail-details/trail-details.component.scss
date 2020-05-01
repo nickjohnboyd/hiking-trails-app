@@ -255,10 +255,21 @@
         }
       }
       .favorites-completed {
-        @include flex-jse-ac();
-        height: 200px;
+        @include flex-jc-ac-fdc();
+        height: 170px;
         button {
-          width: 100px;
+          width: 300px;
+          i {
+            font-size: 20px;
+            margin-right: 10px;
+          }
+        }
+        .favorites {
+          background-color: $accent;
+          margin-bottom: 20px;
+        }
+        .completed {
+          background-color: $accent;
         }
       }
     }
