@@ -13,25 +13,25 @@ export class CurrentWeatherComponent implements OnInit {
 
   windDirection: string;
   currentWeatherIcon: string;
-  sunRise: string;
-  sunSet: string;
+  sunrise: string;
+  sunset: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.getUnixTime();
+    this.setUnixTime();
     this.getDirection(this.currentWeather.wind_deg);
     this.currentWeatherIcon = `https://openweathermap.org/img/wn/${this.currentWeather.weather[0].icon}@2x.png`;
   }
 
-  getUnixTime() {
-    let time1 = new Date(this.currentWeather.sunrise * 1000);
-    let time2 = new Date(this.currentWeather.sunset * 1000);
-    this.sunRise = this.setUnixTime(time1);
-    this.sunSet = this.setUnixTime(time2);
+  setUnixTime() {
+    let sunriseUnix = new Date(this.currentWeather.sunrise * 1000);
+    let sunsetUnix = new Date(this.currentWeather.sunset * 1000);
+    this.sunrise = this.getUnixTime(sunriseUnix);
+    this.sunset = this.getUnixTime(sunsetUnix);
   }
 
-  setUnixTime(timestamp: any) {
+  getUnixTime(timestamp: any) {
     let hours = timestamp.getHours();
     let minutes = "0" + timestamp.getMinutes();
     return `${hours}:${minutes.substr(-2)}`;
