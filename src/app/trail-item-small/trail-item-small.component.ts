@@ -24,5 +24,4 @@ export class TrailItemSmallComponent implements OnInit {
     this.favorited = !this.favorited;
     this.userService.handleFavorites(trail, this.favorited);
   }
-
 }

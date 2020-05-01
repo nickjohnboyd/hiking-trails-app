@@ -1,5 +1,6 @@
 @import "../mixins.scss";
 @import "../variables.scss";
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 .trail-title {
   @include flex-jc-ac();
@@ -191,7 +192,68 @@
       margin-bottom: 15px;
       background-color: $primary;
       border-radius: 4px;
-      // need more code here
+      .user-rating {
+        @include flex-jc-ac-fdc();
+        height: 100px;
+        fieldset, label { 
+          margin: 0; padding: 0;
+        }
+        .rating { 
+          border: none;
+          float: left;
+        }
+        .rating > input { display: none; } 
+        .rating > label:before { 
+          margin: 5px;
+          font-size: 1.25em;
+          font-family: FontAwesome;
+          display: inline-block;
+          content: "\f005";
+        }
+        .rating > .half:before { 
+          content: "\f089";
+          position: absolute;
+        }
+        .rating > label { 
+          color: #ddd; 
+          float: right; 
+        }
+        .rating > input:checked ~ label,
+        .rating:not(:checked) > label:hover,
+        .rating:not(:checked) > label:hover ~ label { color: #FFD700;  }
+        .rating > input:checked + label:hover,
+        .rating > input:checked ~ label:hover,
+        .rating > label:hover ~ input:checked ~ label,
+        .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+      }
+      .rate-difficulty {
+        @include flex-jse-ac-fdc();
+        height: 300px;
+        button {
+          width: 300px;
+          color: white;
+        }
+        .easy {
+          background-color: #588f00;
+        }
+        .intermediate {
+          background-color: #06c;
+        }
+        .difficult {
+          background-color: #2a2a2a;
+        }
+        .very-difficult {
+          background-color: #191919;
+        }
+      }
+      .favorites-completed {
+        @include flex-jse-ac();
+        height: 200px;
+        button {
+          width: 100px;
+        }
+        
+      }
     }
   }
   .bottom {
