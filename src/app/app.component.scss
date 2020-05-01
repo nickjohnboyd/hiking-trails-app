@@ -1,0 +1,11 @@
+@import './styles/variables';
+
+:ng-deep .mat-focused .mat-form-field-label {
+  color: red !important;
+}
+::ng-deep.mat-form-field-underline {
+  background-color: $accent !important;
+} 
+::ng-deep.mat-form-field-ripple {
+background-color: $accent !important;;
+}

@@ -34,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // Firebase Imports
 import { AngularFireModule } from '@angular/fire';
@@ -81,6 +82,7 @@ import { DailyWeatherComponent } from './components/trails/trail-details/daily-w
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
+    MatNativeDateModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule

@@ -22,4 +22,7 @@ export class CommentsComponent implements OnInit {
     }
   }
 
+  cancel() {
+    this.comment = '';
+  }
 }

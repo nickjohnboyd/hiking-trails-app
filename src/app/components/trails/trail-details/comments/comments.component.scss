@@ -13,6 +13,9 @@
     mat-form-field {
       width: calc(100% - 50px);
       margin-left: 20px;
+      mat-label {
+        color: #707070;
+      }
     }
     a {
       @include flex-jc-ac();
