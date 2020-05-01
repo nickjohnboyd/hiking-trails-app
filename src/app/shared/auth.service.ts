@@ -3,6 +3,7 @@ import { auth } from 'firebase/app';
 import { User } from "../models/user";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,12 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone,
     public afAuth: AngularFireAuth,
-    private angularFireAuth: AngularFireAuth
+    private angularFireAuth: AngularFireAuth,
+    private userService: UserService
   ) {
     this.afAuth.authState.subscribe(user => {
       this.user = user;
+      this.userService.setUser(this.user);
     });
   }
 
