@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comments',
@@ -6,11 +6,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
-  @Input() comment: string;
+
+  commentCollection: string[] = [];
+  comment: string;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  post() {
+    if (this.comment != undefined) {
+      this.commentCollection.push(this.comment);
+      this.comment = '';
+    }
   }
 
 }

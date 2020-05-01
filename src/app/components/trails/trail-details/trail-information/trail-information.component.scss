@@ -1,0 +1,112 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables";
+
+.upper-left {
+  @include flex-jc-ac-fdc();
+  height: 230px;
+  width: 100%;
+  .images-details {
+    @include flex-jc-ac();
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+    .favorite {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      font-size: 25px;
+      color: white;
+    }
+    img {
+      height: auto;
+      width: calc(50% - 20px);
+      min-height: 210px;
+      max-height: 210px;
+      max-width: 430px;
+      margin: 10px;
+      border-radius: 4px;
+    }
+  }
+}
+.middle-left {
+  height: 658px;
+  width: 100%;
+  .app-trail-difficulty {
+    margin-bottom: 20px;
+    margin-left: 1.2%;
+    margin-right: 1.2%;
+  }
+  .app-trail-rating {
+    margin-bottom: 20px;
+  }
+  .middle-left-content {
+    @include flex-jc-ac-fdc();
+    h3 {
+      @include flex-jc-ac();
+      height: 80px;
+      font-size: 22px;
+      text-align: center;
+    }
+    .trail-information {
+      @include flex-jse-ac();
+      height: 300px;
+      width: 100%;
+      margin-bottom: 15px;
+      .miles-long {
+        @include flex-jse-ac();
+        height: 100%;
+        width: 50%;
+        font-size: 20px;
+        .fa-hiking {
+          margin-right: 30px;
+          font-size: 30px;
+        }
+      }
+      .other-information {
+        @include flex-jse-ac-fdc();
+        height: 300px;
+        width: 50%;
+        .icons {
+          display: flex;
+          align-items: center;
+          width: 70%;
+          .fa-mountain {
+            margin-right: 40px;
+            font-size: 20px;
+          }
+          p {
+            margin: 0;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .conditions {
+      @include flex-jse-ac-fdc();
+      height: 128px;
+      width: 95%;
+      padding: 10px;
+      padding-right: 0px;
+      background-color: $primary;
+      border-radius: 4px;
+      h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .condition-status {
+        @include flex-jse-ac-fdc();
+        width: 100%;
+        .condition {
+          font-weight: bold;
+          font-size: 16px;
+        }
+        p {
+          margin: 3px;
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

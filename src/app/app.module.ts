@@ -13,6 +13,7 @@ import { TrailSearchComponent } from './components/trails/search/trail-search/tr
 import { TrailListComponent } from './components/trails/trail-list/trail-list.component';
 import { TrailItemComponent } from './components/trails/trail-item/trail-item.component';
 import { TrailDetailsComponent } from './components/trails/trail-details/trail-details.component';
+import { TrailInformationComponent } from './components/trails/trail-details/trail-information/trail-information.component';
 import { UserTrailsComponent } from './components/user/user-trails/user-trails.component';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { NavbarComponent } from './components/global/navbar/navbar.component';
@@ -39,8 +40,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
-
-
+import { CurrentWeatherComponent } from './components/trails/trail-details/current-weather/current-weather.component';
+import { UserInputsComponent } from './components/trails/trail-details/user-inputs/user-inputs.component';
+import { DailyWeatherComponent } from './components/trails/trail-details/daily-weather/daily-weather.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,11 @@ import { environment } from 'src/environments/environment';
     HomeExtrasComponent,
     TrailItemSmallComponent,
     SpinnerComponent,
-    CommentsComponent
+    CommentsComponent,
+    TrailInformationComponent,
+    CurrentWeatherComponent,
+    UserInputsComponent,
+    DailyWeatherComponent,
   ],
   imports: [
     BrowserModule,

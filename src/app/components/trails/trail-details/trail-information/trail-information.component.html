@@ -1,0 +1,57 @@
+<div class="upper-left">
+  <div class="images-details">
+    <div class="favorite">
+      <i class="far fa-heart"></i>
+    </div>
+    <img *ngIf="currentTrail?.imgMedium; else displayDefault" src="{{ currentTrail?.imgMedium }}">
+    <ng-template #displayDefault>
+      <img src="{{ defaultTrail }}">
+    </ng-template>
+    <img src="{{ mapImg }}" alt="">
+  </div>
+</div>
+<div class="middle-left">
+  <div class="app-trail-difficulty">
+    <app-trail-difficulty [trail]='currentTrail'></app-trail-difficulty>
+  </div>
+  <div class="app-trail-rating">
+    <app-trail-rating [trail]='currentTrail'></app-trail-rating>
+  </div>
+  <div class="middle-left-content">
+    <h3>{{ currentTrail?.summary + ' This trail is located in ' +  currentTrail?.location }}</h3>
+    <div class="trail-information">
+      <div class="miles-long">
+        <p><i class="fas fa-hiking"></i> Length: {{ currentTrail?.length }} miles long</p>
+      </div>
+      <div class="other-information">
+        <div class="icons">
+          <i class="fas fa-mountain"></i>
+          <p>Ascent: {{ currentTrail?.ascent }}'</p>
+        </div>
+        <div class="icons">
+          <i class="fas fa-mountain"></i>
+          <p>Descent: {{ currentTrail?.descent }}'</p>
+        </div>
+        <div class="icons">
+          <i class="fas fa-mountain"></i>
+          <p>High: {{ currentTrail?.high }}'</p>
+        </div>
+        <div class="icons">
+          <i class="fas fa-mountain"></i>
+          <p>Low: {{ currentTrail?.low }}'</p>
+        </div>
+      </div>
+    </div>
+    <div class="conditions">
+      <h3>Condition Status Report Below</h3>
+      <div class="condition-status">
+        <p><span class="condition">Status:</span> {{ currentTrail?.conditionStatus }}</p>
+        <p><span class="condition">Details:</span> {{ currentTrail?.conditionDetails }}</p>
+        <p><span class="condition">Date:</span> {{ currentTrail?.conditionDate }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lower-left">
+  <!--  -->
+</div>

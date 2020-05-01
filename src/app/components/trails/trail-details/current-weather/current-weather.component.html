@@ -1,0 +1,22 @@
+<div class="current-weather">
+  <div class="left-weather">
+    <h2 class="current-weather-title">{{ currentTrail?.location }}</h2>
+    <div class="center">
+      <img class="current-weather-icon" src="{{ currentWeatherIcon }}" alt="">
+      <p>{{ currentWeather?.temp }}°F</p>
+    </div>
+    <p class="icon-description">{{ currentWeather?.weather[0].description }}</p>
+  </div>
+  <div class="right-weather">
+    <div class="current-details">
+      <h3 class="current-details-title">Details</h3>
+      <p>Feels Like: {{ currentWeather?.feels_like }}°F</p>
+      <p>Wind: {{ currentWeather?.wind_speed }} m/h</p>
+      <p>Wind Degree: {{ windDirection }}</p>
+      <p>Humidity: {{ currentWeather?.humidity }}%</p>
+      <p>Pressure: {{ currentWeather?.pressure }} hPa</p>
+      <p>Sunrise: {{ sunRise }}</p>
+      <p>Sunset: {{ sunSet }}</p>
+    </div>
+  </div>
+</div>

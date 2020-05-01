@@ -1,8 +1,25 @@
-<div class="user-comment">
-  <a class="nav-link" routerLink="/profile">
-    <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
-  </a>
-  <div class="comment">
-    <p>{{ comment }}</p>
+<div class="comments-container">
+  <div class="comment-input">
+    <a class="nav-link" routerLink="/profile">
+      <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle
+      </mat-icon>
+    </a>
+    <mat-form-field>
+      <input [(ngModel)]="comment" matInput type="text" placeholder="Leave a Comment..." class="search-input" (keyup.enter)="post()">
+    </mat-form-field>
+  </div>
+  <div class="comment-submit">
+    <button mat-flat-button>Cancel</button>
+    <button (click)="post()" mat-raised-button>Comment</button>
+  </div>
+  <div *ngFor="let comment of commentCollection" class="comments-section">
+    <div class="user-comment">
+      <a class="nav-link" routerLink="/profile">
+        <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+      </a>
+      <div class="comment">
+        <p>{{ comment }}</p>
+      </div>
+    </div>
   </div>
 </div>

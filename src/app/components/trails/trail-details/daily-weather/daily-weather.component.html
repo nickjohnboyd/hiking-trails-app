@@ -1,0 +1,16 @@
+<div class="daily-weather">
+  <div class="daily-container">
+    <div class="day-daily">
+      <div class="day" *ngFor="let day of dailyDay | slice:1:8; let i=index">
+        <p>{{ day }}</p>
+      </div>
+    </div>
+    <div class="day-daily">
+      <div class="day-weather" *ngFor="let daily of dailyWeather | slice:1:8; let i=index">
+        <img src="https://openweathermap.org/img/wn/{{ daily.weather[0].icon }}@2x.png" alt="" srcset="">
+        <p class="max">{{ daily.temp.max }}°F</p>
+        <p>{{ daily.temp.min }}°F</p>
+      </div>
+    </div>
+  </div>
+</div>
