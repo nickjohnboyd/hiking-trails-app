@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="conditions">
-          <!-- <h3>Condition Status Report Below</h3> -->
+          <h3>Condition Status Report Below</h3>
           <div class="condition-status">
             <p><span class="condition">Status:</span> {{ currentTrail?.conditionStatus }}</p>
             <p><span class="condition">Details:</span> {{ currentTrail?.conditionDetails }}</p>
@@ -85,7 +85,40 @@
       </div>
     </div>
     <div class="user-input">
-
+      <div class="favorites-completed">
+        <button class="favorites" mat-button><i class="fas fa-heart"></i>ADD TO FAVORITES</button>
+        <button class="completed" mat-button><i class="fas fa-check"></i>ADD TO COMPLETED</button>
+      </div>
+      <div class="user-rating">
+        <h2>Rate this Trail</h2>
+        <fieldset class="rating">
+          <label class="full" for="star5" title="Awesome - 5 stars"></label>
+          <input type="radio" id="star5" name="rating" value="5" />
+            <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4half" name="rating" value="4 and a half" />
+          <input type="radio" id="star3half" name="rating" value="3 and a half" />
+          <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+            <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+          <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+          <input type="radio" id="star2half" name="rating" value="2 and a half" />
+            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" />
+          <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+          <input type="radio" id="star1half" name="rating" value="1 and a half" />
+            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="star1" name="rating" value="1" />
+          <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+          <input type="radio" id="starhalf" name="rating" value="half" />
+        </fieldset>
+      </div>
+      <div class="rate-difficulty">
+        <h2>Rate this Trail Difficulty</h2>
+        <button class="easy" mat-button>EASY</button>
+        <button class="intermediate" mat-button>INTERMEDIATE</button>
+        <button class="difficult" mat-button>DIFFICULT</button>
+        <button class="very-difficult" mat-button>VERY DIFFICULT</button>
+      </div>
     </div>
   </div>
   <div class="bottom">
@@ -107,7 +140,7 @@
         </div>
       </div>
     </div>
-    <div class="lower-bottom">
+    <!-- <div class="lower-bottom">
       <h3 class="campground-title">Nearby Campgrounds and Picnic Areas</h3>
       <div class="campgrounds-container">
         <div class="campgrounds" *ngFor="let campground of campgrounds | slice:0:3; let i=index">
@@ -118,7 +151,7 @@
           <button mat-raised-button><a href="{{ campground.url }}" target="_blank"></a>Check it Out</button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="bottom-bottom">
       <div class="comments-container">
         <div class="comment-input">

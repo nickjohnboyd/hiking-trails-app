@@ -1,17 +1,20 @@
-<mat-card routerLink="/trail-detail/{{ trail.id }}">
-  <div class="favorite">
-    <i class="far fa-heart"></i>
+<mat-card>
+  <div class="favorite" (click)="handleFavorites(trail)"> 
+    <!-- <i class="far fa-heart" [ngStyle]="{'color': redHeart ? 'red' : ''}"></i> -->
+    <mat-icon class="favorite-icon" [ngStyle]="{'color': favorited ? '#f1ccc8' : ''}">favorite</mat-icon>
   </div>
-  <img *ngIf="trail.imgSmallMed; else displayDefault" mat-card-image src="{{ trail.imgSmallMed }}">
-  <ng-template #displayDefault>
-    <img mat-card-image src="{{ defaultTrail }}">
-  </ng-template>
-  <app-trail-difficulty [trail]='trail'></app-trail-difficulty>
-  <div class="information">
-    <mat-card-title>{{ trail.name }}</mat-card-title>
-    <mat-card-subtitle>{{ trail.summary }}</mat-card-subtitle>
-    <mat-card-footer>
-      <app-trail-rating [trail]='trail'></app-trail-rating>
-    </mat-card-footer>
+  <div routerLink="/trail-detail/{{ trail.id }}">
+    <img *ngIf="trail.imgSmallMed; else displayDefault" mat-card-image src="{{ trail.imgSmallMed }}">
+    <ng-template #displayDefault>
+      <img mat-card-image src="{{ defaultTrail }}">
+    </ng-template>
+    <app-trail-difficulty [trail]='trail'></app-trail-difficulty>
+    <div class="information">
+      <mat-card-title>{{ trail.name }}</mat-card-title>
+      <mat-card-subtitle>{{ trail.summary }}</mat-card-subtitle>
+      <mat-card-footer>
+        <app-trail-rating [trail]='trail'></app-trail-rating>
+      </mat-card-footer>
+    </div>
   </div>
 </mat-card>

@@ -1,5 +1,6 @@
 @import "../mixins.scss";
 @import "../variables.scss";
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 .trail-title {
   @include flex-jc-ac();
@@ -106,11 +107,11 @@
           height: 125px;
           width: 95%;
           padding: 10px;
-          background-color: #f1ccc8;
+          background-color: $primary;
           border-radius: 4px;
           h3 {
             margin: 0;
-            font-size: 25px;
+            font-size: 18px;
             font-weight: bold;
           }
           .condition-status {
@@ -191,18 +192,102 @@
       margin-bottom: 15px;
       background-color: $primary;
       border-radius: 4px;
-      // need more code here
+      .user-rating {
+        @include flex-jc-ac-fdc();
+        height: 100px;
+        fieldset,
+        label {
+          margin: 0;
+          padding: 0;
+        }
+        .rating {
+          border: none;
+          float: left;
+        }
+        .rating > input {
+          display: none;
+        }
+        .rating > label:before {
+          margin: 5px;
+          font-size: 1.25em;
+          font-family: FontAwesome;
+          display: inline-block;
+          content: "\f005";
+        }
+        .rating > .half:before {
+          content: "\f089";
+          position: absolute;
+        }
+        .rating > label {
+          color: #ddd;
+          float: right;
+        }
+        .rating > input:checked ~ label,
+        .rating:not(:checked) > label:hover,
+        .rating:not(:checked) > label:hover ~ label {
+          color: #ffd700;
+        }
+        .rating > input:checked + label:hover,
+        .rating > input:checked ~ label:hover,
+        .rating > label:hover ~ input:checked ~ label,
+        .rating > input:checked ~ label:hover ~ label {
+          color: #ffed85;
+        }
+      }
+      .rate-difficulty {
+        @include flex-jse-ac-fdc();
+        height: 300px;
+        button {
+          width: 300px;
+          color: white;
+        }
+        .easy {
+          background-color: #588f00;
+        }
+        .intermediate {
+          background-color: #06c;
+        }
+        .difficult {
+          background-color: #2a2a2a;
+        }
+        .very-difficult {
+          background-color: #191919;
+        }
+      }
+      .favorites-completed {
+        @include flex-jc-ac-fdc();
+        height: 170px;
+        button {
+          width: 300px;
+          i {
+            font-size: 20px;
+            margin-right: 10px;
+          }
+        }
+        .favorites {
+          background-color: $accent;
+          margin-bottom: 20px;
+        }
+        .completed {
+          background-color: $accent;
+        }
+      }
     }
   }
   .bottom {
     @include flex-jse-ac-fdc();
     height: 100%;
     width: 100%;
-    max-width: 1500px;
+    max-width: 1400px;
     .upper-bottom {
       @include flex-jc-ac();
       width: 100%;
-      margin: 60px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      border-radius: 4px;
+      background-color: $accent;
       .daily-weather {
         height: 100%;
         width: 70%;
@@ -279,7 +364,7 @@
           }
           button {
             margin-top: 15px;
-            background-color: #f1ccc8;
+            background-color: $accent;
           }
         }
       }
@@ -287,6 +372,7 @@
     .bottom-bottom {
       height: 100%;
       width: 100%;
+      margin-top: 30px;
       .comments-container {
         height: 100%;
         padding: 50px 5% 50px 5%;
