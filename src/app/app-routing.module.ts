@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { TrailDetailsComponent } from './trail-details/trail-details.component';
-import { UserTrailsComponent } from './user-trails/user-trails.component';
-import { TrailsComponent } from './trails/trails.component';
-import { HomeComponent } from './home/home.component';
+import { UserLoginComponent } from './components/user/user-login/user-login.component';
+import { HomeComponent } from './components/home/home/home.component';
+import { TrailDetailsComponent } from './components/trails/trail-details/trail-details.component';
+import { TrailsComponent } from './components/trails/trails/trails.component';
+import { UserTrailsComponent } from './components/user/user-trails/user-trails.component';
 
 
 const routes: Routes = [

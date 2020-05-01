@@ -34,7 +34,7 @@
             ],
             "styles": [
               {
-                "input": "src/app/theme.scss"
+                "input": "src/app/styles/theme.scss"
               },
               "src/styles.scss"
             ],

@@ -9,22 +9,22 @@ import { FormsModule } from '@angular/forms';
 
 // Component Imports
 import { AppComponent } from './app.component';
-import { TrailSearchComponent } from './trail-search/trail-search.component';
-import { TrailListComponent } from './trail-list/trail-list.component';
-import { TrailItemComponent } from './trail-item/trail-item.component';
-import { TrailDetailsComponent } from './trail-details/trail-details.component';
-import { CommentsComponent } from './trail-details/comments/comments.component';
-import { UserTrailsComponent } from './user-trails/user-trails.component';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { TrailDifficultyComponent } from './trail-difficulty/trail-difficulty.component';
-import { TrailRatingComponent } from './trail-rating/trail-rating.component';
-import { TrailsComponent } from './trails/trails.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { HomeComponent } from './home/home.component';
-import { HomeExtrasComponent } from './home-extras/home-extras.component';
-import { TrailItemSmallComponent } from './trail-item-small/trail-item-small.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+import { TrailSearchComponent } from './components/trails/search/trail-search/trail-search.component';
+import { TrailListComponent } from './components/trails/trail-list/trail-list.component';
+import { TrailItemComponent } from './components/trails/trail-item/trail-item.component';
+import { TrailDetailsComponent } from './components/trails/trail-details/trail-details.component';
+import { UserTrailsComponent } from './components/user/user-trails/user-trails.component';
+import { UserLoginComponent } from './components/user/user-login/user-login.component';
+import { NavbarComponent } from './components/global/navbar/navbar.component';
+import { TrailDifficultyComponent } from './components/trails/trail-difficulty/trail-difficulty.component';
+import { TrailRatingComponent } from './components/trails/trail-rating/trail-rating.component';
+import { TrailsComponent } from './components/trails/trails/trails.component';
+import { SearchBarComponent } from './components/trails/search/search-bar/search-bar.component';
+import { HomeComponent } from './components/home/home/home.component';
+import { HomeExtrasComponent } from './components/home/home-extras/home-extras.component';
+import { TrailItemSmallComponent } from './components/trails/trail-item-small/trail-item-small.component';
+import { SpinnerComponent } from './components/global/spinner/spinner.component';
+import { CommentsComponent } from './components/trails/trail-details/comments/comments.component';
 
 // Material Imports
 import { MatInputModule } from '@angular/material/input';

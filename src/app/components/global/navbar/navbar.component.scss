@@ -1,0 +1,64 @@
+@import '../../../styles/variables';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .nav-item {
+    margin-right: 10px;
+
+    .nav-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #000000;
+
+      .summit-logo {
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        background-image: url('../../../images/mountain-circle-logo.jpg');
+        background-size: cover;
+      }
+      .summit-title {
+        font-size: 27px;
+        margin-left: 10px;
+      }
+      .search-icon {
+        font-size: 30px;
+        margin-right: 20px;
+      }
+      .profile-icon {
+        font-size: 35px;
+        color: $accent;
+      }
+      .profile-pic {
+        height: 32px;
+        width: 32px;
+        border-radius: 16px;
+      }
+      // .profile-pic-cont {
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   height: 32px;
+      //   width: 32px;
+
+      //   .profile-pic {
+          
+      //   }
+      // }
+      
+    }
+    .logout {
+      font-size: 17px;
+    }
+  }
+  .nav-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
