@@ -1,7 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Base Module Imports
 import { AppRoutingModule } from './app-routing.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+// Component Imports
 import { AppComponent } from './app.component';
 import { TrailSearchComponent } from './trail-search/trail-search.component';
 import { TrailListComponent } from './trail-list/trail-list.component';
@@ -20,10 +26,7 @@ import { HomeExtrasComponent } from './home-extras/home-extras.component';
 import { TrailItemSmallComponent } from './trail-item-small/trail-item-small.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-
+// Material Imports
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,8 +34,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+// Firebase Imports
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
 
@@ -71,7 +76,8 @@ import { environment } from 'src/environments/environment';
     MatIconModule,
     MatToolbarModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

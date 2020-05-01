@@ -1,6 +1,5 @@
 <mat-card color="primary">
-  <div class="favorite" (click)="handleFavorites(trail)"> 
-    <!-- <i class="far fa-heart" [ngStyle]="{'color': redHeart ? 'red' : ''}"></i> -->
+  <div class="favorite" (click)="handleFavorites(trail)">
     <mat-icon class="favorite-icon" [ngStyle]="{'color': favorited ? '#f1ccc8' : ''}">favorite</mat-icon>
   </div>
   <div routerLink="/trail-detail/{{ trail.id }}">
