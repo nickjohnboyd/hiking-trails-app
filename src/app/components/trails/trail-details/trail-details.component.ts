@@ -1,4 +1,4 @@
-import { Component, OnInit, } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Trail } from 'src/app/models/trail';
 import { Weather } from 'src/app/models/weather';
@@ -12,6 +12,8 @@ import { WeatherApiService } from 'src/app/shared/weather-api.service';
   styleUrls: ["./trail-details.component.scss"],
 })
 export class TrailDetailsComponent implements OnInit {
+  favorite: boolean;
+  complete: boolean;
   mapImg: string;
   id: number;
   longitude: number;
@@ -48,5 +50,13 @@ export class TrailDetailsComponent implements OnInit {
         this.currentWeather = data.current;
         this.dailyWeather = data.daily;
       });
+  }
+
+  addFavorite(favorite: boolean) {
+    this.favorite = favorite;
+  }
+
+  addCompleted(complete: boolean) {
+    this.complete = complete;
   }
 }

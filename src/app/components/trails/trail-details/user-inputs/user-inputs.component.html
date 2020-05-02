@@ -25,8 +25,8 @@
     </fieldset>
   </div>
   <div class="favorites-completed">
-    <button class="favorites" mat-button><i class="fas fa-heart"></i>ADD TO FAVORITES</button>
-    <button class="completed" mat-button><i class="fas fa-check"></i>ADD TO COMPLETED</button>
+    <button class="favorites" mat-button (click)="handleFavorites()"><i class="fas fa-heart"></i>ADD TO FAVORITES</button>
+    <button class="completed" mat-button (click)="handleCompleted()"><i class="fas fa-check"></i>ADD TO COMPLETED</button>
   </div>
   <div class="rate-difficulty">
     <h2>Rate this Trail Difficulty</h2>

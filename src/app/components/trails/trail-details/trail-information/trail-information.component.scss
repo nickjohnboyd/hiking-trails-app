@@ -15,7 +15,14 @@
       top: 25px;
       left: 25px;
       font-size: 25px;
-      color: white;
+      color: $accent;
+    }
+    .complete {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      font-size: 25px;
+      color: green;
     }
     img {
       height: auto;

@@ -11,8 +11,7 @@ export class TrailItemComponent implements OnInit {
   @Input() trail: Trail;
 
   defaultTrail: string = '../../assets/images/default-trail.jpg';
-
-  favorited = false;
+  favorited: boolean = false;
 
   constructor(
     public userService: UserService

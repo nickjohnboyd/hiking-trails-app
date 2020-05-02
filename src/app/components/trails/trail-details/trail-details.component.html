@@ -3,11 +3,14 @@
 <app-spinner *ngIf="loading"></app-spinner>
 <div *ngIf="!loading" class="details-container">
   <div class="left">
-    <app-trail-information [currentTrail]="currentTrail" [mapImg]="mapImg"></app-trail-information>
+    <app-trail-information [complete]="complete" [favorite]="favorite" [currentTrail]="currentTrail" [mapImg]="mapImg">
+    </app-trail-information>
   </div>
   <div class="right">
-    <app-current-weather class="app-current-weather" [currentWeather]="currentWeather" [currentTrail]="currentTrail"></app-current-weather>
-    <app-user-inputs class="app-user-inputs"></app-user-inputs>
+    <app-current-weather class="app-current-weather" [currentWeather]="currentWeather" [currentTrail]="currentTrail">
+    </app-current-weather>
+    <app-user-inputs class="app-user-inputs" (addComplete)="addCompleted($event)" (addFavorite)="addFavorite($event)"
+      [currentTrail]="currentTrail"></app-user-inputs>
   </div>
   <div class="bottom">
     <div class="upper-bottom">

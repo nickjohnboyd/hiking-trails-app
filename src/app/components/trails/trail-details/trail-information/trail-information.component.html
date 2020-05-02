@@ -1,7 +1,10 @@
 <div class="upper-left">
   <div class="images-details">
-    <div class="favorite">
-      <i class="far fa-heart"></i>
+    <div class="favorite" *ngIf="favorite">
+      <i class="fas fa-heart"></i>
+    </div>
+    <div class="complete" *ngIf="complete">
+      <i class="fas fa-check"></i>
     </div>
     <img *ngIf="currentTrail?.imgMedium; else displayDefault" src="{{ currentTrail?.imgMedium }}">
     <ng-template #displayDefault>
