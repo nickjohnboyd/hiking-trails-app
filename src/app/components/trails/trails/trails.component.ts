@@ -14,7 +14,7 @@ export class TrailsComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.loading = false;
-    }, 500 )
+    }, 1000 )
   }
 
   setDisplay(trails) {
