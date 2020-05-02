@@ -18,8 +18,8 @@ export class TrailsComponent implements OnInit {
   }
 
   setDisplay(trails) {
-    console.log('set display trails');
-    console.log(trails);
+    // console.log('set display trails');
+    // console.log(trails);
     if (trails.length > 0) this.showTrailList = true;
     else this.showTrailList = false;
   }

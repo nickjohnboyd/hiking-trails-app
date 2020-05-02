@@ -14,10 +14,11 @@ export class TrailListComponent implements OnInit {
 
   trails: Trail[] = [];
   zip: number;
+  validZip: boolean;
   longitude: number;
   latitude: number;
   city: string;
-  state: string; 
+  state: string;
   loading: boolean = true;
 
   constructor(
@@ -32,14 +33,15 @@ export class TrailListComponent implements OnInit {
     this.searchTrails();
     setTimeout(() => {
       this.loading = false;
-    }, 500 )
+    }, 500)
   }
 
   searchTrails(zip?: number) {
-    if(zip) this.zip = zip;
-    console.log(this.zip);
-    if(this.zip === undefined) return;
+    if (zip) this.zip = zip;
+    // console.log(this.zip);
+    if (this.zip === undefined) return;
     this.mapApiService.getCoordinates(this.zip).subscribe(result => {
+      this.validZip = true;
       this.city = result.results[0].locations[0].adminArea5;
       this.state = result.results[0].locations[0].adminArea3;
       this.longitude = result.results[0].locations[0].latLng.lng;
@@ -50,11 +52,15 @@ export class TrailListComponent implements OnInit {
 
   searchTrailsApi() {
     this.trailsApiService.getTrails(this.latitude, this.longitude).subscribe(data => {
-      this.trails = data.trails;
-      console.log('second emitter');
-      console.log(this.trails);
-      this.onTrailsAdded.emit(this.trails);
-    });   
+      if(data.trails.length === 0) {
+        this.validZip = false;
+      } else {
+        this.trails = data.trails;
+        // console.log('second emitter');
+        // console.log(this.trails);
+        this.onTrailsAdded.emit(this.trails);
+      }
+    });
   }
 
 }

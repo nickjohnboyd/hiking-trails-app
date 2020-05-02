@@ -35,6 +35,9 @@
       display: flex;
       width: 50%;
       margin: auto;
+      mat-label {
+        color: #707070;
+      }
     }
     .loginButton {
       display: flex;

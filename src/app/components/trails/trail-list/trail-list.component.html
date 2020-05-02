@@ -1,10 +1,17 @@
 <div class="trail-list">
   <app-search-bar (onSearch)="searchTrails($event)" class="search-bar"></app-search-bar>
-  <div class="trails-cont">
+  <div *ngIf="validZip; else setInvalidZip" class="trails-cont">
     <div class="location-title">Trails near {{ city }}, {{ state }}</div>
     <app-spinner *ngIf="loading"></app-spinner>
     <div *ngIf="!loading" class="container">
       <app-trail-item *ngFor="let trail of trails" [trail]="trail"></app-trail-item>
     </div>
   </div>
+  <ng-template #setInvalidZip>
+    <div class="invalid-container">
+      <div class="invalid-title">
+        <p>The zip you have enter is invalid, please try again...</p>
+      </div>
+    </div>
+  </ng-template>
 </div>
