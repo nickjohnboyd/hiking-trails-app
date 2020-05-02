@@ -44,6 +44,7 @@ import { environment } from 'src/environments/environment';
 import { CurrentWeatherComponent } from './components/trails/trail-details/current-weather/current-weather.component';
 import { UserInputsComponent } from './components/trails/trail-details/user-inputs/user-inputs.component';
 import { DailyWeatherComponent } from './components/trails/trail-details/daily-weather/daily-weather.component';
+import { FooterComponent } from './components/global/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { DailyWeatherComponent } from './components/trails/trail-details/daily-w
     CurrentWeatherComponent,
     UserInputsComponent,
     DailyWeatherComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
