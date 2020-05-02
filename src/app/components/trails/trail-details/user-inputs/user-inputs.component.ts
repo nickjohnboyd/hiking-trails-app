@@ -14,6 +14,10 @@ export class UserInputsComponent implements OnInit {
 
   favorited: boolean = false;
   completed: boolean = false;
+  easy: boolean = false;
+  intermediate: boolean = false;
+  difficult: boolean = false;
+  veryDifficult: boolean = false;
 
   constructor(
     public userService: UserService
@@ -34,4 +38,25 @@ export class UserInputsComponent implements OnInit {
     this.addComplete.emit(this.completed);
   }
 
+  handleDifficulty(difficulty: string) {
+    this.easy = false;
+    this.intermediate = false;
+    this.difficult = false;
+    this.veryDifficult = false;
+
+    switch(difficulty) {
+      case 'easy':
+        this.easy = true;
+        break;
+      case 'intermediate':
+        this.intermediate = true;
+        break;
+      case 'difficult':
+        this.difficult = true;
+        break;
+      case 'very-difficult':
+        this.veryDifficult = true;
+        break;
+    }
+  }
 }
