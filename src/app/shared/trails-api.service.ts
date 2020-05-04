@@ -14,7 +14,7 @@ export class TrailsApiService {
   ) { }
 
   getTrails(lat: number, long: number): Observable<any> {
-    return this.http.get<any>(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=10&key=${this.privateKey}`);
+    return this.http.get<any>(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=30&sort=distance&key=${this.privateKey}`);
   }
 
   getTrailById(id: number): Observable<any> {

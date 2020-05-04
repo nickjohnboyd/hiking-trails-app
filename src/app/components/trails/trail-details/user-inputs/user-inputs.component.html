@@ -25,25 +25,31 @@
     </fieldset>
   </div>
   <div class="favorites-completed">
-    <button class="favorites" mat-button (click)="handleFavorites()" *ngIf="!favorited; else setFavorite"><i
-        class="fas fa-heart"></i>ADD TO FAVORITES</button>
+    <button class="favorites" mat-button (click)="handleFavorites()" *ngIf="!favorited; else setFavorite">
+      ADD TO FAVORITES
+    </button>
     <ng-template #setFavorite>
       <button class="favorites" mat-button (click)="handleFavorites()"
-        style="background-color: #ca3322; color: white; border: 5px solid #f1ccc8;"><i class="fas fa-heart"></i>ADDED TO FAVORITES</button>
+        style="background-color: #ca3322; color: white; border: 5px solid #f1ccc8;">
+        <mat-icon style="margin-right: 20px;">favorite</mat-icon>ADDED TO FAVORITES
+      </button>
     </ng-template>
-    <button class="completed" mat-button (click)="handleCompleted()" *ngIf="!completed; else setCompleted"><i
-        class="fas fa-check"></i>ADD TO COMPLETED</button>
+    <button class="completed" mat-button (click)="handleCompleted()" *ngIf="!completed; else setCompleted">
+      ADD TO COMPLETED
+    </button>
     <ng-template #setCompleted>
-      <button class="completed" mat-button (click)="handleCompleted()" style="background-color: green; color: white; border: 5px solid #f1ccc8;"><i
-          class="fas fa-check"></i>ADDED TO COMPLETED</button>
+      <button class="completed" mat-button (click)="handleCompleted()"
+        style="background-color: green; color: white; border: 5px solid #f1ccc8;">
+        <mat-icon style="margin-right: 20px;">check_box</mat-icon>ADDED TO
+        COMPLETED
+      </button>
     </ng-template>
   </div>
   <div class="rate-difficulty">
     <h2>Rate this Trail Difficulty</h2>
     <button class="easy" mat-button (click)="handleDifficulty('easy')" *ngIf="!easy; else setEasy">EASY</button>
     <ng-template #setEasy>
-      <button class="easy" mat-button (click)="handleDifficulty('easy')"
-        style="border: 5px solid #f1ccc8">EASY</button>
+      <button class="easy" mat-button (click)="handleDifficulty('easy')" style="border: 5px solid #f1ccc8">EASY</button>
     </ng-template>
     <button class="intermediate" mat-button (click)="handleDifficulty('intermediate')"
       *ngIf="!intermediate; else setIntermediate">INTERMEDIATE</button>

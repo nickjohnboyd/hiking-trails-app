@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [back]="backToTrails"></app-navbar>
 <h2 class="trail-title">{{ currentTrail?.name }}</h2>
 <app-spinner *ngIf="loading"></app-spinner>
 <div *ngIf="!loading" class="details-container">

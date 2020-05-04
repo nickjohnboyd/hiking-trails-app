@@ -1,3 +1,4 @@
+import { ZipService } from './../../../../shared/zip.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,14 +11,17 @@ export class TrailSearchComponent implements OnInit {
   zip: number;
 
   constructor(
-    private router: Router
+    private zipService: ZipService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
   search() {
+    // this.validZip = this.zipService.zipValidator(this.zip);
     this.router.navigate([`trails/${this.zip}`]);
+    
   }
 
 }
