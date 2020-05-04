@@ -22,6 +22,7 @@ export class TrailDetailsComponent implements OnInit {
   currentWeather: Weather;
   dailyWeather: DailyWeather[];
   loading: boolean = true;
+  backToTrails: boolean = true;
 
   constructor(
     private activateRoute: ActivatedRoute,

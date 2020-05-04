@@ -11,14 +11,22 @@
 				<mat-icon [inline]="true" aria-hidden="false" aria-label="search icon" class="search-icon">search</mat-icon>
 			</a>
 		</div> -->
-		<div class="nav-item">
-			<a class="nav-link" routerLink="/profile">
-				<mat-icon *ngIf="!hasProfileImg" [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
-				<img *ngIf="hasProfileImg" [src]="photoURL" alt="profile picture" class="profile-pic">
+		<div *ngIf="back" class="nav-item">
+			<a title="Back to Trails" style="margin-right: 20px; font-size: 15px;" class="nav-link" (click)="backToTrails()" routerLink="">
+				<mat-icon class="back">undo</mat-icon>
 			</a>
 		</div>
 		<div class="nav-item">
-			<a class="nav-link logout" routerLink="">Logout</a>
+			<a class="nav-link" routerLink="/profile">
+				<mat-icon *ngIf="!hasProfileImg" [inline]="true" aria-hidden="false" aria-label="profile icon"
+					class="profile-icon">account_circle</mat-icon>
+				<img *ngIf="hasProfileImg" [src]="photoURL" alt="profile picture" class="profile-pic">
+			</a>
+		</div>
+		<div *ngIf="logout" class="nav-item">
+			<a title="Logout" class="nav-link logout" routerLink="">
+				<mat-icon class="logout-icon">exit_to_app</mat-icon>
+			</a>
 		</div>
 	</div>
 </mat-toolbar>

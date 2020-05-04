@@ -1,10 +1,11 @@
-<app-navbar></app-navbar>
+<app-navbar [logout]="logout"></app-navbar>
 
 <div class="page">
     <div class="left">
         <div class="info">
             <div class="ltop">
-                <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon>
+                <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">
+                    account_circle</mat-icon>
                 <div class="change"><a href="">Change</a></div>
             </div>
             <div class="lbottom">
@@ -19,7 +20,7 @@
         <div class="favorites">
             <div class="fav-title">
                 Favorites
-            </div> 
+            </div>
             <div class="trails">
                 <app-trail-item-small *ngFor="let trail of popularTrails" [trail]="trail"></app-trail-item-small>
             </div>
