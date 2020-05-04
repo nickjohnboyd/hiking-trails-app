@@ -10,7 +10,13 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 export class UserService {
   private usersRef: AngularFirestoreCollection<User>
 
-  user: User;
+  user: User = {
+    uid: '',
+    email: '',
+    displayName: '',
+    photoURL: '',
+    emailVerified: false
+  };
 
   constructor(
     // public authService: AuthService,
