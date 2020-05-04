@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { User } from '../models/user';
 import { Trail } from '../models/trail';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreCollection, AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private usersRef: AngularFirestoreCollection<User>
+  private usersRef: AngularFirestoreCollection<User>;
 
   user: User = {
     uid: '',
@@ -18,6 +20,8 @@ export class UserService {
     emailVerified: false
   };
 
+  users: User[];
+
   constructor(
     // public authService: AuthService,
     private db: AngularFirestore
@@ -26,7 +30,7 @@ export class UserService {
   }
   
   setUser(user) {
-    console.log(user);
+    if(this.getCurrentUser(user)) return;
     this.user.uid = user.uid;
     this.user.email = user.email;
     this.user.displayName = user.displayName;
@@ -36,8 +40,41 @@ export class UserService {
     this.saveUser(this.user);
   }
 
+  getCurrentUser(user) {
+    this.getUsersObservable().subscribe(users => {
+      const hasUser = users.find(u => {
+        u.uid === user.uid;
+      });
+      if(hasUser) {
+        user = hasUser;
+      }
+    });
+    return user;
+  }
+
+  getUsersObservable(): Observable<User[]> {
+    return this.usersRef.snapshotChanges()
+      .pipe(
+        map((items: DocumentChangeAction<User>[]): User[] => {
+          return items.map((item: DocumentChangeAction<User>): User => {
+            return {
+              uid: item.payload.doc.data().uid,
+              email: item.payload.doc.data().email,
+              displayName: item.payload.doc.data().displayName,
+              photoURL: item.payload.doc.data().photoURL,
+              emailVerified: item.payload.doc.data().emailVerified,
+            };
+          });
+        })
+      );
+  }
+
   saveUser(user: User) {
     return this.usersRef.add(user);
+  }
+
+  getUser() {
+    return this.user;
   }
 
   handleFavorites(trail: Trail, favorited: boolean) {
@@ -59,10 +96,5 @@ export class UserService {
     console.log(this.user);
     if(this.user.completed === undefined) this.user.completed = [];
     this.user.completed.push(trail);
-  }
-
-  getUser() {
-    // this.user = this.authService.getUser();
-    return this.user;
   }
 }

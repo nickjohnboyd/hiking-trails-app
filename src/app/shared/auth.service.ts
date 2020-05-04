@@ -22,6 +22,7 @@ export class AuthService {
     this.afAuth.authState.subscribe(user => {
       this.user = user;
       console.log(this.user);
+      if(this.user === null) return;
       this.userService.setUser(this.user);
     });
   }
@@ -56,8 +57,8 @@ export class AuthService {
     });
   }
 
-  getUser() {
-    return this.user;
-  }
+  // getUser() {
+  //   return this.user;
+  // }
 
 }
