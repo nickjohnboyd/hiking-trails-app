@@ -1,0 +1,50 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables";
+
+.current-weather {
+  @include flex-jc-ac();
+  height: 255px;
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  background-color: #f1ccc8;
+  .left-weather {
+    @include flex-jc-ac-fdc();
+    width: 60%;
+    .current-weather-icon {
+      height: auto;
+      width: 100px;
+    }
+    .current-weather-title {
+      width: 100%;
+      font-size: 22px;
+      text-align: center;
+    }
+    .icon-description {
+      font-size: 20px;
+    }
+    .center {
+      @include flex-jc-ac();
+      p {
+        font-size: 30px;
+        font-weight: bold;
+      }
+    }
+  }
+  .right-weather {
+    @include flex-jc-ac-fdc();
+    width: calc(40% - 15px);
+    .current-details {
+      font-size: 12px;
+      p {
+        padding-left: 15px;
+        margin-bottom: 8px;
+      }
+      .current-details-title {
+        padding-left: 8px;
+        font-size: 20px;
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+}

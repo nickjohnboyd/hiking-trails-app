@@ -1,23 +1,60 @@
 @import "../../../../styles/mixins.scss";
 @import "../../../../styles/variables";
 
-.user-comment {
-  @include flex-jse-ac();
-  justify-content: flex-start;
-  height: 60px;
-  a {
-    @include flex-jc-ac();
-    text-decoration: none;
-    mat-icon {
-      font-size: 50px;
-      color: $accent;
+.comments-container {
+  height: 100%;
+  padding: 50px 5% 50px 5%;
+  border-radius: 4px;
+  background-color: $primary;
+  .comment-input {
+    @include flex-jse-ac();
+    justify-content: flex-start;
+    height: 10%;
+    mat-form-field {
+      width: calc(100% - 50px);
+      margin-left: 20px;
+      mat-label {
+        color: #707070;
+      }
+    }
+    a {
+      @include flex-jc-ac();
+      text-decoration: none;
+      .profile-icon {
+        height: 100%;
+        color: $accent;
+        font-size: 50px;
+      }
     }
   }
-  .comment {
-    margin-left: 10px;
-    p {
-      height: 100%;
-      margin: 0;
+}
+.comment-submit {
+  @include flex-jse-ac();
+  justify-content: flex-end;
+  button {
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+}
+.comments-section {
+  .user-comment {
+    @include flex-jse-ac();
+    justify-content: flex-start;
+    height: 60px;
+    a {
+      @include flex-jc-ac();
+      text-decoration: none;
+      mat-icon {
+        font-size: 50px;
+        color: $accent;
+      }
+    }
+    .comment {
+      margin-left: 10px;
+      p {
+        height: 100%;
+        margin: 0;
+      }
     }
   }
 }

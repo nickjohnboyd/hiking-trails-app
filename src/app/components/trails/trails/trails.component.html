@@ -1,2 +1,4 @@
 <app-navbar></app-navbar>
-<app-trail-list [ngStyle]="{'display': showTrailList ? 'flex' : 'none'}" (onTrailsAdded)="setDisplay($event)"></app-trail-list>
+<app-trail-list [ngStyle]="{'display': showTrailList ? 'flex' : 'none'}" (onTrailsAdded)="setDisplay($event)">
+</app-trail-list>
+<app-footer *ngIf="!loading"></app-footer>

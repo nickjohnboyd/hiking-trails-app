@@ -1,0 +1,41 @@
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables";
+
+.daily-weather {
+  height: 100%;
+  width: 70%;
+  .daily-container {
+    @include flex-jc-ac-fdc();
+    padding: 5px;
+    .day-daily {
+      @include flex-jse-ac();
+      justify-content: space-between;
+      width: 100%;
+      font-size: 13px;
+      .day {
+        width: 100%;
+        p {
+          width: 100%;
+          text-align: center;
+          font-size: 15px;
+          font-weight: bold;
+        }
+      }
+      .day-weather {
+        width: 100%;
+        .max {
+          font-weight: bold;
+          font-size: 13px;
+        }
+        img {
+          width: 100%;
+        }
+        p {
+          width: 100%;
+          text-align: center;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<div class="user-input">
+  <div class="user-rating">
+    <h2>Rate this Trail</h2>
+    <fieldset class="rating">
+      <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5"
+        title="Awesome - 5 stars"></label>
+      <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half"
+        title="Pretty good - 4.5 stars"></label>
+      <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4"
+        title="Pretty good - 4 stars"></label>
+      <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half"
+        title="Meh - 3.5 stars"></label>
+      <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3"
+        title="Meh - 3 stars"></label>
+      <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half"
+        title="Kinda bad - 2.5 stars"></label>
+      <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2"
+        title="Kinda bad - 2 stars"></label>
+      <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half"
+        title="Meh - 1.5 stars"></label>
+      <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1"
+        title="Sucks big time - 1 star"></label>
+      <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf"
+        title="Sucks big time - 0.5 stars"></label>
+    </fieldset>
+  </div>
+  <div class="favorites-completed">
+    <button class="favorites" mat-button (click)="handleFavorites()" *ngIf="!favorited; else setFavorite"><i
+        class="fas fa-heart"></i>ADD TO FAVORITES</button>
+    <ng-template #setFavorite>
+      <button class="favorites" mat-button (click)="handleFavorites()"
+        style="background-color: #ca3322; color: white; border: 5px solid #f1ccc8;"><i class="fas fa-heart"></i>ADDED TO FAVORITES</button>
+    </ng-template>
+    <button class="completed" mat-button (click)="handleCompleted()" *ngIf="!completed; else setCompleted"><i
+        class="fas fa-check"></i>ADD TO COMPLETED</button>
+    <ng-template #setCompleted>
+      <button class="completed" mat-button (click)="handleCompleted()" style="background-color: green; color: white; border: 5px solid #f1ccc8;"><i
+          class="fas fa-check"></i>ADDED TO COMPLETED</button>
+    </ng-template>
+  </div>
+  <div class="rate-difficulty">
+    <h2>Rate this Trail Difficulty</h2>
+    <button class="easy" mat-button (click)="handleDifficulty('easy')" *ngIf="!easy; else setEasy">EASY</button>
+    <ng-template #setEasy>
+      <button class="easy" mat-button (click)="handleDifficulty('easy')"
+        style="border: 5px solid #f1ccc8">EASY</button>
+    </ng-template>
+    <button class="intermediate" mat-button (click)="handleDifficulty('intermediate')"
+      *ngIf="!intermediate; else setIntermediate">INTERMEDIATE</button>
+    <ng-template #setIntermediate>
+      <button class="intermediate" mat-button (click)="handleDifficulty('intermediate')"
+        style="border: 5px solid #f1ccc8">INTERMEDIATE</button>
+    </ng-template>
+    <button class="difficult" mat-button (click)="handleDifficulty('difficult')"
+      *ngIf="!difficult; else setDifficult">DIFFICULT</button>
+    <ng-template #setDifficult>
+      <button class="difficult" mat-button (click)="handleDifficulty('difficult')"
+        style="border: 5px solid #f1ccc8">DIFFICULT</button>
+    </ng-template>
+    <button class="very-difficult" mat-button (click)="handleDifficulty('very-difficult')"
+      *ngIf="!veryDifficult; else setVeryDifficult">VERY DIFFICULT</button>
+    <ng-template #setVeryDifficult>
+      <button class="very-difficult" mat-button (click)="handleDifficulty('very-difficult')"
+        style="border: 5px solid #f1ccc8">VERY DIFFICULT</button>
+    </ng-template>
+  </div>
+</div>

@@ -3,218 +3,22 @@
 <app-spinner *ngIf="loading"></app-spinner>
 <div *ngIf="!loading" class="details-container">
   <div class="left">
-    <div class="upper-left">
-      <div class="images-details">
-        <div class="favorite">
-          <i class="far fa-heart"></i>
-        </div>
-        <img *ngIf="currentTrail?.imgMedium; else displayDefault" src="{{ currentTrail?.imgMedium }}">
-        <ng-template #displayDefault>
-          <img src="{{ defaultTrail }}">
-        </ng-template>
-        <img src="{{ mapImg }}" alt="">
-      </div>
-    </div>
-    <div class="middle-left">
-      <div class="app-trail-difficulty">
-        <app-trail-difficulty [trail]='currentTrail'></app-trail-difficulty>
-      </div>
-      <div class="app-trail-rating">
-        <app-trail-rating [trail]='currentTrail'></app-trail-rating>
-      </div>
-      <div class="middle-left-content">
-        <h3>{{ currentTrail?.summary + ' This trail is located in ' +  currentTrail?.location }}</h3>
-        <div class="trail-information">
-          <div class="miles-long">
-            <p><i class="fas fa-hiking"></i> Length: {{ currentTrail?.length }} miles long</p>
-          </div>
-          <div class="other-information">
-            <div class="icons">
-              <i class="fas fa-mountain"></i>
-              <p>Ascent: {{ currentTrail?.ascent }}'</p>
-            </div>
-            <div class="icons">
-              <i class="fas fa-mountain"></i>
-              <p>Descent: {{ currentTrail?.descent }}'</p>
-            </div>
-            <div class="icons">
-              <i class="fas fa-mountain"></i>
-              <p>High: {{ currentTrail?.high }}'</p>
-            </div>
-            <div class="icons">
-              <i class="fas fa-mountain"></i>
-              <p>Low: {{ currentTrail?.low }}'</p>
-            </div>
-          </div>
-        </div>
-        <div class="conditions">
-          <h3>Condition Status Report Below</h3>
-          <div class="condition-status">
-            <p><span class="condition">Status:</span> {{ currentTrail?.conditionStatus }}</p>
-            <p><span class="condition">Details:</span> {{ currentTrail?.conditionDetails }}</p>
-            <p><span class="condition">Date:</span> {{ currentTrail?.conditionDate }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="lower-left">
-      <!--  -->
-    </div>
+    <app-trail-information [complete]="complete" [favorite]="favorite" [currentTrail]="currentTrail" [mapImg]="mapImg">
+    </app-trail-information>
   </div>
   <div class="right">
-    <div class="current-weather">
-      <div class="left-weather">
-        <h2 class="current-weather-title">Current Weather for {{ currentTrail?.location }}</h2>
-        <div class="center">
-          <img class="current-weather-icon" src="{{ currentWeatherIcon }}" alt="">
-          <p>{{ currentWeather?.temp }}°F</p>
-        </div>
-        <p class="icon-description">{{ currentWeather?.weather[0].description }}</p>
-      </div>
-      <div class="right-weather">
-        <div class="current-details">
-          <h3 class="current-details-title">Details</h3>
-          <p>Feels Like: {{ currentWeather?.feels_like }}°F</p>
-          <p>Wind: {{ currentWeather?.wind_speed }} m/h</p>
-          <p>Wind Degree: {{ windDirection }}</p>
-          <p>Humidity: {{ currentWeather?.humidity }}%</p>
-          <p>Pressure: {{ currentWeather?.pressure }} hPa</p>
-          <p>Sunrise: {{ sunRise }}</p>
-          <p>Sunset: {{ sunSet }}</p>
-        </div>
-      </div>
-    </div>
-    <div class="user-input">
-      <div class="favorites-completed">
-        <button class="favorites" mat-button><i class="fas fa-heart"></i>ADD TO FAVORITES</button>
-        <button class="completed" mat-button><i class="fas fa-check"></i>ADD TO COMPLETED</button>
-      </div>
-      <div class="user-rating">
-        <h2>Rate this Trail</h2>
-        <fieldset class="rating">
-          <label class="full" for="star5" title="Awesome - 5 stars"></label>
-          <input type="radio" id="star5" name="rating" value="5" />
-            <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-            <input type="radio" id="star4half" name="rating" value="4 and a half" />
-          <input type="radio" id="star3half" name="rating" value="3 and a half" />
-          <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
-            <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
-            <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-          <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-          <input type="radio" id="star2half" name="rating" value="2 and a half" />
-            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-            <input type="radio" id="star2" name="rating" value="2" />
-          <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-          <input type="radio" id="star1half" name="rating" value="1 and a half" />
-            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-            <input type="radio" id="star1" name="rating" value="1" />
-          <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-          <input type="radio" id="starhalf" name="rating" value="half" />
-        </fieldset>
-      </div>
-      <div class="rate-difficulty">
-        <h2>Rate this Trail Difficulty</h2>
-        <button class="easy" mat-button>EASY</button>
-        <button class="intermediate" mat-button>INTERMEDIATE</button>
-        <button class="difficult" mat-button>DIFFICULT</button>
-        <button class="very-difficult" mat-button>VERY DIFFICULT</button>
-      </div>
-    </div>
+    <app-current-weather class="app-current-weather" [currentWeather]="currentWeather" [currentTrail]="currentTrail">
+    </app-current-weather>
+    <app-user-inputs class="app-user-inputs" (addComplete)="addCompleted($event)" (addFavorite)="addFavorite($event)"
+      [currentTrail]="currentTrail"></app-user-inputs>
   </div>
   <div class="bottom">
     <div class="upper-bottom">
-      <div class="daily-weather">
-        <div class="daily-container">
-          <div class="day-daily">
-            <div class="day" *ngFor="let day of dailyDay | slice:1:8; let i=index">
-              <p>{{ day }}</p>
-            </div>
-          </div>
-          <div class="day-daily">
-            <div class="day-weather" *ngFor="let daily of dailyWeather | slice:1:8; let i=index">
-              <img src="https://openweathermap.org/img/wn/{{ daily.weather[0].icon }}@2x.png" alt="" srcset="">
-              <p class="max">{{ daily.temp.max }}°F</p>
-              <p>{{ daily.temp.min }}°F</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-daily-weather class="app-daily-weather" [dailyWeather]="dailyWeather"></app-daily-weather>
     </div>
-    <!-- <div class="lower-bottom">
-      <h3 class="campground-title">Nearby Campgrounds and Picnic Areas</h3>
-      <div class="campgrounds-container">
-        <div class="campgrounds" *ngFor="let campground of campgrounds | slice:0:3; let i=index">
-          <img src="{{ campground.imgUrl }}" alt="">
-          <p><span class="campground">Campsite Name:</span> {{ campground.name }}</p>
-          <p><span class="campground">Location:</span> {{ campground.location }}</p>
-          <p><span class="campground">Campsites:</span> {{ campground.numCampsites }}</p>
-          <button mat-raised-button><a href="{{ campground.url }}" target="_blank"></a>Check it Out</button>
-        </div>
-      </div>
-    </div> -->
     <div class="bottom-bottom">
-      <div class="comments-container">
-        <div class="comment-input">
-          <a class="nav-link" routerLink="/profile">
-            <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle
-            </mat-icon>
-          </a>
-          <mat-form-field>
-            <input [(ngModel)]="comment" matInput type="text" placeholder="Leave a Comment..." class="search-input">
-          </mat-form-field>
-        </div>
-        <div class="comment-submit">
-          <button mat-flat-button>Cancel</button>
-          <button (click)="post()" mat-raised-button>Comment</button>
-        </div>
-        <div class="comments-section">
-          <div class="user-comment">
-            <a class="nav-link" routerLink="/profile">
-              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">
-                account_circle</mat-icon>
-            </a>
-            <div class="comment">
-              <p>Great trail, was very fun to go hiking here. pluse had a campsite nearby. I gave it 5/5 stars.</p>
-            </div>
-          </div>
-          <div class="user-comment">
-            <a class="nav-link" routerLink="/profile">
-              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">
-                account_circle</mat-icon>
-            </a>
-            <div class="comment">
-              <p>Ive done this hike more then ten times, still love coming here and enjoying the outdoors.</p>
-            </div>
-          </div>
-          <div class="user-comment">
-            <a class="nav-link" routerLink="/profile">
-              <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">
-                account_circle</mat-icon>
-            </a>
-            <div class="comment">
-              <p>This is probably one of my favorite hikes in this area.</p>
-            </div>
-          </div>
-          <app-comments *ngFor="let comment of commentCollection" [comment]="comment"></app-comments>
-        </div>
-      </div>
+      <app-comments></app-comments>
     </div>
   </div>
 </div>
-
-
-<!-- <div class="hourly-weather">
-        <h3>Hourly Weather Forecast</h3>
-        <div class="hourly-container">
-          <div class="hour-weather">
-            <p *ngFor="let hour of hourlyTime | slice:1:11; let i=index">{{ hour }}</p>
-          </div>
-          <div class="hour-weather">
-            <div class="hourly" *ngFor="let hourly of hourlyWeather | slice:1:11; let i=index">
-              <img src="https://openweathermap.org/img/wn/{{ hourly.weather[0].icon }}@2x.png" alt="" srcset="">
-              <p>{{ hourly.weather[0].description }}</p>
-              <p>{{ hourly.temp }}°F</p>
-            </div>
-          </div>
-        </div>
-      </div> -->
+<app-footer *ngIf="!loading"></app-footer>

@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-
   .search-bar {
     width: 100%;
   }
@@ -14,7 +13,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 80px;
-
     .location-title {
       font-size: 30px;
       margin-bottom: 25px;
@@ -24,6 +22,23 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
+    }
+  }
+}
+.invalid-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  .invalid-title {
+    height: 300px;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    p {
+      height: 100%;
+      width: 100%;
     }
   }
 }

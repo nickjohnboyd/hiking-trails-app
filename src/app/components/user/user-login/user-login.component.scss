@@ -35,6 +35,9 @@
       display: flex;
       width: 50%;
       margin: auto;
+      mat-label {
+        color: #707070;
+      }
     }
     .loginButton {
       display: flex;
@@ -49,7 +52,7 @@
       margin: 10px auto;
       display: flex;
       color: white;
-      background-color: #D95350;
+      background-color: #ec6e4c;
     }
     .create {
       text-align: center;
