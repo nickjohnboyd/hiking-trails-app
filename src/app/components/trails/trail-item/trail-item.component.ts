@@ -18,6 +18,7 @@ export class TrailItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.trail)
   }
 
   handleFavorites(trail: Trail) {
