@@ -34,6 +34,7 @@ export class TrailDetailsComponent implements OnInit {
     this.id = this.activateRoute.snapshot.params["id"];
     this.trailsApiService.getTrailById(this.id).subscribe((data) => {
       this.currentTrail = data.trails[0];
+      console.log(this.currentTrail);
       this.longitude = this.currentTrail.longitude;
       this.latitude = this.currentTrail.latitude;
       this.mapImg = `https://open.mapquestapi.com/staticmap/v5/map?locations=${this.latitude},${this.longitude}&size=380,260@2x&key=sSGh5VATzYQjegPbtOePtsi61AGt7nEQ`;
