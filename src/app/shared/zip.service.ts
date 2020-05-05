@@ -9,7 +9,7 @@ import { Injectable } from "@angular/core";
 export class ZipService {
   longitude: number;
   latitude: number;
-  validZip: number;
+  validZip: any;
   curZip: any;
 
   constructor(
@@ -23,22 +23,5 @@ export class ZipService {
 
   saveZip(zip: number) {
     this.curZip = zip;
-  }
-
-  zipValidator(zip: number) {
-  //   this.mapApiService.getCoordinates(zip).subscribe((result) => {
-  //     this.longitude = result.results[0].locations[0].latLng.lng;
-  //     this.latitude = result.results[0].locations[0].latLng.lat;
-  //     this.trailsApiService
-  //       .getTrails(this.latitude, this.longitude)
-  //       .subscribe((data) => {
-  //         if (data.trails.length === 0) {
-  //           this.validZip = false;
-  //         } else {
-  //           this.validZip = true;
-  //         }
-  //       });
-  //   });
-  //   return this.validZip;
   }
 }

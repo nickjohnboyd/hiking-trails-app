@@ -15,7 +15,7 @@ export class TrailListComponent implements OnInit {
 
   trails: Trail[] = [];
   zip: number;
-  validZip: any = true;
+  validZip: boolean;
   longitude: number;
   latitude: number;
   city: string;
@@ -40,8 +40,6 @@ export class TrailListComponent implements OnInit {
 
   searchTrails(zip?: number) {
     if (zip) this.zip = zip;
-    console.log(this.zip);
-    // this.validZip = this.zipService.zipValidator(this.zip);
     this.mapApiService.getCoordinates(this.zip).subscribe((result) => {
       this.city = result.results[0].locations[0].adminArea5;
       this.state = result.results[0].locations[0].adminArea3;
@@ -56,9 +54,13 @@ export class TrailListComponent implements OnInit {
     this.trailsApiService
       .getTrails(this.latitude, this.longitude)
       .subscribe((data) => {
+        if (data.trails.length !== 0) {
+          this.validZip = true;
           this.trails = data.trails;
-          console.log(data)
           this.onTrailsAdded.emit(this.trails);
+        } else {
+          this.validZip = false;
+        }
       });
   }
 
