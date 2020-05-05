@@ -8,14 +8,12 @@ mat-card {
   text-align: center;
   background-color: $primary;
   transition: transform .1s;
-
   .favorite {
     position: absolute;
     top: 15px; 
     left: 15px;
     color: white;
     font-size: 25px;
-    
     .favorite-icon {
       font-size: 30px;
     }
@@ -33,7 +31,6 @@ mat-card {
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-
   mat-card-title {
     font-size: 21px;
     margin-bottom: 15px;
