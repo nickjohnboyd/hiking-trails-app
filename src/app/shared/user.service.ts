@@ -28,28 +28,45 @@ export class UserService {
   ) {
     this.usersRef = this.db.collection<User>('users');
   }
-  
+
   setUser(user) {
-    if(this.getCurrentUser(user)) return;
-    this.user.uid = user.uid;
-    this.user.email = user.email;
-    this.user.displayName = user.displayName;
-    this.user.photoURL = user.photoURL;
-    this.user.emailVerified = user.emailVerified;
-    console.log(this.user);
-    this.saveUser(this.user);
+    console.log('here');
+    console.log(user);
+    const currentUser = this.getCurrentUser(user);
+    console.log(currentUser);
+    if(currentUser !== undefined) {
+      this.user = currentUser;
+      return;
+    } else {
+      this.user.uid = user.uid;
+      this.user.email = user.email;
+      this.user.displayName = user.displayName;
+      this.user.photoURL = user.photoURL;
+      this.user.emailVerified = user.emailVerified;
+      console.log(this.user);
+      this.saveUser(this.user);
+    }  
   }
 
-  getCurrentUser(user) {
+  getCurrentUser(user): User {
+    let newUser;
     this.getUsersObservable().subscribe(users => {
       const hasUser = users.find(u => {
-        u.uid === user.uid;
+        return u.uid === user.uid;
       });
-      if(hasUser) {
-        user = hasUser;
+      console.log(hasUser);
+      if(hasUser !== undefined) {
+        newUser = hasUser;
+      } else {
+        newUser = undefined;
       }
+      console.log(newUser);
+      return newUser;
     });
-    return user;
+    setTimeout(() => {
+      console.log('timeout')
+    }, 2000);
+    return newUser;
   }
 
   getUsersObservable(): Observable<User[]> {
