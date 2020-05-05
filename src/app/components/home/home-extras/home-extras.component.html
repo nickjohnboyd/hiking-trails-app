@@ -4,7 +4,10 @@
 		<div class="quote-text">Get lost in nature and you will find yourself</div>
 		<mat-icon [inline]="true" class="quote-mark">format_quote</mat-icon>
 	</div>
-	<div class="popular-trails">
-		<app-trail-item-small *ngFor="let trail of popularTrails" [trail]="trail"></app-trail-item-small>
+	<div class="pop-trails-cont">
+		<div class="pop-trails-title">Popular Trails</div>
+		<div class="popular-trails">
+			<app-trail-item-small *ngFor="let trail of popularTrails" [trail]="trail" class="pop-trail"></app-trail-item-small>
+		</div>
 	</div>
 </div>

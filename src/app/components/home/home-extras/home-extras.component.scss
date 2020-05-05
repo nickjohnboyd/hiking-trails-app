@@ -27,9 +27,26 @@
 			font-style: italic;
 		}
 	}
-	.popular-trails {
+	.pop-trails-cont {
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		margin: 120px 0 100px 0;
+		
+		.pop-trails-title {
+			font-size: 30px;
+			margin-bottom: 30px;
+		}
+		.popular-trails {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.pop-trail {
+				margin-right: 8px;
+			}
+		}
 	}
+	
 }
