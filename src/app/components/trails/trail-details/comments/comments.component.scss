@@ -1,6 +1,12 @@
 @import "../../../../styles/mixins.scss";
 @import "../../../../styles/variables";
 
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
 .comments-container {
   height: 100%;
   padding: 50px 5% 50px 5%;
