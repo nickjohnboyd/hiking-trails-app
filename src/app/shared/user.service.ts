@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from './auth.service';
 import { User } from '../models/user';
 import { Trail } from '../models/trail';
 import { AngularFirestoreCollection, AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
@@ -17,56 +16,56 @@ export class UserService {
     email: '',
     displayName: '',
     photoURL: '',
-    emailVerified: false
+    emailVerified: false,
   };
+
+  user$: Observable<User>;
 
   users: User[];
 
   constructor(
-    // public authService: AuthService,
     private db: AngularFirestore
   ) {
     this.usersRef = this.db.collection<User>('users');
   }
 
-  setUser(user) {
-    console.log('here');
-    console.log(user);
-    const currentUser = this.getCurrentUser(user);
-    console.log(currentUser);
-    if(currentUser !== undefined) {
-      this.user = currentUser;
-      return;
-    } else {
-      this.user.uid = user.uid;
-      this.user.email = user.email;
-      this.user.displayName = user.displayName;
-      this.user.photoURL = user.photoURL;
-      this.user.emailVerified = user.emailVerified;
-      console.log(this.user);
-      this.saveUser(this.user);
-    }  
+  checkUser(user) {
+    const usersObservable = this.getUsersObservable().subscribe(users => {
+      this.users = users;
+      console.log(this.users);
+
+      const userFound = this.users.find(dbUser => user.uid === dbUser.uid);
+
+      if(userFound !== undefined) {
+        console.log('user was found');
+        this.user = userFound;
+        console.log(this.user);
+      } else {
+        console.log('setting new user');
+        this.setUser(user);
+      }
+
+      usersObservable.unsubscribe();
+    });
+
   }
 
-  getCurrentUser(user): User {
-    let newUser;
-    this.getUsersObservable().subscribe(users => {
-      const hasUser = users.find(u => {
-        return u.uid === user.uid;
-      });
-      console.log(hasUser);
-      if(hasUser !== undefined) {
-        newUser = hasUser;
-      } else {
-        newUser = undefined;
-      }
-      console.log(newUser);
-      return newUser;
-    });
-    setTimeout(() => {
-      console.log('timeout')
-    }, 2000);
-    return newUser;
+  setUser(user) {
+    this.user.uid = user.uid;
+    this.user.email = user.email;
+    this.user.displayName = user.displayName;
+    this.user.photoURL = user.photoURL;
+    this.user.emailVerified = user.emailVerified;
+    console.log(this.user);
+    this.saveUser(this.user);
+  }
+
+  getCurrentUser() {
+    return this.user;
+  }
+
+  getUserObservable(uid: string) {
+    return this.db.doc<User>(`users/${uid}`).valueChanges();
   }
 
   getUsersObservable(): Observable<User[]> {
@@ -80,6 +79,7 @@ export class UserService {
               displayName: item.payload.doc.data().displayName,
               photoURL: item.payload.doc.data().photoURL,
               emailVerified: item.payload.doc.data().emailVerified,
+              id: item.payload.doc.id
             };
           });
         })
@@ -90,8 +90,14 @@ export class UserService {
     return this.usersRef.add(user);
   }
 
-  getUser() {
-    return this.user;
+  editUser(user: User) {
+    return this.usersRef.doc(user.uid).update(user);
+  }
+
+  deleteUser(user: User) {
+    console.log('delete');
+    console.log(user);
+    return this.usersRef.doc(user.uid).delete();
   }
 
   handleFavorites(trail: Trail, favorited: boolean) {
@@ -115,3 +121,24 @@ export class UserService {
     this.user.completed.push(trail);
   }
 }
+
+// getCurrentUser(user): User {
+//   let newUser;
+//   this.getUsersObservable().subscribe(users => {
+//     const hasUser = users.find(u => {
+//       return u.uid === user.uid;
+//     });
+//     console.log(hasUser);
+//     if(hasUser !== undefined) {
+//       newUser = hasUser;
+//     } else {
+//       newUser = undefined;
+//     }
+//     console.log(newUser);
+//     return newUser;
+//   });
+//   setTimeout(() => {
+//     console.log('timeout')
+//   }, 2000);
+//   return newUser;
+// }

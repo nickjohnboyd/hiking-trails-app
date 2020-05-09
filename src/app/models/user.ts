@@ -8,4 +8,5 @@ export interface User {
 	emailVerified: boolean;
 	favorites?: Trail[];
 	completed?: Trail[];
+	id?: string;
 }

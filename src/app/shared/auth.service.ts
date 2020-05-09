@@ -10,7 +10,7 @@ import { UserService } from './user.service';
 })
 
 export class AuthService {
-  user: User;
+  user;
 
   constructor(
     public router: Router,
@@ -19,11 +19,13 @@ export class AuthService {
     private angularFireAuth: AngularFireAuth,
     private userService: UserService
   ) {
-    this.afAuth.authState.subscribe(user => {
+    const authObservable = this.afAuth.authState.subscribe(user => {
+      console.log(user);
+      console.log('google login');
       this.user = user;
-      console.log(this.user);
       if(this.user === null) return;
-      this.userService.setUser(this.user);
+      this.userService.checkUser(user);
+      authObservable.unsubscribe();
     });
   }
 
