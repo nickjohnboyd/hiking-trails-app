@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logoutUser() {
-    // this.userService.deleteUser(this.user);
+    this.authService.SignOut();
   }
 
   backToTrails() {

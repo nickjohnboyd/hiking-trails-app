@@ -18,15 +18,15 @@
     </div>
     <div class="right">
         <div class="favorites">
-            <div class="fav-title">
+            <div class="title">
                 Favorites
             </div>
             <div class="trails">
-                <app-trail-item-small *ngFor="let trail of popularTrails" [trail]="trail"></app-trail-item-small>
+                <app-trail-item-small *ngFor="let trail of favoriteTrails" [trail]="trail"></app-trail-item-small>
             </div>
         </div>
         <div class="completed">
-            <div class="completed-title">
+            <div class="title">
                 Completed
             </div>
             <div class="trails">
