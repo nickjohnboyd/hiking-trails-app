@@ -5,6 +5,8 @@ import { Weather } from 'src/app/models/weather';
 import { DailyWeather } from 'src/app/models/dailyWeather';
 import { TrailsApiService } from 'src/app/shared/trails-api.service';
 import { WeatherApiService } from 'src/app/shared/weather-api.service';
+import { UserService } from 'src/app/shared/user.service';
+import { User } from 'firebase';
 
 @Component({
   selector: "app-trail-details",
@@ -12,8 +14,8 @@ import { WeatherApiService } from 'src/app/shared/weather-api.service';
   styleUrls: ["./trail-details.component.scss"],
 })
 export class TrailDetailsComponent implements OnInit {
-  favorite: boolean;
-  complete: boolean;
+  favorited: boolean;
+  completed: boolean;
   mapImg: string;
   id: number;
   longitude: number;
@@ -28,6 +30,7 @@ export class TrailDetailsComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private trailsApiService: TrailsApiService,
     private weatherApiService: WeatherApiService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +46,7 @@ export class TrailDetailsComponent implements OnInit {
         this.loading = false;
       }, 500)
     });
+    this.getUserData();
   }
 
   getCurrentWeather() {
@@ -54,11 +58,17 @@ export class TrailDetailsComponent implements OnInit {
       });
   }
 
-  addFavorite(favorite: boolean) {
-    this.favorite = favorite;
+  addFavorite(favorited: boolean) {
+    this.favorited = favorited;
+    this.userService.handleFavorites(this.currentTrail, favorited);
   }
 
-  addCompleted(complete: boolean) {
-    this.complete = complete;
+  addCompleted(completed: boolean) {
+    this.completed = completed;
+    this.userService.handleCompleted(this.currentTrail, completed);
+  }
+
+  getUserData() {
+    const user = this.userService.getCurrentUser();
   }
 }

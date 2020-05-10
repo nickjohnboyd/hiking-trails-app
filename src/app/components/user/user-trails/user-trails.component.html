@@ -2,9 +2,9 @@
 
 <div class="profile">
   <div class="user-info">
-    <img src="https:lh3.googleusercontent.com/a-/AOh14Gg-Sn379rQUm1kb6vFDOuZ9OkshMQBg8i4H1mKmQQ" class="profile-img" alt="profile picture">
-    <div class="name">Nick Boyd</div>
-    <div class="email">nickjohnboyd@email.com</div>
+    <img [src]="user.photoURL" class="profile-img" alt="profile picture">
+    <div class="name">{{ user.displayName}}</div>
+    <div class="email">{{ user.email }}</div>
   </div>
   <div class="user-trails">
     <div class="trail-group">
