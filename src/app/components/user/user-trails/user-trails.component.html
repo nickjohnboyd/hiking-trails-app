@@ -1,37 +1,23 @@
 <app-navbar [logout]="logout"></app-navbar>
 
-<div class="page">
-    <div class="left">
-        <div class="info">
-            <div class="ltop">
-				<img src="https:lh3.googleusercontent.com/a-/AOh14Gg-Sn379rQUm1kb6vFDOuZ9OkshMQBg8i4H1mKmQQ" alt="profile picture" class="profile-pic">
-                <!-- <mat-icon [inline]="true" aria-hidden="false" aria-label="profile icon" class="profile-icon">account_circle</mat-icon> -->
-                <!-- <div class="change"><a href="">Change</a></div> -->
-            </div>
-            <div class="lbottom">
-                <div class="info">
-                    <div class="name">Nick Boyd</div>
-                    <div class="email">nickjohnboyd@email.com</div>
-                </div>
-            </div>
-        </div>
+<div class="profile">
+  <div class="user-info">
+    <img src="https:lh3.googleusercontent.com/a-/AOh14Gg-Sn379rQUm1kb6vFDOuZ9OkshMQBg8i4H1mKmQQ" class="profile-img" alt="profile picture">
+    <div class="name">Nick Boyd</div>
+    <div class="email">nickjohnboyd@email.com</div>
+  </div>
+  <div class="user-trails">
+    <div class="trail-group">
+      <div class="title">Favorites</div>
+      <div class="trails">
+        <app-trail-item-small *ngFor="let trail of favoriteTrails" [trail]="trail"></app-trail-item-small>
+      </div>
     </div>
-    <div class="right">
-        <div class="favorites">
-            <div class="title">
-                Favorites
-            </div>
-            <div class="trails">
-                <app-trail-item-small *ngFor="let trail of favoriteTrails" [trail]="trail"></app-trail-item-small>
-            </div>
-        </div>
-        <div class="completed">
-            <div class="title">
-                Completed
-            </div>
-            <div class="trails">
-                <app-trail-item-small *ngFor="let trail of completedTrails" [trail]="trail"></app-trail-item-small>
-            </div>
-        </div>
+    <div class="trail-group">
+      <div class="title">Completed</div>
+      <div class="trails">
+        <app-trail-item-small *ngFor="let trail of completedTrails" [trail]="trail"></app-trail-item-small>
+      </div>
     </div>
+  </div>
 </div>
