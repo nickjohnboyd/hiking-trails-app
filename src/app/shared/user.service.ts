@@ -16,7 +16,7 @@ export class UserService {
     email: '',
     displayName: '',
     photoURL: '',
-    emailVerified: false,
+    emailVerified: false
   };
 
   user$: Observable<User>;
@@ -79,6 +79,8 @@ export class UserService {
               displayName: item.payload.doc.data().displayName,
               photoURL: item.payload.doc.data().photoURL,
               emailVerified: item.payload.doc.data().emailVerified,
+              favorites: item.payload.doc.data().favorites,
+              completed: item.payload.doc.data().completed,
               id: item.payload.doc.id
             };
           });
@@ -91,17 +93,19 @@ export class UserService {
   }
 
   editUser(user: User) {
-    return this.usersRef.doc(user.uid).update(user);
+    if(this.user.favorites === undefined) this.user.favorites = [];
+    if(this.user.completed === undefined) this.user.completed = [];
+    console.log(user);
+    return this.usersRef.doc(user.id).update(user);
   }
 
   deleteUser(user: User) {
     console.log('delete');
     console.log(user);
-    return this.usersRef.doc(user.uid).delete();
+    return this.usersRef.doc(user.id).delete();
   }
 
   handleFavorites(trail: Trail, favorited: boolean) {
-    // this.user = this.authService.getUser();
     if(favorited) {
       if(this.user.favorites === undefined) this.user.favorites = [];
       this.user.favorites.push(trail);
@@ -112,33 +116,20 @@ export class UserService {
       favorites.splice(favorites.indexOf(favorites.find(item => item === trail)), 1);
       console.log(this.user.favorites);
     }
+    this.editUser(this.user);
   }
 
-  addToCompleted(trail: Trail) {
-    // this.user = this.authService.getUser();
-    console.log(this.user);
-    if(this.user.completed === undefined) this.user.completed = [];
-    this.user.completed.push(trail);
+  handleCompleted(trail: Trail, completed: boolean) {
+    if(completed) {
+      if(this.user.completed === undefined) this.user.completed = [];
+      this.user.completed.push(trail);
+      console.log(this.user.completed);
+    }
+    else if(!completed) {
+      const completed = this.user.completed;
+      completed.splice(completed.indexOf(completed.find(item => item === trail)), 1);
+      console.log(this.user.completed);
+    }
+    this.editUser(this.user);
   }
 }
-
-// getCurrentUser(user): User {
-//   let newUser;
-//   this.getUsersObservable().subscribe(users => {
-//     const hasUser = users.find(u => {
-//       return u.uid === user.uid;
-//     });
-//     console.log(hasUser);
-//     if(hasUser !== undefined) {
-//       newUser = hasUser;
-//     } else {
-//       newUser = undefined;
-//     }
-//     console.log(newUser);
-//     return newUser;
-//   });
-//   setTimeout(() => {
-//     console.log('timeout')
-//   }, 2000);
-//   return newUser;
-// }
