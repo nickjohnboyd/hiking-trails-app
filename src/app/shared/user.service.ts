@@ -11,6 +11,8 @@ import { map } from 'rxjs/operators';
 export class UserService {
   private usersRef: AngularFirestoreCollection<User>;
 
+  loggedIn: boolean = false;
+
   user: User = {
     uid: '',
     email: '',
@@ -119,6 +121,10 @@ export class UserService {
     console.log(this.user);
     if(this.user.completed === undefined) this.user.completed = [];
     this.user.completed.push(trail);
+  }
+
+  isLoggedIn(loggedIn: boolean) {
+    this.loggedIn = loggedIn;
   }
 }
 

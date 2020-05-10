@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-user-login',
@@ -9,7 +10,8 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class UserLoginComponent implements OnInit {
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    public userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +23,7 @@ export class UserLoginComponent implements OnInit {
 
   googleLogin() {
     this.authService.SigninWithGoogle();
+    this.userService.isLoggedIn(true);
   }
 
 }
