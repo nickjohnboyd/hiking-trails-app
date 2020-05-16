@@ -12,6 +12,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class UserService {
   private usersRef: AngularFirestoreCollection<User>;
 
+  loggedIn: boolean = false;
+
   user: User = {
     uid: '',
     email: '',
@@ -147,5 +149,9 @@ export class UserService {
       console.log(this.user.completed);
     }
     this.editUser(this.user);
+  }
+
+  isLoggedIn(loggedIn: boolean) {
+    this.loggedIn = loggedIn;
   }
 }
