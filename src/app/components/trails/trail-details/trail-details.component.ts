@@ -25,6 +25,7 @@ export class TrailDetailsComponent implements OnInit {
   dailyWeather: DailyWeather[];
   loading: boolean = true;
   backToTrails: boolean = true;
+  user
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -34,6 +35,7 @@ export class TrailDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userService.updateCurrentUser();
     this.id = this.activateRoute.snapshot.params["id"];
     this.trailsApiService.getTrailById(this.id).subscribe((data) => {
       this.currentTrail = data.trails[0];
@@ -46,7 +48,9 @@ export class TrailDetailsComponent implements OnInit {
         this.loading = false;
       }, 500)
     });
-    this.getUserData();
+    setTimeout(() => {
+      this.getUserData();
+    }, 2000);
   }
 
   getCurrentWeather() {
@@ -70,5 +74,10 @@ export class TrailDetailsComponent implements OnInit {
 
   getUserData() {
     const user = this.userService.getCurrentUser();
+    console.log('getting user data');
+    console.log(user);
+    const userFound = user.completed.find(item => item.id === this.currentTrail.id);
+    console.log(userFound);
+    if(userFound) this.completed = true;
   }
 }

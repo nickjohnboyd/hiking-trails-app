@@ -16,7 +16,6 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone,
     public afAuth: AngularFireAuth,
-    private angularFireAuth: AngularFireAuth,
     private userService: UserService
   ) {
     const authObservable = this.afAuth.authState.subscribe(user => {

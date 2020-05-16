@@ -3,7 +3,8 @@ import { User } from '../models/user';
 import { Trail } from '../models/trail';
 import { AngularFirestoreCollection, AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,16 @@ export class UserService {
     emailVerified: false
   };
 
+  currentUser: User;
+
   user$: Observable<User>;
 
   users: User[];
 
   constructor(
-    private db: AngularFirestore
+    private db: AngularFirestore,
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore
   ) {
     this.usersRef = this.db.collection<User>('users');
   }
@@ -60,8 +65,19 @@ export class UserService {
     this.saveUser(this.user);
   }
 
+  updateCurrentUser() {
+    this.afAuth.authState.pipe(
+      switchMap(googleUser => {
+        return this.afs.doc<User>(`users/${googleUser.uid}`).valueChanges();
+      }),
+      tap(user => {
+        this.currentUser = user;
+      })
+    ).subscribe();
+  }
+
   getCurrentUser() {
-    return this.user;
+    return this.currentUser;
   }
 
   getUserObservable(uid: string) {
